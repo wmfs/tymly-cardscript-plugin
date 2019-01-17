@@ -1,0 +1,63 @@
+{
+  "name": "@wmfs/tymly-cardscript-plugin",
+  "version": "0.0.0-semantically-released",
+  "description": "Plugin which handles interactions to do with Cardscript",
+  "homepage": "https://github.com/wmfs/tymly-cardscript-plugin#readme",
+  "author": "West Midlands Fire Service",
+  "keywords": [
+    "tymly",
+    "plugin",
+    "cardscript",
+    "user",
+    "interaction"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wmfs/tymly-cardscript-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wmfs/tymly-cardscript-plugin/issues"
+  },
+  "main": "./lib/index.js",
+  "dependencies": {
+    "debug": "4.1.0",
+    "@wmfs/form-maker": "1.1.0",
+    "jsonfile": "5.0.0",
+    "jsonpath": "1.0.0",
+    "lodash": "4.17.11",
+    "shasum": "1.0.2"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "3.0.1",
+    "@semantic-release/git": "7.0.6",
+    "@wmfs/hl-pg-client": "1.10.0",
+    "@wmfs/tymly": "1.75.0",
+    "@wmfs/tymly-pg-plugin": "1.113.0",
+    "@wmfs/tymly-rbac-plugin": "1.12.1",
+    "@wmfs/tymly-solr-plugin": "1.9.0",
+    "@wmfs/tymly-test-helpers": "1.2.0",
+    "chai": "4.2.0",
+    "codecov": "3.1.0",
+    "conventional-changelog-metahub": "2.0.2",
+    "cz-conventional-changelog": "2.1.0",
+    "mocha": "5.2.0",
+    "nyc": "13.1.0",
+    "semantic-release": "15.13.1",
+    "standard": "12.0.1"
+  },
+  "scripts": {
+    "lint": "standard",
+    "test": "nyc mocha && standard",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "semantic-release": "semantic-release"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

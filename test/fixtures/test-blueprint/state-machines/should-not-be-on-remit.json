@@ -1,0 +1,21 @@
+{
+  "Comment": "This remit should not be included in the remit",
+  "name": "This remit should not be included in the remit",
+  "version": "1.0",
+  "StartAt": "JustAState",
+  "categories": ["fire"],
+  "States": {
+    "JustAState": {
+      "Type": "Pass",
+      "End": true
+    }
+  },
+  "restrictions": [
+    {
+      "roleId": "topSecretRole",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}

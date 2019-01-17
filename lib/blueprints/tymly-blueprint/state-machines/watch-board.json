@@ -1,0 +1,29 @@
+{
+  "Comment": "State machine to allow a user.",
+  "version": "1.0",
+  "StartAt": "WatchBoard",
+  "States": {
+    "WatchBoard": {
+      "Type": "Task",
+      "Resource": "module:watchBoard",
+      "InputPath": "$",
+      "Next": "DeltaReindex"
+    },
+    "DeltaReindex": {
+      "Type": "Task",
+      "Resource": "module:deltaReindex",
+      "ResourceConfig": {
+        "core": "tymly"
+      },
+      "End": true
+    }
+  },
+  "restrictions": [
+    {
+      "roleId": "$authenticated",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}
