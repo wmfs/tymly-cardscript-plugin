@@ -1,7 +1,8 @@
 {
   "RemoveTodoEntries": {
     "Type": "Task",
+    "InputPath": "$",
     "Resource": "module:removeTodoEntries",
-    "InputPath": "$.removeTodoEntries"
+    "Next": "DeltaReindex"
   }
 }

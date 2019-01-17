@@ -1,0 +1,10 @@
+{
+  "GetBoardData": {
+    "Type": "Task",
+    "Resource": "module:getBoardData",
+    "ResourceConfig": {
+      "model": ["human", "animal"]
+    },
+    "End": true
+  }
+}

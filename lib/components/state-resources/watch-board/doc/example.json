@@ -2,6 +2,7 @@
   "WatchBoard": {
     "Type": "Task",
     "Resource": "module:watchBoard",
-    "InputPath": "$"
+    "InputPath": "$",
+    "Next": "DeltaReindex"
   }
 }

@@ -2,6 +2,12 @@
   "AwaitingHumanInput": {
     "Type": "Task",
     "Resource": "module:awaitingHumanInput",
-    "InputPath": "$.awaitingHumanInput"
+    "ResourceConfig": {
+      "uiType": "form",
+      "uiName": "wmfs_patientReport",
+      "dataPath": "$.formData"
+    },
+    "ResultPath": "$.formData",
+    "Next": "Upserting"
   }
 }

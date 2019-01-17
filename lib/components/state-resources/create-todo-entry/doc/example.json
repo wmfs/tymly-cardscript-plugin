@@ -1,7 +1,9 @@
 {
-  "CreateToDoEntry": {
+  "CreateTodoEntry": {
     "Type": "Task",
+    "InputPath": "$.todo",
     "Resource": "module:createTodoEntry",
-    "InputPath": "$"
+    "ResultPath": "$.todoId",
+    "Next": "GetTodoLaunches"
   }
 }

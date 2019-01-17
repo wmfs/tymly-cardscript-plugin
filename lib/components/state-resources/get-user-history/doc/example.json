@@ -2,6 +2,7 @@
   "GetUserHistory": {
     "Type": "Task",
     "Resource": "module:getUserHistory",
-    "InputPath": "$"
+    "InputPath": "$",
+    "End": true
   }
 }

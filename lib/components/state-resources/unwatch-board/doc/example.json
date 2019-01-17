@@ -2,6 +2,7 @@
   "UnwatchBoard": {
     "Type": "Task",
     "Resource": "module:unwatchBoard",
-    "InputPath": "$"
+    "InputPath": "$",
+    "End": true
   }
 }

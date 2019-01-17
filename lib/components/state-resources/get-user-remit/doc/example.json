@@ -2,6 +2,7 @@
   "GetUserRemit": {
     "Type": "Task",
     "Resource": "module:getUserRemit",
-    "InputPath": "$"
+    "InputPath": "$",
+    "End": true
   }
 }
