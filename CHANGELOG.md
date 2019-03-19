@@ -1,3 +1,21 @@
+# [1.1.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.0.0...v1.1.0) (2019-03-19)
+
+
+### ✨ Features
+
+* pass on instigator group in remit ([421e41b](https://github.com/wmfs/tymly-cardscript-plugin/commit/421e41b))
+
+
+### 🛠 Builds
+
+* **dev-deps:** Bump nyc, semantic-release, and [@wmfs](https://github.com/wmfs)/* dev deps ([9dd4112](https://github.com/wmfs/tymly-cardscript-plugin/commit/9dd4112))
+
+
+### ⚙️ Continuous Integrations
+
+* **circle:** add circle ci config ([11f5477](https://github.com/wmfs/tymly-cardscript-plugin/commit/11f5477))
+* **travis:** update travis config ([c8592ec](https://github.com/wmfs/tymly-cardscript-plugin/commit/c8592ec))
+
 # 1.0.0 (2019-01-17)
 
 
