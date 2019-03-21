@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.1.2...v1.1.3) (2019-03-21)
+
+
+### 🐛 Bug Fixes
+
+* remove logs ([ff42ab8](https://github.com/wmfs/tymly-cardscript-plugin/commit/ff42ab8))
+
 ## [1.1.2](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.1.1...v1.1.2) (2019-03-21)
 
 
