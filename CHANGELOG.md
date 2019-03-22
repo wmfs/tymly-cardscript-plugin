@@ -1,3 +1,21 @@
+# [1.2.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.1.4...v1.2.0) (2019-03-22)
+
+
+### 🛠 Builds
+
+* **deps:** update jsonpath requirement from 1.0.0 to 1.0.1 ([f1b1603](https://github.com/wmfs/tymly-cardscript-plugin/commit/f1b1603))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/hl-pg-client requirement ([78a88c2](https://github.com/wmfs/tymly-cardscript-plugin/commit/78a88c2))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly-pg-plugin requirement ([9c047be](https://github.com/wmfs/tymly-cardscript-plugin/commit/9c047be))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly-solr-plugin requirement ([bcb7539](https://github.com/wmfs/tymly-cardscript-plugin/commit/bcb7539))
+* **deps-dev:** update codecov requirement from 3.1.0 to 3.2.0 ([af412f1](https://github.com/wmfs/tymly-cardscript-plugin/commit/af412f1))
+* **deps-dev:** update mocha requirement from 5.2.0 to 6.0.2 ([a944abc](https://github.com/wmfs/tymly-cardscript-plugin/commit/a944abc))
+* **deps-dev:** update nyc requirement from 13.2.0 to 13.3.0 ([80f09f2](https://github.com/wmfs/tymly-cardscript-plugin/commit/80f09f2))
+
+
+### 📚 Documentation
+
+* **README:** Fix link to Travis ([d9ed65a](https://github.com/wmfs/tymly-cardscript-plugin/commit/d9ed65a))
+
 ## [1.1.4](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.1.3...v1.1.4) (2019-03-22)
 
 
