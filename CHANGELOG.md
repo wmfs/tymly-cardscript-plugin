@@ -1,3 +1,54 @@
+## [1.1.4](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.1.3...v1.1.4) (2019-03-22)
+
+
+### 🐛 Bug Fixes
+
+* Injected watchBoard subscriptionId into launches ([7a8573f](https://github.com/wmfs/tymly-cardscript-plugin/commit/7a8573f))
+
+
+### 💎 Styles
+
+* **biscuits:** Lint fix. ([b1ad4d7](https://github.com/wmfs/tymly-cardscript-plugin/commit/b1ad4d7))
+
+## [1.1.3](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.1.2...v1.1.3) (2019-03-21)
+
+
+### 🐛 Bug Fixes
+
+* remove logs ([ff42ab8](https://github.com/wmfs/tymly-cardscript-plugin/commit/ff42ab8))
+
+## [1.1.2](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.1.1...v1.1.2) (2019-03-21)
+
+
+### 🐛 Bug Fixes
+
+* test log to check on dev ([7c8f474](https://github.com/wmfs/tymly-cardscript-plugin/commit/7c8f474))
+
+## [1.1.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.1.0...v1.1.1) (2019-03-20)
+
+
+### 🐛 Bug Fixes
+
+* remove bad character in schema json ([aaf4543](https://github.com/wmfs/tymly-cardscript-plugin/commit/aaf4543))
+
+# [1.1.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.0.0...v1.1.0) (2019-03-19)
+
+
+### ✨ Features
+
+* pass on instigator group in remit ([421e41b](https://github.com/wmfs/tymly-cardscript-plugin/commit/421e41b))
+
+
+### 🛠 Builds
+
+* **dev-deps:** Bump nyc, semantic-release, and [@wmfs](https://github.com/wmfs)/* dev deps ([9dd4112](https://github.com/wmfs/tymly-cardscript-plugin/commit/9dd4112))
+
+
+### ⚙️ Continuous Integrations
+
+* **circle:** add circle ci config ([11f5477](https://github.com/wmfs/tymly-cardscript-plugin/commit/11f5477))
+* **travis:** update travis config ([c8592ec](https://github.com/wmfs/tymly-cardscript-plugin/commit/c8592ec))
+
 # 1.0.0 (2019-01-17)
 
 
