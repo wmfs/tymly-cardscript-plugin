@@ -263,7 +263,7 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
           teams: [],
           todos: [],
           formNames: {
-            'test_bookSomeoneSick': '0d6decf12e4ced2f862735be6c3df15543075fd8',
+            'test_bookSomeoneSick': '33c8767d690f6c9c57b4b003f21d376b8d93dcf2',
             'processAnExpenseClaim': ''
           },
           startable: []
@@ -331,7 +331,7 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
         clientManifest: {
           boardNames: {
             'test_expenses': '',
-            'test_personalDetails': '7f9187a7193896052bd2a97b42c4bc7a4f4f0b60'
+            'test_personalDetails': '67080952b6c81abc1451f5dadd042e83040ded97'
           },
           cardNames: {},
           categoryNames: [],
