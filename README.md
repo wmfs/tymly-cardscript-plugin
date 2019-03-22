@@ -1,7 +1,7 @@
 # tymly-cardscript-plugin
 [![Tymly Plugin](https://img.shields.io/badge/tymly-plugin-blue.svg)](https://tymly.io/)
 [![npm (scoped)](https://img.shields.io/npm/v/@wmfs/tymly-cardscript-plugin.svg)](https://www.npmjs.com/package/@wmfs/tymly-cardscript-plugin)
-[![Build Status](https://travis-ci.org/wmfs/tymly-cardscript-plugin.svg?branch=master)](https://travis-ci.org/wmfs/tymly-cardscript-plugin)
+[![Build Status](https://travis-ci.com/wmfs/tymly-cardscript-plugin.svg?branch=master)](https://travis-ci.com/wmfs/tymly-cardscript-plugin)
 [![codecov](https://codecov.io/gh/wmfs/tymly-cardscript-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/wmfs/tymly-cardscript-plugin)
 [![CodeFactor](https://www.codefactor.io/repository/github/wmfs/tymly-cardscript-plugin/badge)](https://www.codefactor.io/repository/github/wmfs/tymly-cardscript-plugin)
 [![Dependabot badge](https://img.shields.io/badge/Dependabot-active-brightgreen.svg)](https://dependabot.com/)
