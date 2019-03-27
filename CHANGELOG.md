@@ -1,3 +1,16 @@
+# [1.3.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.2.0...v1.3.0) (2019-03-27)
+
+
+### ✨ Features
+
+* expose canBeStartedOffline property in cardscript-plugin ([89e818b](https://github.com/wmfs/tymly-cardscript-plugin/commit/89e818b))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly to 1.90.2 ([f58d697](https://github.com/wmfs/tymly-cardscript-plugin/commit/f58d697))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly-rbac-plugin requirement ([c8c9d7c](https://github.com/wmfs/tymly-cardscript-plugin/commit/c8c9d7c))
+
 # [1.2.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.1.4...v1.2.0) (2019-03-22)
 
 
