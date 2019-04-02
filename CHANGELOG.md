@@ -1,3 +1,11 @@
+## [1.3.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.3.0...v1.3.1) (2019-04-02)
+
+
+### 🐛 Bug Fixes
+
+* Don't try and update null launches ([a6c1571](https://github.com/wmfs/tymly-cardscript-plugin/commit/a6c1571))
+* Inject ToDo Id into launches ([6f7c0d7](https://github.com/wmfs/tymly-cardscript-plugin/commit/6f7c0d7))
+
 # [1.3.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.2.0...v1.3.0) (2019-03-27)
 
 
