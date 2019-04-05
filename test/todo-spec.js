@@ -19,221 +19,191 @@ describe('todo changes tymly-cardscript-plugin tests', function () {
   this.timeout(process.env.TIMEOUT || 5000)
   let statebox, todos, tymlyService, client
 
-  before(function () {
+  before(async () => {
     if (process.env.PG_CONNECTION_STRING && !/^postgres:\/\/[^:]+:[^@]+@(?:localhost|127\.0\.0\.1).*$/.test(process.env.PG_CONNECTION_STRING)) {
       console.log(`Skipping tests due to unsafe PG_CONNECTION_STRING value (${process.env.PG_CONNECTION_STRING})`)
-      this.skip()
+      return this.skip()
     }
+
+    const tymlyServices = await tymly.boot({
+      pluginPaths: [
+        path.resolve(__dirname, './../lib'),
+        require.resolve('@wmfs/tymly-pg-plugin'),
+        require.resolve('@wmfs/tymly-solr-plugin'),
+        require.resolve('@wmfs/tymly-test-helpers/plugins/allow-everything-rbac-plugin')
+      ]
+    })
+
+    statebox = tymlyServices.statebox
+    todos = tymlyServices.storage.models['tymly_todos']
+    tymlyService = tymlyServices.tymly
+    client = tymlyServices.storage.client
   })
 
-  it('should create some basic tymly services', done => {
-    tymly.boot(
-      {
-        pluginPaths: [
-          path.resolve(__dirname, './../lib'),
-          require.resolve('@wmfs/tymly-pg-plugin'),
-          require.resolve('@wmfs/tymly-solr-plugin'),
-          require.resolve('@wmfs/tymly-test-helpers/plugins/allow-everything-rbac-plugin')
-        ]
-      },
-      (err, tymlyServices) => {
-        expect(err).to.eql(null)
-        statebox = tymlyServices.statebox
-        todos = tymlyServices.storage.models['tymly_todos']
-        tymlyService = tymlyServices.tymly
-        client = tymlyServices.storage.client
-        done()
-      }
-    )
+  describe('user todo entry', () => {
+
+    it('create a user todo entry', async () => {
+      const executionDescription = await statebox.startExecution(
+        {
+          todoTitle: 'ToDo Expense Claim',
+          stateMachineTitle: 'Process expense claim for User',
+          stateMachineCategory: 'Expenses',
+          description: 'Claiming $12 for A pack of Duff Beer',
+          id: ID_1
+        },
+        CREATE_TO_DO_ENTRY,
+        {
+          sendResponse: 'COMPLETE',
+          userId: 'todo-user'
+        }
+      )
+
+      expect(executionDescription.currentStateName).to.eql('CreateTodoEntry')
+      expect(executionDescription.currentResource).to.eql('module:createTodoEntry')
+      expect(executionDescription.stateMachineName).to.eql(CREATE_TO_DO_ENTRY)
+      expect(executionDescription.status).to.eql('SUCCEEDED')
+    })
+
+    it('todo is present', async () => {
+      const doc = await todos.findById(ID_1)
+      expect(doc.userId).to.eql('todo-user')
+      expect(doc.description).to.eql('Claiming $12 for A pack of Duff Beer')
+    })
+
+    it('update user todo entry', async () => {
+      const executionDescription = await statebox.startExecution(
+        {
+          todoTitle: 'ToDo Expense Claim',
+          stateMachineTitle: 'Process expense claim for User',
+          stateMachineCategory: 'Expenses',
+          description: 'User is claiming $12 for A pack of Duff Beer',
+          id: ID_1
+        },
+        CREATE_TO_DO_ENTRY,
+        {
+          sendResponse: 'COMPLETE',
+          userId: 'todo-user'
+        }
+      )
+
+      expect(executionDescription.currentStateName).to.eql('CreateTodoEntry')
+      expect(executionDescription.currentResource).to.eql('module:createTodoEntry')
+      expect(executionDescription.stateMachineName).to.eql(CREATE_TO_DO_ENTRY)
+      expect(executionDescription.status).to.eql('SUCCEEDED')
+    })
+
+    it('todo is updated', async () => {
+      const doc = await todos.findById(ID_1)
+      expect(doc.userId).to.eql('todo-user')
+      expect(doc.description).to.eql('User is claiming $12 for A pack of Duff Beer')
+    })
+
+    it('remove the todo', async () => {
+      await statebox.startExecution(
+        {
+          todoId: ID_1
+        },
+        REMOVE_TODO_STATE_MACHINE,
+        {
+          sendResponse: 'COMPLETE',
+          userId: 'todo-user'
+        }
+      )
+    })
+
+    it('todo is removed', async () => {
+      const doc = await todos.findById(ID_1)
+      expect(doc).to.eql(undefined)
+    })
   })
 
-  it('should create todo entry for a user', async () => {
-    const executionDescription = await statebox.startExecution(
-      {
-        todoTitle: 'ToDo Expense Claim',
-        stateMachineTitle: 'Process expense claim for User',
-        stateMachineCategory: 'Expenses',
-        description: 'Claiming $12 for A pack of Duff Beer',
-        id: ID_1
-      },
-      CREATE_TO_DO_ENTRY,
-      {
-        sendResponse: 'COMPLETE',
-        userId: 'todo-user'
-      }
-    )
+  describe('user remit', () => {
+    before(async () => {
+      await sqlScriptRunner('./db-scripts/settings/setup.sql', client)
+      await sqlScriptRunner('./db-scripts/favourites/setup.sql', client)
+      await sqlScriptRunner('./db-scripts/todos/setup.sql', client)
+    })
+    it('get todo changes with no client to do\'s', async () => {
+      const executionDescription = await statebox.startExecution(
+        {
+          clientTodos: [] // for getTodos
+        },
+        GET_TODO_CHANGES_STATE_MACHINE,
+        {
+          sendResponse: 'COMPLETE',
+          userId: 'test-user'
+        }
+      )
 
-    expect(executionDescription.currentStateName).to.eql('CreateTodoEntry')
-    expect(executionDescription.currentResource).to.eql('module:createTodoEntry')
-    expect(executionDescription.stateMachineName).to.eql(CREATE_TO_DO_ENTRY)
-    expect(executionDescription.status).to.eql('SUCCEEDED')
+      expect(executionDescription.currentStateName).to.eql('GetTodoChanges')
+      expect(executionDescription.currentResource).to.eql('module:getTodoChanges')
+      expect(executionDescription.stateMachineName).to.eql(GET_TODO_CHANGES_STATE_MACHINE)
+      expect(executionDescription.status).to.eql('SUCCEEDED')
+      expect(Object.keys(executionDescription.ctx.todoChanges.add).length).to.eql(2)
+      expect(Object.keys(executionDescription.ctx.todoChanges.add)
+        .includes(ID_2)).to.eql(true)
+      expect(Object.keys(executionDescription.ctx.todoChanges.add)
+        .includes('0d625558-ce99-11e7-b7e3-c38932399c15')).to.eql(true)
+      expect(executionDescription.ctx.todoChanges.remove).to.eql([])
+    })
+
+    it('get todo changes', async () => {
+      const executionDescription = await statebox.startExecution(
+        {
+          clientTodos: [
+            ID_2,
+            '52009d36-bb03-11e7-abc4-cec278b6b50a',
+            '52009e4e-bb03-11e7-abc4-cec278b6b50a',
+            '52009f20-bb03-11e7-abc4-cec278b6b50a',
+            '52009ff2-bb03-11e7-abc4-cec278b6b50a'
+          ] // for getTodos
+        },
+        GET_TODO_CHANGES_STATE_MACHINE,
+        {
+          sendResponse: 'COMPLETE',
+          userId: 'test-user'
+        }
+      )
+
+      expect(executionDescription.currentStateName).to.eql('GetTodoChanges')
+      expect(executionDescription.currentResource).to.eql('module:getTodoChanges')
+      expect(executionDescription.stateMachineName).to.eql(GET_TODO_CHANGES_STATE_MACHINE)
+      expect(executionDescription.status).to.eql('SUCCEEDED')
+      expect(Object.keys(executionDescription.ctx.todoChanges.add)).to.eql([
+        '0d625558-ce99-11e7-b7e3-c38932399c15'
+      ])
+      expect(executionDescription.ctx.todoChanges.remove.length).to.eql(4)
+      expect(executionDescription.ctx.todoChanges.remove
+        .includes('52009d36-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
+      expect(executionDescription.ctx.todoChanges.remove
+        .includes('52009e4e-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
+      expect(executionDescription.ctx.todoChanges.remove
+        .includes('52009f20-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
+      expect(executionDescription.ctx.todoChanges.remove
+        .includes('52009ff2-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
+    })
   })
 
-  it('should ensure the created todo is present', async () => {
-    const doc = await todos.findById(ID_1)
-    expect(doc.userId).to.eql('todo-user')
-    expect(doc.description).to.eql('Claiming $12 for A pack of Duff Beer')
+  describe('bad todos', () => {
+    it('fail to find a todo that doesn\'t exist', async () => {
+      const executionDescription = await statebox.startExecution(
+        {
+          todoId: 'FAILHERE'
+        },
+        REMOVE_TODO_STATE_MACHINE,
+        {
+          sendResponse: 'COMPLETE',
+          userId: 'test-user'
+        }
+      )
+
+      expect(executionDescription.status).to.eql('FAILED')
+      expect(executionDescription.errorCode).to.eql('removeTodoFail')
+    })
   })
 
-  it('should update a todo entry for a user', async () => {
-    const executionDescription = await statebox.startExecution(
-      {
-        todoTitle: 'ToDo Expense Claim',
-        stateMachineTitle: 'Process expense claim for User',
-        stateMachineCategory: 'Expenses',
-        description: 'User is claiming $12 for A pack of Duff Beer',
-        id: ID_1
-      },
-      CREATE_TO_DO_ENTRY,
-      {
-        sendResponse: 'COMPLETE',
-        userId: 'todo-user'
-      }
-    )
-
-    expect(executionDescription.currentStateName).to.eql('CreateTodoEntry')
-    expect(executionDescription.currentResource).to.eql('module:createTodoEntry')
-    expect(executionDescription.stateMachineName).to.eql(CREATE_TO_DO_ENTRY)
-    expect(executionDescription.status).to.eql('SUCCEEDED')
-  })
-
-  it('should ensure the created todo is present', async () => {
-    const doc = await todos.findById(ID_1)
-    expect(doc.userId).to.eql('todo-user')
-    expect(doc.description).to.eql('User is claiming $12 for A pack of Duff Beer')
-  })
-
-  it('should remove the todo created for test', async () => {
-    await todos.destroyById(ID_1)
-  })
-
-  it('should ensure created todo is removed', async () => {
-    const doc = await todos.findById(ID_1)
-    expect(doc).to.eql(undefined)
-  })
-
-  // for getUserRemit
-  it('should create the settings test resources', () => {
-    return sqlScriptRunner('./db-scripts/settings/setup.sql', client)
-  })
-
-  // for getUserRemit
-  it('should create the favourites test resources', () => {
-    return sqlScriptRunner('./db-scripts/favourites/setup.sql', client)
-  })
-
-  // for getTodos
-  it('should create the todos test resources', () => {
-    return sqlScriptRunner('./db-scripts/todos/setup.sql', client)
-  })
-
-  it('should start the state machine to get todo changes with no client to do\'s', async () => {
-    const executionDescription = await statebox.startExecution(
-      {
-        clientTodos: [] // for getTodos
-      },
-      GET_TODO_CHANGES_STATE_MACHINE,
-      {
-        sendResponse: 'COMPLETE',
-        userId: 'test-user'
-      }
-    )
-
-    expect(executionDescription.currentStateName).to.eql('GetTodoChanges')
-    expect(executionDescription.currentResource).to.eql('module:getTodoChanges')
-    expect(executionDescription.stateMachineName).to.eql(GET_TODO_CHANGES_STATE_MACHINE)
-    expect(executionDescription.status).to.eql('SUCCEEDED')
-    expect(Object.keys(executionDescription.ctx.todoChanges.add).length).to.eql(2)
-    expect(Object.keys(executionDescription.ctx.todoChanges.add)
-      .includes(ID_2)).to.eql(true)
-    expect(Object.keys(executionDescription.ctx.todoChanges.add)
-      .includes('0d625558-ce99-11e7-b7e3-c38932399c15')).to.eql(true)
-    expect(executionDescription.ctx.todoChanges.remove).to.eql([])
-  })
-
-  it('should start the state machine to get todo changes', async () => {
-    const executionDescription = await statebox.startExecution(
-      {
-        clientTodos: [
-          ID_2,
-          '52009d36-bb03-11e7-abc4-cec278b6b50a',
-          '52009e4e-bb03-11e7-abc4-cec278b6b50a',
-          '52009f20-bb03-11e7-abc4-cec278b6b50a',
-          '52009ff2-bb03-11e7-abc4-cec278b6b50a'
-        ] // for getTodos
-      },
-      GET_TODO_CHANGES_STATE_MACHINE,
-      {
-        sendResponse: 'COMPLETE',
-        userId: 'test-user'
-      }
-    )
-
-    expect(executionDescription.currentStateName).to.eql('GetTodoChanges')
-    expect(executionDescription.currentResource).to.eql('module:getTodoChanges')
-    expect(executionDescription.stateMachineName).to.eql(GET_TODO_CHANGES_STATE_MACHINE)
-    expect(executionDescription.status).to.eql('SUCCEEDED')
-    expect(Object.keys(executionDescription.ctx.todoChanges.add)).to.eql([
-      '0d625558-ce99-11e7-b7e3-c38932399c15'
-    ])
-    expect(executionDescription.ctx.todoChanges.remove.length).to.eql(4)
-    expect(executionDescription.ctx.todoChanges.remove
-      .includes('52009d36-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
-    expect(executionDescription.ctx.todoChanges.remove
-      .includes('52009e4e-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
-    expect(executionDescription.ctx.todoChanges.remove
-      .includes('52009f20-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
-    expect(executionDescription.ctx.todoChanges.remove
-      .includes('52009ff2-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
-  })
-
-  it('should ensure a todo is present in the list in preparation to remove it', async () => {
-    const doc = await todos.findById(ID_2)
-    expect(doc.userId).to.eql('test-user')
-    expect(doc.description).to.eql('Homer Simpson is claiming $12 for A pack of Duff Beer')
-  })
-
-  it('should be able to remove a todo entry from the list', async () => {
-    const executionDescription = await statebox.startExecution(
-      {
-        todoId: ID_2
-      },
-      REMOVE_TODO_STATE_MACHINE,
-      {
-        sendResponse: 'COMPLETE',
-        userId: 'test-user'
-      }
-    )
-
-    expect(executionDescription.status).to.eql('SUCCEEDED')
-  })
-
-  it('should fail to find the removed todo', async () => {
-    const doc = await todos.findById(ID_2)
-    expect(doc).to.eql(undefined)
-  })
-
-  it('should fail to find a todo that doesn\'t exist', async () => {
-    const executionDescription = await statebox.startExecution(
-      {
-        todoId: 'FAILHERE'
-      },
-      REMOVE_TODO_STATE_MACHINE,
-      {
-        sendResponse: 'COMPLETE',
-        userId: 'test-user'
-      }
-    )
-
-    expect(executionDescription.status).to.eql('FAILED')
-    expect(executionDescription.errorCode).to.eql('removeTodoFail')
-  })
-
-  it('should tear down the test resources', () => {
-    return sqlScriptRunner('./db-scripts/cleanup.sql', client)
-  })
-
-  it('should shut down Tymly nicely', async () => {
+  after(async () => {
+    await sqlScriptRunner('./db-scripts/cleanup.sql', client)
     await tymlyService.shutdown()
   })
 })
