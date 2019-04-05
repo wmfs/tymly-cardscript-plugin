@@ -25,9 +25,9 @@ describe('todo changes tymly-cardscript-plugin tests', function () {
     const tymlyServices = await tymly.boot({
       pluginPaths: [
         path.resolve(__dirname, './../lib'),
+        path.resolve(__dirname, './fixtures/mock-rbac-plugin'),
         require.resolve('@wmfs/tymly-pg-plugin'),
-        require.resolve('@wmfs/tymly-solr-plugin'),
-        require.resolve('@wmfs/tymly-test-helpers/plugins/allow-everything-rbac-plugin')
+        require.resolve('@wmfs/tymly-solr-plugin')
       ]
     })
 
@@ -116,70 +116,182 @@ describe('todo changes tymly-cardscript-plugin tests', function () {
     })
   })
 
-  describe('user remit', () => {
+  describe('role todo entry', () => {
+    let roleTodoId = null
+
+    it('create a role todo entry', async () => {
+      const executionDescription = await statebox.startExecution(
+        {
+          role: 'role_MonkeyPunk',
+          todoTitle: 'ToDo Expense Claim',
+          stateMachineTitle: 'Process expense claim for User',
+          stateMachineCategory: 'Expenses',
+          description: 'Claiming $12 for A pack of Duff Beer'
+        },
+        CREATE_TO_DO_ENTRY,
+        {
+          sendResponse: 'COMPLETE',
+          userId: 'todo-user'
+        }
+      )
+
+      expect(executionDescription.currentStateName).to.eql('CreateTodoEntry')
+      expect(executionDescription.currentResource).to.eql('module:createTodoEntry')
+      expect(executionDescription.stateMachineName).to.eql(CREATE_TO_DO_ENTRY)
+      expect(executionDescription.status).to.eql('SUCCEEDED')
+
+      roleTodoId = executionDescription.ctx.idProperties.id
+    })
+
+    it('todo is present', async () => {
+      const doc = await todos.findById(roleTodoId)
+      expect(doc.userId).to.eql(null)
+      expect(doc.teamName).to.eql('role_MonkeyPunk')
+      expect(doc.description).to.eql('Claiming $12 for A pack of Duff Beer')
+    })
+
+    it('update role todo entry', async () => {
+      const executionDescription = await statebox.startExecution(
+        {
+          role: 'role_MonkeyPunk',
+          todoTitle: 'ToDo Expense Claim',
+          stateMachineTitle: 'Process expense claim for User',
+          stateMachineCategory: 'Expenses',
+          description: 'User is claiming $12 for A pack of Duff Beer',
+          id: roleTodoId
+        },
+        CREATE_TO_DO_ENTRY,
+        {
+          sendResponse: 'COMPLETE',
+          userId: 'todo-user'
+        }
+      )
+
+      expect(executionDescription.currentStateName).to.eql('CreateTodoEntry')
+      expect(executionDescription.currentResource).to.eql('module:createTodoEntry')
+      expect(executionDescription.stateMachineName).to.eql(CREATE_TO_DO_ENTRY)
+      expect(executionDescription.status).to.eql('SUCCEEDED')
+    })
+
+    it('todo is updated', async () => {
+      const doc = await todos.findById(roleTodoId)
+      expect(doc.userId).to.eql(null)
+      expect(doc.teamName).to.eql('role_MonkeyPunk')
+      expect(doc.description).to.eql('User is claiming $12 for A pack of Duff Beer')
+    })
+
+    it('remove the todo', async () => {
+      await statebox.startExecution(
+        {
+          todoId: roleTodoId
+        },
+        REMOVE_TODO_STATE_MACHINE,
+        {
+          sendResponse: 'COMPLETE',
+          userId: 'todo-user'
+        }
+      )
+    })
+
+    it('todo is removed', async () => {
+      const doc = await todos.findById(roleTodoId)
+      expect(doc).to.eql(undefined)
+    })
+  })
+
+  describe('get todo changes', () => {
     before(async () => {
       await sqlScriptRunner('./db-scripts/settings/setup.sql', client)
       await sqlScriptRunner('./db-scripts/favourites/setup.sql', client)
       await sqlScriptRunner('./db-scripts/todos/setup.sql', client)
     })
-    it('get todo changes with no client to do\'s', async () => {
-      const executionDescription = await statebox.startExecution(
-        {
-          clientTodos: [] // for getTodos
-        },
-        GET_TODO_CHANGES_STATE_MACHINE,
-        {
-          sendResponse: 'COMPLETE',
-          userId: 'test-user'
-        }
-      )
 
-      expect(executionDescription.currentStateName).to.eql('GetTodoChanges')
-      expect(executionDescription.currentResource).to.eql('module:getTodoChanges')
-      expect(executionDescription.stateMachineName).to.eql(GET_TODO_CHANGES_STATE_MACHINE)
-      expect(executionDescription.status).to.eql('SUCCEEDED')
-      expect(Object.keys(executionDescription.ctx.todoChanges.add).length).to.eql(2)
-      expect(Object.keys(executionDescription.ctx.todoChanges.add)
-        .includes('5200987c-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
-      expect(Object.keys(executionDescription.ctx.todoChanges.add)
-        .includes('0d625558-ce99-11e7-b7e3-c38932399c15')).to.eql(true)
-      expect(executionDescription.ctx.todoChanges.remove).to.eql([])
+    describe('user id without role', () => {
+      it('get todos', async () => {
+        const executionDescription = await statebox.startExecution(
+          {
+            clientTodos: [] // for getTodos
+          },
+          GET_TODO_CHANGES_STATE_MACHINE,
+          {
+            sendResponse: 'COMPLETE',
+            userId: 'test-user'
+          }
+        )
+
+        expect(executionDescription.currentStateName).to.eql('GetTodoChanges')
+        expect(executionDescription.currentResource).to.eql('module:getTodoChanges')
+        expect(executionDescription.stateMachineName).to.eql(GET_TODO_CHANGES_STATE_MACHINE)
+        expect(executionDescription.status).to.eql('SUCCEEDED')
+        expect(Object.keys(executionDescription.ctx.todoChanges.add).length).to.eql(2)
+        expect(Object.keys(executionDescription.ctx.todoChanges.add)
+          .includes('5200987c-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
+        expect(Object.keys(executionDescription.ctx.todoChanges.add)
+          .includes('0d625558-ce99-11e7-b7e3-c38932399c15')).to.eql(true)
+        expect(executionDescription.ctx.todoChanges.remove).to.eql([])
+      })
+
+      it('get todo changes', async () => {
+        const executionDescription = await statebox.startExecution(
+          {
+            clientTodos: [
+              '5200987c-bb03-11e7-abc4-cec278b6b50a',
+              '52009d36-bb03-11e7-abc4-cec278b6b50a',
+              '52009e4e-bb03-11e7-abc4-cec278b6b50a',
+              '52009f20-bb03-11e7-abc4-cec278b6b50a',
+              '52009ff2-bb03-11e7-abc4-cec278b6b50a'
+            ] // for getTodos
+          },
+          GET_TODO_CHANGES_STATE_MACHINE,
+          {
+            sendResponse: 'COMPLETE',
+            userId: 'test-user'
+          }
+        )
+
+        expect(executionDescription.currentStateName).to.eql('GetTodoChanges')
+        expect(executionDescription.currentResource).to.eql('module:getTodoChanges')
+        expect(executionDescription.stateMachineName).to.eql(GET_TODO_CHANGES_STATE_MACHINE)
+        expect(executionDescription.status).to.eql('SUCCEEDED')
+        expect(Object.keys(executionDescription.ctx.todoChanges.add)).to.eql([
+          '0d625558-ce99-11e7-b7e3-c38932399c15'
+        ])
+        expect(executionDescription.ctx.todoChanges.remove.length).to.eql(4)
+        expect(executionDescription.ctx.todoChanges.remove
+          .includes('52009d36-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
+        expect(executionDescription.ctx.todoChanges.remove
+          .includes('52009e4e-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
+        expect(executionDescription.ctx.todoChanges.remove
+          .includes('52009f20-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
+        expect(executionDescription.ctx.todoChanges.remove
+          .includes('52009ff2-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
+      })
     })
 
-    it('get todo changes', async () => {
-      const executionDescription = await statebox.startExecution(
-        {
-          clientTodos: [
-            '5200987c-bb03-11e7-abc4-cec278b6b50a',
-            '52009d36-bb03-11e7-abc4-cec278b6b50a',
-            '52009e4e-bb03-11e7-abc4-cec278b6b50a',
-            '52009f20-bb03-11e7-abc4-cec278b6b50a',
-            '52009ff2-bb03-11e7-abc4-cec278b6b50a'
-          ] // for getTodos
-        },
-        GET_TODO_CHANGES_STATE_MACHINE,
-        {
-          sendResponse: 'COMPLETE',
-          userId: 'test-user'
-        }
-      )
+    describe('user id with "test-team" role', () => {
+      it('get todos', async () => {
+        const executionDescription = await statebox.startExecution(
+          {
+            clientTodos: [] // for getTodos
+          },
+          GET_TODO_CHANGES_STATE_MACHINE,
+          {
+            sendResponse: 'COMPLETE',
+            userId: 'test-team-member'
+          }
+        )
 
-      expect(executionDescription.currentStateName).to.eql('GetTodoChanges')
-      expect(executionDescription.currentResource).to.eql('module:getTodoChanges')
-      expect(executionDescription.stateMachineName).to.eql(GET_TODO_CHANGES_STATE_MACHINE)
-      expect(executionDescription.status).to.eql('SUCCEEDED')
-      expect(Object.keys(executionDescription.ctx.todoChanges.add)).to.eql([
-        '0d625558-ce99-11e7-b7e3-c38932399c15'
-      ])
-      expect(executionDescription.ctx.todoChanges.remove.length).to.eql(4)
-      expect(executionDescription.ctx.todoChanges.remove
-        .includes('52009d36-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
-      expect(executionDescription.ctx.todoChanges.remove
-        .includes('52009e4e-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
-      expect(executionDescription.ctx.todoChanges.remove
-        .includes('52009f20-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
-      expect(executionDescription.ctx.todoChanges.remove
-        .includes('52009ff2-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
+        expect(executionDescription.currentStateName).to.eql('GetTodoChanges')
+        expect(executionDescription.currentResource).to.eql('module:getTodoChanges')
+        expect(executionDescription.stateMachineName).to.eql(GET_TODO_CHANGES_STATE_MACHINE)
+        expect(executionDescription.status).to.eql('SUCCEEDED')
+        expect(Object.keys(executionDescription.ctx.todoChanges.add).length).to.eql(2)
+        expect(Object.keys(executionDescription.ctx.todoChanges.add)
+          .includes('77777777-ce99-11e7-b7e3-c38932399c15')).to.eql(true)
+        expect(Object.keys(executionDescription.ctx.todoChanges.add)
+          .includes('88888888-ce99-11e7-b7e3-c38932399c15')).to.eql(true)
+        expect(executionDescription.ctx.todoChanges.remove).to.eql([])
+      })
     })
   })
 
