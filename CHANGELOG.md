@@ -1,3 +1,31 @@
+# [1.5.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.4.0...v1.5.0) (2019-07-11)
+
+
+### 🛠 Builds
+
+* **deps:** update lodash requirement from 4.17.11 to 4.17.14 ([ca96447](https://github.com/wmfs/tymly-cardscript-plugin/commit/ca96447))
+* **deps-dev:** update [@semantic-release](https://github.com/semantic-release)/git requirement ([4924307](https://github.com/wmfs/tymly-cardscript-plugin/commit/4924307))
+* **deps-dev:** update [@semantic-release](https://github.com/semantic-release)/git requirement ([0fb8940](https://github.com/wmfs/tymly-cardscript-plugin/commit/0fb8940))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/hl-pg-client requirement ([45529a7](https://github.com/wmfs/tymly-cardscript-plugin/commit/45529a7))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly-pg-plugin requirement ([1699c8f](https://github.com/wmfs/tymly-cardscript-plugin/commit/1699c8f))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly-pg-plugin requirement ([4ea5f8b](https://github.com/wmfs/tymly-cardscript-plugin/commit/4ea5f8b))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly-rbac-plugin requirement ([1232760](https://github.com/wmfs/tymly-cardscript-plugin/commit/1232760))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly-solr-plugin requirement ([c2605f7](https://github.com/wmfs/tymly-cardscript-plugin/commit/c2605f7))
+* **deps-dev:** update mocha requirement from 6.0.2 to 6.1.4 ([293cbcd](https://github.com/wmfs/tymly-cardscript-plugin/commit/293cbcd))
+* **deps-dev:** update nyc requirement from 13.3.0 to 14.1.1 ([0397136](https://github.com/wmfs/tymly-cardscript-plugin/commit/0397136))
+* **deps-dev:** update semantic-release requirement ([a5f4ad5](https://github.com/wmfs/tymly-cardscript-plugin/commit/a5f4ad5))
+
+
+### 📚 Documentation
+
+* add circleci status [skip ci] ([dbf608d](https://github.com/wmfs/tymly-cardscript-plugin/commit/dbf608d))
+
+
+### ⚙️ Continuous Integrations
+
+* **circle:** Update CircleCI config - Travis migration ([446359c](https://github.com/wmfs/tymly-cardscript-plugin/commit/446359c))
+* **travis:** remove Travis config ([4f3008f](https://github.com/wmfs/tymly-cardscript-plugin/commit/4f3008f))
+
 # [1.4.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.3.1...v1.4.0) (2019-04-05)
 
 
