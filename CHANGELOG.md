@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.5.0...v1.6.0) (2019-09-09)
+
+
+### 🛠 Builds
+
+* **deps:** update [@wmfs](https://github.com/wmfs)/form-maker requirement from 1.1.0 to 1.3.0 ([bc1cfae](https://github.com/wmfs/tymly-cardscript-plugin/commit/bc1cfae))
+
 # [1.5.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.4.0...v1.5.0) (2019-07-11)
 
 
