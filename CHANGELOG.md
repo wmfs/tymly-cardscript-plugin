@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.6.0...v1.7.0) (2019-09-09)
+
+
+### 🛠 Builds
+
+* **deps:** update jsonpath requirement from 1.0.1 to 1.0.2 ([3719da3](https://github.com/wmfs/tymly-cardscript-plugin/commit/3719da3))
+
 # [1.6.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.5.0...v1.6.0) (2019-09-09)
 
 
