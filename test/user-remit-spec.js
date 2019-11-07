@@ -48,12 +48,10 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     const executionDescription = await statebox.startExecution(
       {
         clientManifest: {
-          boardNames: {},
           cardNames: {},
           categoryNames: [],
           teams: [],
           todos: [],
-          formNames: {},
           startable: []
         }
       },
@@ -70,7 +68,7 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     expect(executionDescription.status).to.eql('SUCCEEDED')
 
     const { favouriteStartableNames, add, remove, settings } = executionDescription.ctx.userRemit
-    const { categories, todos, teams, cards, forms, boards, startable } = add
+    const { categories, todos, teams, cards, startable } = add
     const { categoryRelevance } = settings
 
     expect(categoryRelevance.sort()).to.eql(['expenses', 'gazetteer', 'hr', 'hydrants', 'incidents'])
@@ -79,8 +77,6 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     expect(Object.keys(todos).sort()).to.eql(['a69c0ac9-cde5-11e7-abc4-cec278b6b50a'])
     expect(Object.keys(teams).sort()).to.eql(['Birmingham (Red watch)', 'Fire Safety (North)'])
     expect(Object.keys(cards).sort()).to.eql(['test_simple', 'tymly_rbacGrantRoleMembership_1_0', 'tymly_viewRoleMemberships_1_0'])
-    expect(Object.keys(forms).sort()).to.eql(['test_addIncidentLogEntry', 'test_addIncidentSafetyRecord', 'test_bookSomeoneSick'])
-    expect(Object.keys(boards).sort()).to.eql(['test_personalDetails', 'test_propertyViewer'])
 
     // State machine with role: 'topSecretRole' should NOT appear in startable
     // State machine without 'user' as instigator should NOT appear in startable
@@ -93,12 +89,10 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     const executionDescription = await statebox.startExecution(
       {
         clientManifest: {
-          boardNames: {},
           cardNames: {},
           categoryNames: [],
           teams: [],
           todos: [],
-          formNames: {},
           startable: []
         }
       },
@@ -115,7 +109,7 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     expect(executionDescription.status).to.eql('SUCCEEDED')
 
     const { favouriteStartableNames, add, remove, settings } = executionDescription.ctx.userRemit
-    const { categories, todos, teams, cards, forms, boards, startable } = add
+    const { categories, todos, teams, cards, startable } = add
     const { categoryRelevance } = settings
 
     expect(categoryRelevance.sort()).to.eql(['expenses', 'gazetteer', 'hr', 'hydrants', 'incidents'])
@@ -124,8 +118,6 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     expect(Object.keys(todos).sort()).to.eql(['a69c0ae8-cde5-11e7-abc4-cec278b6b50a', 'a69c0dcc-cde5-11e7-abc4-cec278b6b50a'])
     expect(Object.keys(teams).sort()).to.eql(['Birmingham (Red watch)', 'Fire Safety (North)'])
     expect(Object.keys(cards).sort()).to.eql(['test_simple', 'tymly_rbacGrantRoleMembership_1_0', 'tymly_viewRoleMemberships_1_0'])
-    expect(Object.keys(forms).sort()).to.eql(['test_addIncidentLogEntry', 'test_addIncidentSafetyRecord', 'test_bookSomeoneSick'])
-    expect(Object.keys(boards).sort()).to.eql(['test_personalDetails', 'test_propertyViewer'])
 
     // State machine with role: 'topSecretRole' should NOT appear in startable
     // State machine without 'user' as instigator should NOT appear in startable
@@ -138,12 +130,10 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     const executionDescription = await statebox.startExecution(
       {
         clientManifest: {
-          boardNames: {},
           cardNames: {},
           categoryNames: [],
           teams: [],
           todos: [],
-          formNames: {},
           startable: []
         }
       },
@@ -170,12 +160,10 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     const executionDescription = await statebox.startExecution(
       {
         clientManifest: {
-          boardNames: {},
           cardNames: {},
           categoryNames: ['gazetteer', 'hr'],
           teams: [],
           todos: [],
-          formNames: {},
           startable: []
         }
       },
@@ -200,12 +188,10 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     const executionDescription = await statebox.startExecution(
       {
         clientManifest: {
-          boardNames: {},
           cardNames: {},
           categoryNames: [],
           teams: [],
           todos: ['a69c0ac9-cde5-11e7-abc4-cec278b6b50a', 'a69c0ad0-cde5-11e7-abc4-cec278b6b50a'],
-          formNames: {},
           startable: []
         }
       },
@@ -230,12 +216,10 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     const executionDescription = await statebox.startExecution(
       {
         clientManifest: {
-          boardNames: {},
           cardNames: {},
           categoryNames: [],
           teams: ['Birmingham (Red watch)', 'Another team'],
           todos: [],
-          formNames: {},
           startable: []
         }
       },
@@ -257,110 +241,33 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     expect(remove.teams.sort()).to.eql(['Another team'])
   })
 
-  it('add/remove form names to/from the remit', async () => {
-    const executionDescription = await statebox.startExecution(
-      {
-        clientManifest: {
-          boardNames: {},
-          cardNames: {},
-          categoryNames: [],
-          teams: [],
-          todos: [],
-          formNames: {
-            'test_bookSomeoneSick': '33c8767d690f6c9c57b4b003f21d376b8d93dcf2',
-            'processAnExpenseClaim': ''
-          },
-          startable: []
-        }
-      },
-      GET_USER_REMIT_STATE_MACHINE,
-      {
-        sendResponse: 'COMPLETE',
-        userId: 'test-user'
-      }
-    )
-
-    expect(executionDescription.currentStateName).to.eql('GetUserRemit')
-    expect(executionDescription.currentResource).to.eql('module:getUserRemit')
-    expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
-    expect(executionDescription.status).to.eql('SUCCEEDED')
-    expect(Object.keys(executionDescription.ctx.userRemit.add.forms).length).to.eql(2)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.forms).includes('test_addIncidentLogEntry')).to.eql(true)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.forms).includes('test_addIncidentSafetyRecord')).to.eql(true)
-    expect(executionDescription.ctx.userRemit.remove.forms)
-      .to.eql(['processAnExpenseClaim'])
-    expect(executionDescription.ctx.userRemit.add.forms['test_bookSomeoneSick']).to.eql(undefined)
-    expect(executionDescription.ctx.userRemit.remove.forms['test_bookSomeoneSick']).to.eql(undefined)
-  })
-
-  it('add/remove board names to/from the remit', async () => {
-    const executionDescription = await statebox.startExecution(
-      {
-        clientManifest: {
-          boardNames: {
-            'test_personalDetails': 'WRONGSHASUM',
-            'test_expenses': ''
-          },
-          cardNames: {},
-          categoryNames: [],
-          teams: [],
-          todos: [],
-          formNames: [],
-          startable: []
-        }
-      },
-      GET_USER_REMIT_STATE_MACHINE,
-      {
-        sendResponse: 'COMPLETE',
-        userId: 'test-user'
-      }
-    )
-
-    expect(executionDescription.currentStateName).to.eql('GetUserRemit')
-    expect(executionDescription.currentResource).to.eql('module:getUserRemit')
-    expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
-    expect(executionDescription.status).to.eql('SUCCEEDED')
-    expect(Object.keys(executionDescription.ctx.userRemit.add.boards)).to.eql([
-      'test_personalDetails',
-      'test_propertyViewer'
-    ])
-    expect(executionDescription.ctx.userRemit.add.boards['test_personalDetails'].shasum).to.not.eql('WRONGSHASUM')
-    expect(executionDescription.ctx.userRemit.remove.boards)
-      .to.eql(['test_expenses'])
-  })
-
-  it('test shasum remit', async () => {
-    const executionDescription = await statebox.startExecution(
-      {
-        clientManifest: {
-          boardNames: {
-            'test_expenses': '',
-            'test_personalDetails': '67080952b6c81abc1451f5dadd042e83040ded97'
-          },
-          cardNames: {},
-          categoryNames: [],
-          teams: [],
-          todos: [],
-          formNames: [],
-          startable: []
-        }
-      },
-      GET_USER_REMIT_STATE_MACHINE,
-      {
-        sendResponse: 'COMPLETE',
-        userId: 'test-user'
-      }
-    )
-
-    expect(executionDescription.currentStateName).to.eql('GetUserRemit')
-    expect(executionDescription.currentResource).to.eql('module:getUserRemit')
-    expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
-    expect(executionDescription.status).to.eql('SUCCEEDED')
-    expect(Object.keys(executionDescription.ctx.userRemit.add.boards)).to.eql(['test_propertyViewer'])
-    expect(executionDescription.ctx.userRemit.add.boards['test_personalDetails']).to.eql(undefined)
-    expect(executionDescription.ctx.userRemit.remove.boards)
-      .to.eql(['test_expenses'])
-  })
+  // it('test shasum remit', async () => {
+  //   const executionDescription = await statebox.startExecution(
+  //     {
+  //       clientManifest: {
+  //         cardNames: {},
+  //         categoryNames: [],
+  //         teams: [],
+  //         todos: [],
+  //         startable: []
+  //       }
+  //     },
+  //     GET_USER_REMIT_STATE_MACHINE,
+  //     {
+  //       sendResponse: 'COMPLETE',
+  //       userId: 'test-user'
+  //     }
+  //   )
+  //
+  //   expect(executionDescription.currentStateName).to.eql('GetUserRemit')
+  //   expect(executionDescription.currentResource).to.eql('module:getUserRemit')
+  //   expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
+  //   expect(executionDescription.status).to.eql('SUCCEEDED')
+  //   expect(Object.keys(executionDescription.ctx.userRemit.add.boards)).to.eql(['test_propertyViewer'])
+  //   expect(executionDescription.ctx.userRemit.add.boards['test_personalDetails']).to.eql(undefined)
+  //   expect(executionDescription.ctx.userRemit.remove.boards)
+  //     .to.eql(['test_expenses'])
+  // })
 
   it('remove all the todos in the database', () => {
     return sqlScriptRunner('./db-scripts/todos/setup2.sql', client)
@@ -370,12 +277,10 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     const executionDescription = await statebox.startExecution(
       {
         clientManifest: {
-          boardNames: {},
           cardNames: {},
           categoryNames: [],
           teams: [],
           todos: [],
-          formNames: {},
           startable: []
         }
       },
