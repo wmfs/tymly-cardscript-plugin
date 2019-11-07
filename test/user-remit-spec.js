@@ -69,50 +69,24 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
     expect(executionDescription.status).to.eql('SUCCEEDED')
 
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.length).to.eql(5)
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.includes('gazetteer')).to.eql(true)
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.includes('hr')).to.eql(true)
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.includes('hydrants')).to.eql(true)
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.includes('incidents')).to.eql(true)
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.includes('expenses')).to.eql(true)
+    const { favouriteStartableNames, add, remove, settings } = executionDescription.ctx.userRemit
+    const { categories, todos, teams, cards, forms, boards, startable } = add
+    const { categoryRelevance } = settings
 
-    expect(executionDescription.ctx.userRemit.favouriteStartableNames.length).to.eql(2)
-    expect(executionDescription.ctx.userRemit.favouriteStartableNames.includes('notifications')).to.eql(true)
-    expect(executionDescription.ctx.userRemit.favouriteStartableNames.includes('settings')).to.eql(true)
+    expect(categoryRelevance.sort()).to.eql(['expenses', 'gazetteer', 'hr', 'hydrants', 'incidents'])
+    expect(favouriteStartableNames.sort()).to.eql(['notifications', 'settings'])
+    expect(Object.keys(categories).sort()).to.eql(['fire', 'gazetteer', 'system', 'water'])
+    expect(Object.keys(todos).sort()).to.eql(['a69c0ac9-cde5-11e7-abc4-cec278b6b50a'])
+    expect(Object.keys(teams).sort()).to.eql(['Birmingham (Red watch)', 'Fire Safety (North)'])
+    expect(Object.keys(cards).sort()).to.eql(['test_simple', 'tymly_rbacGrantRoleMembership_1_0', 'tymly_viewRoleMemberships_1_0'])
+    expect(Object.keys(forms).sort()).to.eql(['test_addIncidentLogEntry', 'test_addIncidentSafetyRecord', 'test_bookSomeoneSick'])
+    expect(Object.keys(boards).sort()).to.eql(['test_personalDetails', 'test_propertyViewer'])
 
-    expect(Object.keys(executionDescription.ctx.userRemit.add.categories).length).to.eql(3)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.categories).includes('fire')).to.eql(true)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.categories).includes('gazetteer')).to.eql(true)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.categories).includes('water')).to.eql(true)
-
-    expect(Object.keys(executionDescription.ctx.userRemit.add.todos).length).to.eql(1)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.todos)
-      .includes('a69c0ac9-cde5-11e7-abc4-cec278b6b50a')).to.eql(true)
-
-    expect(Object.keys(executionDescription.ctx.userRemit.add.teams).length).to.eql(2)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.teams).includes('Fire Safety (North)')).to.eql(true)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.teams).includes('Birmingham (Red watch)')).to.eql(true)
-
-    expect(Object.keys(executionDescription.ctx.userRemit.add.cards).length).to.eql(1)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.cards)).to.eql(['test_simple'])
-
-    expect(Object.keys(executionDescription.ctx.userRemit.add.forms).length).to.eql(3)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.forms).includes('test_addIncidentLogEntry')).to.eql(true)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.forms).includes('test_addIncidentSafetyRecord')).to.eql(true)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.forms).includes('test_bookSomeoneSick')).to.eql(true)
-
-    expect(Object.keys(executionDescription.ctx.userRemit.add.boards).length).to.eql(2)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.boards).includes('test_personalDetails')).to.eql(true)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.boards).includes('test_propertyViewer')).to.eql(true)
-
-    // State machine with role: '$authenticated' should appear in startable
-    expect(Object.keys(executionDescription.ctx.userRemit.add.startable).includes('test_justAStateMachine_1_0')).to.eql(true)
     // State machine with role: 'topSecretRole' should NOT appear in startable
-    expect(Object.keys(executionDescription.ctx.userRemit.add.startable).includes('test_topSecretStateMachine_1_0')).to.eql(false)
     // State machine without 'user' as instigator should NOT appear in startable
-    expect(Object.keys(executionDescription.ctx.userRemit.add.startable).includes('test_shouldNotBeOnRemit_1_0')).to.eql(false)
+    expect(Object.keys(startable).sort()).to.eql(['test_getBoards_1_0', 'test_justAStateMachine_1_0'])
 
-    expect(executionDescription.ctx.userRemit.remove).to.eql({})
+    expect(remove).to.eql({})
   })
 
   it('get user with role remit - includes role todos', async () => {
@@ -140,50 +114,24 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
     expect(executionDescription.status).to.eql('SUCCEEDED')
 
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.length).to.eql(5)
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.includes('gazetteer')).to.eql(true)
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.includes('hr')).to.eql(true)
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.includes('hydrants')).to.eql(true)
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.includes('incidents')).to.eql(true)
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.includes('expenses')).to.eql(true)
+    const { favouriteStartableNames, add, remove, settings } = executionDescription.ctx.userRemit
+    const { categories, todos, teams, cards, forms, boards, startable } = add
+    const { categoryRelevance } = settings
 
-    expect(executionDescription.ctx.userRemit.favouriteStartableNames.length).to.eql(0)
+    expect(categoryRelevance.sort()).to.eql(['expenses', 'gazetteer', 'hr', 'hydrants', 'incidents'])
+    expect(favouriteStartableNames).to.eql([])
+    expect(Object.keys(categories).sort()).to.eql(['fire', 'gazetteer', 'system', 'water'])
+    expect(Object.keys(todos).sort()).to.eql(['a69c0ae8-cde5-11e7-abc4-cec278b6b50a', 'a69c0dcc-cde5-11e7-abc4-cec278b6b50a'])
+    expect(Object.keys(teams).sort()).to.eql(['Birmingham (Red watch)', 'Fire Safety (North)'])
+    expect(Object.keys(cards).sort()).to.eql(['test_simple', 'tymly_rbacGrantRoleMembership_1_0', 'tymly_viewRoleMemberships_1_0'])
+    expect(Object.keys(forms).sort()).to.eql(['test_addIncidentLogEntry', 'test_addIncidentSafetyRecord', 'test_bookSomeoneSick'])
+    expect(Object.keys(boards).sort()).to.eql(['test_personalDetails', 'test_propertyViewer'])
 
-    expect(Object.keys(executionDescription.ctx.userRemit.add.categories).length).to.eql(3)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.categories).includes('fire')).to.eql(true)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.categories).includes('gazetteer')).to.eql(true)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.categories).includes('water')).to.eql(true)
-
-    expect(Object.keys(executionDescription.ctx.userRemit.add.todos).length).to.eql(2)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.todos)
-      .includes('a69c0ae8-cde5-11e7-abc4-cec278b6b50a')).to.eql(true)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.todos)
-      .includes('a69c0dcc-cde5-11e7-abc4-cec278b6b50a')).to.eql(true)
-
-    expect(Object.keys(executionDescription.ctx.userRemit.add.teams).length).to.eql(2)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.teams).includes('Fire Safety (North)')).to.eql(true)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.teams).includes('Birmingham (Red watch)')).to.eql(true)
-
-    expect(Object.keys(executionDescription.ctx.userRemit.add.cards).length).to.eql(1)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.cards)).to.eql(['test_simple'])
-
-    expect(Object.keys(executionDescription.ctx.userRemit.add.forms).length).to.eql(3)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.forms).includes('test_addIncidentLogEntry')).to.eql(true)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.forms).includes('test_addIncidentSafetyRecord')).to.eql(true)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.forms).includes('test_bookSomeoneSick')).to.eql(true)
-
-    expect(Object.keys(executionDescription.ctx.userRemit.add.boards).length).to.eql(2)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.boards).includes('test_personalDetails')).to.eql(true)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.boards).includes('test_propertyViewer')).to.eql(true)
-
-    // State machine with role: '$authenticated' should appear in startable
-    expect(Object.keys(executionDescription.ctx.userRemit.add.startable).includes('test_justAStateMachine_1_0')).to.eql(true)
     // State machine with role: 'topSecretRole' should NOT appear in startable
-    expect(Object.keys(executionDescription.ctx.userRemit.add.startable).includes('test_topSecretStateMachine_1_0')).to.eql(false)
     // State machine without 'user' as instigator should NOT appear in startable
-    expect(Object.keys(executionDescription.ctx.userRemit.add.startable).includes('test_shouldNotBeOnRemit_1_0')).to.eql(false)
+    expect(Object.keys(startable).sort()).to.eql(['test_getBoards_1_0', 'test_justAStateMachine_1_0'])
 
-    expect(executionDescription.ctx.userRemit.remove).to.eql({})
+    expect(remove).to.eql({})
   })
 
   it('what if the user only has settings and no favourites yet?', async () => {
@@ -211,14 +159,11 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
     expect(executionDescription.status).to.eql('SUCCEEDED')
 
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.length).to.eql(5)
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.includes('expenses')).to.eql(true)
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.includes('gazetteer')).to.eql(true)
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.includes('hydrants')).to.eql(true)
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.includes('hr')).to.eql(true)
-    expect(executionDescription.ctx.userRemit.settings.categoryRelevance.includes('incidents')).to.eql(true)
+    const { settings, favouriteStartableNames } = executionDescription.ctx.userRemit
+    const { categoryRelevance } = settings
 
-    expect(executionDescription.ctx.userRemit.favouriteStartableNames).to.eql([])
+    expect(categoryRelevance.sort()).to.eql(['expenses', 'gazetteer', 'hr', 'hydrants', 'incidents'])
+    expect(favouriteStartableNames).to.eql([])
   })
 
   it('add fire, water and remove hr category names to the remit', async () => {
@@ -245,11 +190,10 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     expect(executionDescription.currentResource).to.eql('module:getUserRemit')
     expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
     expect(executionDescription.status).to.eql('SUCCEEDED')
-    expect(Object.keys(executionDescription.ctx.userRemit.add.categories).length).to.eql(2)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.categories).includes('fire')).to.eql(true)
-    expect(Object.keys(executionDescription.ctx.userRemit.add.categories).includes('water')).to.eql(true)
-    expect(executionDescription.ctx.userRemit.remove.categories)
-      .to.eql(['hr'])
+
+    const { categories } = executionDescription.ctx.userRemit.add
+
+    expect(Object.keys(categories).sort()).to.eql(['fire', 'system', 'water'])
   })
 
   it('add/remove todo execution names to/from the remit', async () => {
@@ -277,9 +221,9 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
     expect(executionDescription.status).to.eql('SUCCEEDED')
 
-    expect(Object.keys(executionDescription.ctx.userRemit.remove.todos).length).to.eql(1)
-    expect(executionDescription.ctx.userRemit.remove.todos)
-      .to.eql(['a69c0ad0-cde5-11e7-abc4-cec278b6b50a'])
+    const { todos } = executionDescription.ctx.userRemit.remove
+
+    expect(todos.sort()).to.eql(['a69c0ad0-cde5-11e7-abc4-cec278b6b50a'])
   })
 
   it('add/remove team names to/from the remit', async () => {
@@ -306,10 +250,11 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     expect(executionDescription.currentResource).to.eql('module:getUserRemit')
     expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
     expect(executionDescription.status).to.eql('SUCCEEDED')
-    expect(Object.keys(executionDescription.ctx.userRemit.add.teams))
-      .to.eql(['Fire Safety (North)'])
-    expect(executionDescription.ctx.userRemit.remove.teams)
-      .to.eql(['Another team'])
+
+    const { add, remove } = executionDescription.ctx.userRemit
+
+    expect(Object.keys(add.teams).sort()).to.eql(['Fire Safety (North)'])
+    expect(remove.teams.sort()).to.eql(['Another team'])
   })
 
   it('add/remove form names to/from the remit', async () => {
