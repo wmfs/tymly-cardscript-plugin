@@ -1,0 +1,391 @@
+{
+  "templateMeta": {
+    "name": "pizza-form",
+    "title": "Pizza Place",
+    "category": "pizza"
+  },
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Jumbotron",
+      "backgroundImage": "pizza/pizza.jpg",
+      "title": "Pizza Place",
+      "subtitle": "This is an example view where you can order some delicious Tymly pizza.",
+      "wash": "black"
+    },
+    {
+      "id": "yourDetails",
+      "title": "Your Details",
+      "tocIcon": "account_box",
+      "type": "Container",
+      "spacing": "small",
+      "items": [
+        {
+          "type": "TextBlock",
+          "spacing": "large",
+          "size": "large",
+          "weight": "bolder",
+          "text": "Your Details"
+        },
+        {
+          "type": "Input.Name",
+          "title": "Your name",
+          "id": "firstName",
+          "validation": {
+            "maxLength": 50,
+            "required": true
+          }
+        },
+        {
+          "type": "Input.TelephoneNumber",
+          "id": "phoneNumber"
+        },
+        {
+          "type": "Input.ChoiceSet",
+          "id": "dietaryReq",
+          "title": "Dietary Requirements",
+          "icon": "fastfood",
+          "choices": [
+            {
+              "title": "Peanut Allergy",
+              "value": "PEANUT"
+            },
+            {
+              "title": "Gluten Free",
+              "value": "GLUTEN_FREE"
+            },
+            {
+              "title": "Dairy Free",
+              "value": "DAIRY_FREE"
+            },
+            {
+              "title": "Other",
+              "value": "OTHER"
+            }
+          ],
+          "isMultiSelect": true
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "showWhen": "data.dietaryReq.includes('OTHER')",
+      "items": [
+        {
+          "type": "TextBlock",
+          "size": "medium",
+          "text": "Please enter your other dietary requirements..."
+        },
+        {
+          "type": "Input.Text",
+          "id": "dietaryReqOther",
+          "isMultiline": true,
+          "validation": {
+            "requiredIf": "data.dietaryReq.includes('OTHER')"
+          }
+        }
+      ]
+    },
+    {
+      "id": "thePizza",
+      "title": "The Pizza",
+      "tocIcon": "local_pizza",
+      "type": "Container",
+      "spacing": "small",
+      "items": [
+        {
+          "type": "TextBlock",
+          "size": "large",
+          "weight": "bolder",
+          "text": "The Pizza"
+        },
+        {
+          "type": "Input.ChoiceSet",
+          "id": "size",
+          "title": "What size pizza?",
+          "icon": "local_pizza",
+          "value": "M",
+          "choices": [
+            {
+              "title": "Small",
+              "value": "S"
+            },
+            {
+              "title": "Medium",
+              "value": "M"
+            },
+            {
+              "title": "Large",
+              "value": "L"
+            },
+            {
+              "title": "Extra Large",
+              "value": "XL"
+            },
+            {
+              "title": "Extra Extra Large",
+              "value": "XXL"
+            }
+          ],
+          "style": "expanded"
+        },
+        {
+          "type": "Input.ChoiceSet",
+          "id": "savouryOrSweet",
+          "title": "Would you like it savoury or sweet?",
+          "choices": [
+            {
+              "title": "Savoury",
+              "value": "SAVOURY"
+            },
+            {
+              "title": "Sweet",
+              "value": "SWEET"
+            }
+          ],
+          "style": "expanded",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "type": "Container",
+          "id": "savourySet",
+          "showWhen": "data.savouryOrSweet === 'SAVOURY'",
+          "spacing": "small",
+          "items": [
+            {
+              "type": "Input.ChoiceSet",
+              "id": "base",
+              "title": "What base would you like?",
+              "value": "TOMATO",
+              "choices": [
+                {
+                  "title": "Tomato Sauce",
+                  "value": "TOMATO"
+                },
+                {
+                  "title": "BBQ",
+                  "value": "BBQ"
+                },
+                {
+                  "title": "Sweet and Sour",
+                  "value": "SWEETSOUR"
+                }
+              ],
+              "validation": {
+                "requiredIf": "data.savouryOrSweet === 'SAVOURY'"
+              }
+            },
+            {
+              "type": "Input.Toggle",
+              "id": "hot",
+              "spacing": "large",
+              "title": "Do you like it hot?",
+              "value": "false"
+            },
+            {
+              "type": "Input.ChoiceSet",
+              "id": "howHot",
+              "title": "How hot do you like it?",
+              "icon": "whatshot",
+              "showWhen": "data.hot",
+              "choices": [
+                {
+                  "title": "1 Chilli",
+                  "value": 1
+                },
+                {
+                  "title": "2 Chillies",
+                  "value": 2
+                },
+                {
+                  "title": "3 Chillies",
+                  "value": 3
+                },
+                {
+                  "title": "4 Chillies",
+                  "value": 4
+                },
+                {
+                  "title": "5 Chillies",
+                  "value": 5
+                },
+                {
+                  "title": "6 Chillies",
+                  "value": 6
+                }
+              ],
+              "style": "expanded",
+              "validation": {
+                "requiredIf": "data.hot === true"
+              }
+            },
+            {
+              "type": "TextBlock",
+              "size": "small",
+              "color": "attention",
+              "text": "We will not be held responsible if you can't handle the heat!",
+              "showWhen": "data.hot"
+            },
+            {
+              "type": "Input.ChoiceSet",
+              "id": "toppings",
+              "title": "Select what toppings you would like (up to 3)",
+              "icon": "local_pizza",
+              "choices": [
+                {
+                  "title": "Pepperoni",
+                  "value": "PEPPERONI"
+                },
+                {
+                  "title": "Olives",
+                  "value": "OLIVES"
+                },
+                {
+                  "title": "Peppers",
+                  "value": "PEPPERS"
+                },
+                {
+                  "title": "Pineapple",
+                  "value": "PINEAPPLE"
+                },
+                {
+                  "title": "Ham",
+                  "value": "HAM"
+                },
+                {
+                  "title": "Chicken",
+                  "value": "CHICKEN"
+                },
+                {
+                  "title": "Spicy Beef",
+                  "value": "SPICY_BEEF"
+                },
+                {
+                  "title": "Jalapenos",
+                  "value": "JALAPENOS"
+                }
+              ],
+              "style": "expanded",
+              "isMultiSelect": true,
+              "validation": {
+                "maxLength": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "Container",
+          "id": "sweetSet",
+          "showWhen": "data.savouryOrSweet === 'SWEET'",
+          "spacing": "small",
+          "items": [
+            {
+              "type": "Input.ChoiceSet",
+              "title": "What primary flavour would you like?",
+              "id": "primaryFlavour",
+              "choices": [
+                {
+                  "title": "Milk Chocolate",
+                  "value": "MILK_CHOC"
+                },
+                {
+                  "title": "White Chocolate",
+                  "value": "WHITE_CHOC"
+                },
+                {
+                  "title": "Dark Chocolate",
+                  "value": "DARK_CHOC"
+                },
+                {
+                  "title": "Toffee",
+                  "value": "TOFFEE"
+                }
+              ],
+              "validation": {
+                "requiredIf": "data.savouryOrSweet === 'SWEET'"
+              }
+            },
+            {
+              "type": "TextBlock",
+              "size": "medium",
+              "spacing": "large",
+              "text": "What secondary flavour would you like?",
+              "showWhen": "data.primaryFlavour"
+            },
+            {
+              "type": "Input.ChoiceSet",
+              "id": "secondaryFlavour",
+              "showWhen": "data.primaryFlavour",
+              "choices": [
+                {
+                  "title": "Milk Chocolate",
+                  "value": "MILK_CHOC"
+                },
+                {
+                  "title": "White Chocolate",
+                  "value": "WHITE_CHOC"
+                },
+                {
+                  "title": "Dark Chocolate",
+                  "value": "DARK_CHOC"
+                },
+                {
+                  "title": "Toffee",
+                  "value": "TOFFEE"
+                }
+              ],
+              "validation": {
+                "requiredIf": "data.savouryOrSweet === 'SWEET'"
+              }
+            },
+            {
+              "id": "sprinkles",
+              "showWhen": "data.secondaryFlavour",
+              "type": "Input.Toggle",
+              "title": "Would you like hundreds and thousands sprinkles on your pizza?",
+              "value": false,
+              "spacing": "large"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "items": [
+        {
+          "type": "Input.ChoiceSet",
+          "id": "deliveryOrCollection",
+          "title": "Would you like to collect your pizza or have it delivered?",
+          "icon": "local_taxi",
+          "value": "COLLECT",
+          "choices": [
+            {
+              "title": "Collect",
+              "value": "COLLECT"
+            },
+            {
+              "title": "Deliver",
+              "value": "DELIVER"
+            }
+          ],
+          "style": "expanded"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Cancel",
+      "title": "Cancel"
+    },
+    {
+      "type": "Action.Submit",
+      "title": "Submit"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.0"
+}
