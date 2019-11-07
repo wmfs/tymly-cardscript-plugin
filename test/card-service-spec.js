@@ -43,15 +43,12 @@ describe('Card Service tests', function () {
   })
 
   it('should check the card service contains the simple card', () => {
-    expect(cardService.cards).to.have.own.property('test_simple')
+    expect(Object.keys(cardService.cards).sort()).to.eql(['test_pizzaDetails_1_0', 'test_pizzaForm_1_0'])
   })
 
-  it(`should expect the simple card to contain it's widgets`, () => {
-    expect(cardService.cards.test_simple).to.have.own.property('widgets')
-  })
-
-  it(`should expect the simple card to contain a shasum`, () => {
-    expect(cardService.cards.test_simple).to.have.own.property('shasum')
+  it(`should expect cards to contain a shasum`, () => {
+    expect(cardService.cards.test_pizzaDetails_1_0).to.have.own.property('shasum')
+    expect(cardService.cards.test_pizzaForm_1_0).to.have.own.property('shasum')
   })
 
   it('should tear down the test resources', () => {

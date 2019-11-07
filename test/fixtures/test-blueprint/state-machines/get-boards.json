@@ -10,7 +10,7 @@
       "Resource": "module:awaitingHumanInput",
       "ResourceConfig": {
         "uiType": "board",
-        "uiName": "wmfs_incidentSummary",
+        "uiName": "test_pizzaDetails",
         "dataPath": "$"
       },
       "InputPath": "$",
