@@ -1,3 +1,28 @@
+# [1.8.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.7.0...v1.8.0) (2019-11-07)
+
+
+### 🐛 Bug Fixes
+
+* refactor awaiting human input to no longer use ui type ([22502ea](https://github.com/wmfs/tymly-cardscript-plugin/commit/22502eabbd9471baab69d99e3582d395006df5c1))
+* remove console logs ([8516911](https://github.com/wmfs/tymly-cardscript-plugin/commit/851691103bbcd27f4a7aba4df0b4a61fbd3c5104))
+* remove forms + boards services ([21b2b07](https://github.com/wmfs/tymly-cardscript-plugin/commit/21b2b07e3de746036243728d7a85ba2343316697))
+* remove get board data (it's the same as using finding by id state resource) ([a1bb9b9](https://github.com/wmfs/tymly-cardscript-plugin/commit/a1bb9b9bcb5a4786a1d5865bd907fbdee4db4b74))
+* tidy up get watched boards state resource ([481183b](https://github.com/wmfs/tymly-cardscript-plugin/commit/481183bd5d8415027092cf25419ea89badc9e84f))
+* tidy up notifications state resource ([4b87f35](https://github.com/wmfs/tymly-cardscript-plugin/commit/4b87f35b7de35c18977bc156f0be958d917822fa))
+* tidy up some state resources ([ef041db](https://github.com/wmfs/tymly-cardscript-plugin/commit/ef041dbec1b52b1ccdc5c3419ee6c14bb63b7e06))
+* tidy up watch board state resource ([d249a88](https://github.com/wmfs/tymly-cardscript-plugin/commit/d249a88e71989a99cec9c60e2e754a994f320f7f))
+
+
+### 🛠 Builds
+
+* **deps:** update several deps ([30fbdd3](https://github.com/wmfs/tymly-cardscript-plugin/commit/30fbdd3c30f9cf7932bf57872696bad6a905c2f0))
+* **deps-dev:** update dev dependancies ([0ae9ea7](https://github.com/wmfs/tymly-cardscript-plugin/commit/0ae9ea72e8b6a31243a0188e6d86b9ac0f9d94be))
+
+
+### 🚨 Tests
+
+* tidy up remit tests ([38032c3](https://github.com/wmfs/tymly-cardscript-plugin/commit/38032c38fc0c3d350a771df02574b0d4263c0e62))
+
 # [1.7.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.6.0...v1.7.0) (2019-09-09)
 
 

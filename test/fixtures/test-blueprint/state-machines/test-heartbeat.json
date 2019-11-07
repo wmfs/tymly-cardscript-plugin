@@ -8,7 +8,7 @@
       "Resource": "module:awaitingHumanInput",
       "ResourceConfig": {
         "uiType": "testType",
-        "uiName": "testName",
+        "uiName": "test_pizzaForm",
         "dataPath": "$.someDefaultFormData",
         "defaults": {
           "empNo": 0,
