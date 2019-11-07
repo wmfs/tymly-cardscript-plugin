@@ -48,17 +48,17 @@ describe('get-board-data tymly-cardscript-plugin tests', function () {
     )
   })
 
-  it('should ensure each form has a shasum associated with it', () => {
-    Object.keys(formService.forms).forEach(form => {
-      expect(formService.forms[form].shasum)
-    })
-  })
-
-  it('should ensure each board has a shasum associated with it', () => {
-    Object.keys(boardService.boards).forEach(board => {
-      expect(boardService.boards[board].shasum)
-    })
-  })
+  // it('should ensure each form has a shasum associated with it', () => {
+  //   Object.keys(formService.forms).forEach(form => {
+  //     expect(formService.forms[form].shasum)
+  //   })
+  // })
+  //
+  // it('should ensure each board has a shasum associated with it', () => {
+  //   Object.keys(boardService.boards).forEach(board => {
+  //     expect(boardService.boards[board].shasum)
+  //   })
+  // })
 
   it('insert some \'human\' test data', async () => {
     await humanModel.create({
