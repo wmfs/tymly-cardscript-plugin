@@ -1,3 +1,27 @@
+# [1.9.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.8.0...v1.9.0) (2019-11-15)
+
+
+### ✨ Features
+
+* Pass through uiRefresh resource config ([84ce0fa](https://github.com/wmfs/tymly-cardscript-plugin/commit/84ce0fa971066d8555a39f2f67819936bbbebd72))
+* Support for uiType === 'info' ([79359be](https://github.com/wmfs/tymly-cardscript-plugin/commit/79359be2490f4288bdc4aa6753babd01b50de337))
+
+
+### 🐛 Bug Fixes
+
+* Pass uiType in requiredHumanInput ([d742be3](https://github.com/wmfs/tymly-cardscript-plugin/commit/d742be381fcbd005641062e26d02a280718c57a1))
+
+
+### 📦 Code Refactoring
+
+* Pull out board processing into its own function ([c3b9595](https://github.com/wmfs/tymly-cardscript-plugin/commit/c3b9595de8ed42bdc5be1c166d03da796e7243c2))
+* remove uiType from awaiting human input ([dd995a3](https://github.com/wmfs/tymly-cardscript-plugin/commit/dd995a31847f6c5df43529fb77a5a76238014b2c))
+
+
+### ♻️ Chores
+
+* Bump tymly, tymly-pg-plugin, and tymly-solr-plugin dependencies ([abe296b](https://github.com/wmfs/tymly-cardscript-plugin/commit/abe296ba687d85858295753307a322cb152db227))
+
 # [1.8.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.7.0...v1.8.0) (2019-11-07)
 
 
