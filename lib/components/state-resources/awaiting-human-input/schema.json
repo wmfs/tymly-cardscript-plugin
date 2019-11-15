@@ -7,7 +7,11 @@
     },
     "uiType": {
       "type": "string",
-      "description": "Type of UI, either board or form"
+      "description": "Type of UI, either board, form, or progress"
+    },
+    "uiRefresh": {
+      "type": "integer",
+      "description": "If the uiType is progress, the suggest refresh time in seconds"
     },
     "dataPath": {
       "type": "string",
