@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.9.0...v1.9.1) (2019-11-20)
+
+
+### 🐛 Bug Fixes
+
+* uncomment essential line in awaiting human input to clear nulls ([4ad136e](https://github.com/wmfs/tymly-cardscript-plugin/commit/4ad136e5049028bc962ac534abaa2c612a440a94))
+
 # [1.9.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.8.0...v1.9.0) (2019-11-15)
 
 
