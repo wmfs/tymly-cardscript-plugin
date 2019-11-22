@@ -28,7 +28,7 @@
     "shasum": "1.0.2"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "3.0.5",
+    "@semantic-release/changelog": "3.0.6",
     "@semantic-release/git": "7.0.18",
     "@wmfs/hl-pg-client": "1.13.0",
     "@wmfs/tymly": "1.102.0",
