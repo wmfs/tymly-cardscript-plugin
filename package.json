@@ -31,7 +31,7 @@
     "@semantic-release/changelog": "3.0.5",
     "@semantic-release/git": "7.0.18",
     "@wmfs/hl-pg-client": "1.13.0",
-    "@wmfs/tymly": "1.102.0",
+    "@wmfs/tymly": "1.103.1",
     "@wmfs/tymly-pg-plugin": "1.135.1",
     "@wmfs/tymly-rbac-plugin": "1.15.0",
     "@wmfs/tymly-solr-plugin": "2.1.0",
