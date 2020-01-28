@@ -32,7 +32,7 @@ describe('todo changes tymly-cardscript-plugin tests', function () {
     })
 
     statebox = tymlyServices.statebox
-    todos = tymlyServices.storage.models['tymly_todos']
+    todos = tymlyServices.storage.models.tymly_todos
     tymlyService = tymlyServices.tymly
     client = tymlyServices.storage.client
   })
