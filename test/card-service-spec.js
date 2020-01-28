@@ -46,7 +46,7 @@ describe('Card Service tests', function () {
     expect(Object.keys(cardService.cards).sort()).to.eql(['test_pizzaDetails_1_0', 'test_pizzaForm_1_0'])
   })
 
-  it(`should expect cards to contain a shasum`, () => {
+  it('should expect cards to contain a shasum', () => {
     expect(cardService.cards.test_pizzaDetails_1_0).to.have.own.property('shasum')
     expect(cardService.cards.test_pizzaForm_1_0).to.have.own.property('shasum')
   })
