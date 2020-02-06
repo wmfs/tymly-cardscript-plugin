@@ -7,14 +7,6 @@
       "Type": "Task",
       "Resource": "module:watchBoard",
       "InputPath": "$",
-      "Next": "DeltaReindex"
-    },
-    "DeltaReindex": {
-      "Type": "Task",
-      "Resource": "module:deltaReindex",
-      "ResourceConfig": {
-        "core": "tymly"
-      },
       "End": true
     }
   },
