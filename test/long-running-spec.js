@@ -35,7 +35,7 @@ describe('status of long running tasks', function () {
   it('start clock', async () => {
     const executionDescription = await statebox.startExecution(
       { },
-      "clock_clockUi_1_0",
+      'clock_clockUi_1_0',
       {
         sendResponse: 'AFTER_RESOURCE_CALLBACK.TYPE:awaitingHumanInput',
         userId: 'test-user'
@@ -62,6 +62,7 @@ describe('status of long running tasks', function () {
 
     expect(active.running).to.be.an('array')
     expect(active.running.length).to.equal(1)
+    expect(active.running[0].executionName).to.equal(clockExecution)
 
     expect(active.complete).to.be.an('array')
     expect(active.complete.length).to.equal(0)
@@ -93,18 +94,30 @@ describe('status of long running tasks', function () {
     expect(result.rowCount).to.equal(0)
   })
 
+  it('completed long running tasks by state-machine', async () => {
+    const active = await activeTasks(statebox)
+
+    expect(active.running).to.be.an('array')
+    expect(active.running.length).to.equal(0)
+
+    expect(active.complete).to.be.an('array')
+    expect(active.complete.length).to.equal(1)
+
+    const exec = active.complete[0]
+    expect(exec.executionName).to.equal(clockExecution)
+  })
+
   after('shut down Tymly', async () => {
     await sqlScriptRunner('./db-scripts/cleanup.sql', dbClient)
 
     await tymlyService.shutdown()
   })
-
 })
 
-async function activeTasks(statebox) {
+async function activeTasks (statebox) {
   const executionDescription = await statebox.startExecution(
     { },
-    "tymly_longRunningTasks_1_0",
+    'tymly_longRunningTasks_1_0',
     {
       sendResponse: 'COMPLETE',
       userId: 'test-user'
@@ -115,11 +128,10 @@ async function activeTasks(statebox) {
   return executionDescription.ctx
 }
 
-function queryExecutionTable(client) {
+function queryExecutionTable (client) {
   return client.query("SELECT execution_name, ctx, state_machine_name FROM tymly.execution WHERE status='RUNNING' AND _created_by='test-user' ORDER BY _modified DESC")
 }
 
 function sleep () {
   return new Promise(resolve => setTimeout(resolve, 2000))
 }
-
