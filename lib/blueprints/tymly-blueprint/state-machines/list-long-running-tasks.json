@@ -5,7 +5,7 @@
   "States": {
     "FindActive": {
       "Type": "Task",
-      "Resource": "module:activeLongRunningTasks",
+      "Resource": "module:listLongRunningTasks",
       "End": true
     }
   },

@@ -8,7 +8,8 @@ const sqlScriptRunner = require('./fixtures/sql-script-runner.js')
 
 describe('status of long running tasks', function () {
   this.timeout(process.env.TIMEOUT || 5000)
-  let statebox, tymlyService, clockExecution, dbClient
+  let statebox, tymlyService, dbClient
+  let firstClock, secondClock
 
   before('start Tymly', async () => {
     if (process.env.PG_CONNECTION_STRING && !/^postgres:\/\/[^:]+:[^@]+@(?:localhost|127\.0\.0\.1).*$/.test(process.env.PG_CONNECTION_STRING)) {
@@ -32,79 +33,67 @@ describe('status of long running tasks', function () {
     dbClient = tymlyServices.storage.client
   })
 
-  it('start clock', async () => {
-    const executionDescription = await statebox.startExecution(
-      { },
-      'clock_clockUi_1_0',
-      {
-        sendResponse: 'AFTER_RESOURCE_CALLBACK.TYPE:awaitingHumanInput',
-        userId: 'test-user'
-      }
-    )
-
-    expect(executionDescription.status).to.equal('RUNNING')
-    clockExecution = executionDescription.executionName
+  it('start first clock', async () => {
+    firstClock = await startClock(statebox)
   })
 
-  it('list long running tasks by querying database', async () => {
-    const result = await queryExecutionTable(dbClient)
-    expect(result.rowCount).to.equal(2)
-
-    const rows = result.rows
-    expect(rows.map(r => r.state_machine_name)).to.contain(
-      'clock_clock_1_0',
-      'clock_clock_ui_1_0'
-    )
-  })
-
-  it('active long running tasks by state-machine', async () => {
+  it('one task running', async () => {
     const active = await activeTasks(statebox)
 
     expect(active.running).to.be.an('array')
     expect(active.running.length).to.equal(1)
-    expect(active.running[0].executionName).to.equal(clockExecution)
+    expect(active.running[0].executionName).to.equal(firstClock)
 
     expect(active.complete).to.be.an('array')
     expect(active.complete.length).to.equal(0)
   })
 
-  it('stop clock', async () => {
-    statebox.sendTaskSuccess(
-      clockExecution,
-      { },
-      {
-        userId: 'test-user'
-      }
-    )
-
-    const executionDescription = await statebox.waitUntilStoppedRunning(
-      clockExecution
-    )
-
-    expect(executionDescription.status).to.equal('SUCCEEDED')
+  it('start second clock', async () => {
+    secondClock = await startClock(statebox)
   })
 
-  it('long running tasks list now empty', async () => {
-    // we stopped the clock execution,
-    // need to wait for the launched execution to notice
-    // and stop itself
-    await sleep()
+  it('two tasks running', async () => {
+    const active = await activeTasks(statebox)
 
-    const result = await queryExecutionTable(dbClient)
-    expect(result.rowCount).to.equal(0)
+    expect(active.running).to.be.an('array')
+    expect(active.running.length).to.equal(2)
+    const executionNames = active.running.map(e => e.executionName)
+    expect(executionNames).to.contain(firstClock, secondClock)
+
+    expect(active.complete).to.be.an('array')
+    expect(active.complete.length).to.equal(0)
   })
 
-  it('completed long running tasks by state-machine', async () => {
+  it('stop first clock', async () => {
+    await stopClock(statebox, firstClock)
+  })
+
+  it('one running, one stopped', async () => {
+    const active = await activeTasks(statebox)
+
+    expect(active.running).to.be.an('array')
+    expect(active.running.length).to.equal(1)
+    expect(active.running[0].executionName).to.equal(secondClock)
+
+    expect(active.complete).to.be.an('array')
+    expect(active.complete.length).to.equal(1)
+    expect(active.complete[0].executionName).to.equal(firstClock)
+  })
+
+  it('stop second clock', async () => {
+    await stopClock(statebox, secondClock)
+  })
+
+  it('two tasks stopped', async () => {
     const active = await activeTasks(statebox)
 
     expect(active.running).to.be.an('array')
     expect(active.running.length).to.equal(0)
 
     expect(active.complete).to.be.an('array')
-    expect(active.complete.length).to.equal(1)
-
-    const exec = active.complete[0]
-    expect(exec.executionName).to.equal(clockExecution)
+    expect(active.complete.length).to.equal(2)
+    const executionNames = active.complete.map(e => e.executionName)
+    expect(executionNames).to.contain(firstClock, secondClock)
   })
 
   after('shut down Tymly', async () => {
@@ -117,7 +106,7 @@ describe('status of long running tasks', function () {
 async function activeTasks (statebox) {
   const executionDescription = await statebox.startExecution(
     { },
-    'tymly_longRunningTasks_1_0',
+    'tymly_listLongRunningTasks_1_0',
     {
       sendResponse: 'COMPLETE',
       userId: 'test-user'
@@ -128,8 +117,37 @@ async function activeTasks (statebox) {
   return executionDescription.ctx
 }
 
-function queryExecutionTable (client) {
-  return client.query("SELECT execution_name, ctx, state_machine_name FROM tymly.execution WHERE status='RUNNING' AND _created_by='test-user' ORDER BY _modified DESC")
+async function startClock (statebox) {
+  const executionDescription = await statebox.startExecution(
+    { },
+    'clock_clockUi_1_0',
+    {
+      sendResponse: 'AFTER_RESOURCE_CALLBACK.TYPE:awaitingHumanInput',
+      userId: 'test-user'
+    }
+  )
+
+  expect(executionDescription.status).to.equal('RUNNING')
+  await sleep()
+  return executionDescription.executionName
+}
+
+async function stopClock (statebox, executionName) {
+  statebox.sendTaskSuccess(
+    executionName,
+    { },
+    {
+      userId: 'test-user'
+    }
+  )
+
+  const executionDescription = await statebox.waitUntilStoppedRunning(
+    executionName
+  )
+
+  expect(executionDescription.status).to.equal('SUCCEEDED')
+
+  await sleep()
 }
 
 function sleep () {
