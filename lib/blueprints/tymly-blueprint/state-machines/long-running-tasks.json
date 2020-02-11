@@ -6,7 +6,6 @@
     "FindActive": {
       "Type": "Task",
       "Resource": "module:activeLongRunningTasks",
-      "ResultPath": "$.running",
       "End": true
     }
   },
