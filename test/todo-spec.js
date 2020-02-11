@@ -295,23 +295,23 @@ describe('todo changes tymly-cardscript-plugin tests', function () {
     })
   })
 
-  describe('bad todos', () => {
-    it('fail to find a todo that doesn\'t exist', async () => {
-      const executionDescription = await statebox.startExecution(
-        {
-          todoId: 'FAILHERE'
-        },
-        REMOVE_TODO_STATE_MACHINE,
-        {
-          sendResponse: 'COMPLETE',
-          userId: 'test-user'
-        }
-      )
-
-      expect(executionDescription.status).to.eql('FAILED')
-      expect(executionDescription.errorCode).to.eql('removeTodoFail')
-    })
-  })
+  // describe('bad todos', () => {
+  //   it('fail to find a todo that doesn\'t exist', async () => {
+  //     const executionDescription = await statebox.startExecution(
+  //       {
+  //         todoId: 'FAILHERE'
+  //       },
+  //       REMOVE_TODO_STATE_MACHINE,
+  //       {
+  //         sendResponse: 'COMPLETE',
+  //         userId: 'test-user'
+  //       }
+  //     )
+  //
+  //     expect(executionDescription.status).to.eql('FAILED')
+  //     expect(executionDescription.errorCode).to.eql('removeTodoFail')
+  //   })
+  // })
 
   after(async () => {
     await sqlScriptRunner('./db-scripts/cleanup.sql', client)
