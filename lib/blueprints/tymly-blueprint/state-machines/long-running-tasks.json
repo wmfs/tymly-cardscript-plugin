@@ -1,0 +1,21 @@
+{
+  "Comment": "Gathers information about active and recently completed long running tasks",
+  "version": "1.0",
+  "StartAt": "FindActive",
+  "States": {
+    "FindActive": {
+      "Type": "Task",
+      "Resource": "module:activeLongRunningTasks",
+      "ResultPath": "$.running",
+      "End": true
+    }
+  },
+  "restrictions": [
+    {
+      "roleId": "$authenticated",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}

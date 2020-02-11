@@ -47,8 +47,7 @@ describe('status of long running tasks', function () {
   })
 
   it('list long running tasks by querying database', async () => {
-    const result = await dbClient.query("SELECT execution_name, ctx, state_machine_name FROM tymly.execution WHERE status='RUNNING' AND _created_by='test-user' ORDER BY _modified DESC")
-
+    const result = await queryExecutionTable(dbClient)
     expect(result.rowCount).to.equal(2)
 
     const rows = result.rows
@@ -56,6 +55,16 @@ describe('status of long running tasks', function () {
       'clock_clock_1_0',
       'clock_clock_ui_1_0'
     )
+  })
+
+  it('active long running tasks by state-machine', async () => {
+    const active = await activeTasks(statebox)
+
+    expect(active.running).to.be.an('array')
+    expect(active.running.length).to.equal(1)
+
+    expect(active.complete).to.be.an('array')
+    expect(active.complete.length).to.equal(0)
   })
 
   it('stop clock', async () => {
@@ -80,8 +89,7 @@ describe('status of long running tasks', function () {
     // and stop itself
     await sleep()
 
-    const result = await dbClient.query("SELECT execution_name, ctx, state_machine_name FROM tymly.execution WHERE status='RUNNING' AND _created_by='test-user' ORDER BY _modified DESC")
-
+    const result = await queryExecutionTable(dbClient)
     expect(result.rowCount).to.equal(0)
   })
 
@@ -92,6 +100,24 @@ describe('status of long running tasks', function () {
   })
 
 })
+
+async function activeTasks(statebox) {
+  const executionDescription = await statebox.startExecution(
+    { },
+    "tymly_longRunningTasks_1_0",
+    {
+      sendResponse: 'COMPLETE',
+      userId: 'test-user'
+    }
+  )
+
+  expect(executionDescription.status).to.equal('SUCCEEDED')
+  return executionDescription.ctx
+}
+
+function queryExecutionTable(client) {
+  return client.query("SELECT execution_name, ctx, state_machine_name FROM tymly.execution WHERE status='RUNNING' AND _created_by='test-user' ORDER BY _modified DESC")
+}
 
 function sleep () {
   return new Promise(resolve => setTimeout(resolve, 2000))
