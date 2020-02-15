@@ -63,8 +63,8 @@ describe('watched-boards tymly-cardscript-plugin tests', function () {
       }
     )
 
-    expect(executionDescription.currentStateName).to.eql('DeltaReindex')
-    expect(executionDescription.currentResource).to.eql('module:deltaReindex')
+    expect(executionDescription.currentStateName).to.eql('WatchBoard')
+    expect(executionDescription.currentResource).to.eql('module:watchBoard')
     expect(executionDescription.stateMachineName).to.eql(WATCH_BOARD_STATE_MACHINE)
     expect(executionDescription.status).to.eql('SUCCEEDED')
     expect(Object.keys(executionDescription.ctx).includes('subscriptionId')).to.eql(true)
@@ -112,8 +112,8 @@ describe('watched-boards tymly-cardscript-plugin tests', function () {
       }
     )
 
-    expect(executionDescription.currentStateName).to.eql('DeltaReindex')
-    expect(executionDescription.currentResource).to.eql('module:deltaReindex')
+    expect(executionDescription.currentStateName).to.eql('WatchBoard')
+    expect(executionDescription.currentResource).to.eql('module:watchBoard')
     expect(executionDescription.stateMachineName).to.eql(WATCH_BOARD_STATE_MACHINE)
     expect(executionDescription.status).to.eql('SUCCEEDED')
     expect(Object.keys(executionDescription.ctx).includes('subscriptionId')).to.eql(true)
@@ -141,8 +141,8 @@ describe('watched-boards tymly-cardscript-plugin tests', function () {
       }
     )
 
-    expect(executionDescription.currentStateName).to.eql('DeltaReindex')
-    expect(executionDescription.currentResource).to.eql('module:deltaReindex')
+    expect(executionDescription.currentStateName).to.eql('WatchBoard')
+    expect(executionDescription.currentResource).to.eql('module:watchBoard')
     expect(executionDescription.stateMachineName).to.eql(WATCH_BOARD_STATE_MACHINE)
     expect(executionDescription.status).to.eql('SUCCEEDED')
     expect(Object.keys(executionDescription.ctx).includes('subscriptionId')).to.eql(true)
