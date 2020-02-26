@@ -1,3 +1,17 @@
+# [1.11.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.10.1...v1.11.0) (2020-02-26)
+
+
+### 🛠 Builds
+
+* **deps:** bump jsonfile from 5.0.0 to 6.0.0 ([9e16c14](https://github.com/wmfs/tymly-cardscript-plugin/commit/9e16c144cab159778b48d05c4714f264efceca5c))
+* **deps-dev:** bump [@semantic-release](https://github.com/semantic-release)/git from 7.0.18 to 9.0.0 ([b31483d](https://github.com/wmfs/tymly-cardscript-plugin/commit/b31483df6862cb3cf7dbd8327d08204e566a1fb2))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.119.0 to 1.120.0 ([11085d9](https://github.com/wmfs/tymly-cardscript-plugin/commit/11085d9bb95190d5a7fc2d2448ae1c8aff20f067))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.168.0 to 1.170.0 ([fa08845](https://github.com/wmfs/tymly-cardscript-plugin/commit/fa08845dfd7cd5b8297cd9d9a3b38e9e3b33ac0b))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.170.0 to 1.171.0 ([1265504](https://github.com/wmfs/tymly-cardscript-plugin/commit/12655043aaaa4e4f5a4f4f51abd4a2f8adb6f99d))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-solr-plugin from 2.4.0 to 2.6.0 ([84fcf8e](https://github.com/wmfs/tymly-cardscript-plugin/commit/84fcf8e4ac85f585de41a5bddb5542a6955d7a5d))
+* **deps-dev:** bump codecov from 3.6.4 to 3.6.5 ([2176c57](https://github.com/wmfs/tymly-cardscript-plugin/commit/2176c57174030a34bda6d7db1f1f3db8d0d4675d))
+* **deps-dev:** bump semantic-release from 15.14.0 to 17.0.4 ([7d13cd7](https://github.com/wmfs/tymly-cardscript-plugin/commit/7d13cd7840381ce3da06903f8f48ed18315ab865))
+
 ## [1.10.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.10.0...v1.10.1) (2020-02-11)
 
 
