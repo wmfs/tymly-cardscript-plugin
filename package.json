@@ -22,7 +22,7 @@
   "dependencies": {
     "debug": "4.1.1",
     "@wmfs/form-maker": "1.4.0",
-    "jsonfile": "6.0.0",
+    "jsonfile": "6.0.1",
     "jsonpath": "1.0.2",
     "lodash": "4.17.15",
     "shasum": "1.0.2"
