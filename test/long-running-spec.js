@@ -6,7 +6,7 @@ const expect = require('chai').expect
 const process = require('process')
 const sqlScriptRunner = require('./fixtures/sql-script-runner.js')
 
-describe('status of long running tasks', function () {
+describe('long running tasks', function () {
   this.timeout(process.env.TIMEOUT || 5000)
   let statebox, tymlyService, dbClient
   let firstClock, secondClock
@@ -17,20 +17,10 @@ describe('status of long running tasks', function () {
       this.skip()
     }
 
-    const tymlyServices = await tymly.boot({
-      blueprintPaths: [
-        path.resolve(__dirname, './../test/fixtures/clock-blueprint')
-      ],
-      pluginPaths: [
-        path.resolve(__dirname, './../lib'),
-        require.resolve('@wmfs/tymly-pg-plugin'),
-        require.resolve('@wmfs/tymly-test-helpers/plugins/allow-everything-rbac-plugin')
-      ]
-    })
-
-    statebox = tymlyServices.statebox
-    tymlyService = tymlyServices.tymly
-    dbClient = tymlyServices.storage.client
+    const up = await spinUp()
+    statebox = up.statebox
+    tymlyService = up.tymlyService
+    dbClient = up.dbClient
   })
 
   it('start first clock', async () => {
@@ -68,7 +58,7 @@ describe('status of long running tasks', function () {
     await stopClock(statebox, firstClock)
   })
 
-  it('one running, one stopped', async () => {
+  it('one running, one completed', async () => {
     const active = await activeTasks(statebox)
 
     expect(active.running).to.be.an('array')
@@ -84,7 +74,7 @@ describe('status of long running tasks', function () {
     await stopClock(statebox, secondClock)
   })
 
-  it('two tasks stopped', async () => {
+  it('two tasks completed', async () => {
     const active = await activeTasks(statebox)
 
     expect(active.running).to.be.an('array')
@@ -97,11 +87,34 @@ describe('status of long running tasks', function () {
   })
 
   after('shut down Tymly', async () => {
-    await sqlScriptRunner('./db-scripts/cleanup.sql', dbClient)
-
-    await tymlyService.shutdown()
+    await cleanUp(tymlyService, dbClient)
   })
 })
+
+async function spinUp () {
+  const tymlyServices = await tymly.boot({
+    blueprintPaths: [
+      path.resolve(__dirname, './../test/fixtures/clock-blueprint')
+    ],
+    pluginPaths: [
+      path.resolve(__dirname, './../lib'),
+      require.resolve('@wmfs/tymly-pg-plugin'),
+      require.resolve('@wmfs/tymly-test-helpers/plugins/allow-everything-rbac-plugin')
+    ]
+  })
+
+  return {
+    statebox: tymlyServices.statebox,
+    tymlyService: tymlyServices.tymly,
+    dbClient: tymlyServices.storage.client
+  }
+}
+
+async function cleanUp (tymlyService, dbClient) {
+  await sqlScriptRunner('./db-scripts/cleanup.sql', dbClient)
+
+  await tymlyService.shutdown()
+}
 
 async function activeTasks (statebox) {
   const executionDescription = await statebox.startExecution(
