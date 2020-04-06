@@ -7,6 +7,78 @@ const process = require('process')
 const sqlScriptRunner = require('./fixtures/sql-script-runner.js')
 
 describe('long running tasks', function () {
+
+describe('archive execution state resource', function () {
+  this.timeout(process.env.TIMEOUT || 5000)
+  let statebox, tymlyService, dbClient
+  let running, failed, stopped, succeeded;
+
+  before('start Tymly', async () => {
+    if (process.env.PG_CONNECTION_STRING && !/^postgres:\/\/[^:]+:[^@]+@(?:localhost|127\.0\.0\.1).*$/.test(process.env.PG_CONNECTION_STRING)) {
+      console.log(`Skipping tests due to unsafe PG_CONNECTION_STRING value (${process.env.PG_CONNECTION_STRING})`)
+      this.skip()
+    }
+
+    const up = await spinUp()
+    statebox = up.statebox
+    tymlyService = up.tymlyService
+    dbClient = up.dbClient
+  })
+
+  it('start process', async () => {
+    running = await startClock(statebox)
+  })
+  it('start process and succeed', async () => {
+    succeeded = await startClock(statebox)
+    statebox.sendTaskSuccess(
+      succeeded,
+      { },
+      { userId: 'test-user' }
+    )
+  })
+  it('start process and fail', async () => {
+    failed = await startClock(statebox)
+    statebox.sendTaskFailure(
+      failed,
+      { },
+      { userId: 'test-user' }
+    )
+  })
+  it('start process and stop', async () => {
+    stopped = await startClock(statebox)
+    statebox.stopExecution(
+      "User Request",
+      { },
+      stopped,
+      { userId: 'test-user' }
+    )
+  })
+
+  it('can not archive running execution', async () => {
+    await archiveExecution(statebox, running, 'FAILED')
+  })
+  it('archive succeeded execution', async () => {
+    await archiveExecution(statebox, succeeded)
+    const { status } = await statebox.describeExecution(succeeded)
+    expect(status).to.equals('ARCHIVED-SUCCEEDED')
+  })
+  it('archive failed execution', async () => {
+    await archiveExecution(statebox, failed)
+    const { status } = await statebox.describeExecution(failed)
+    expect(status).to.equals('ARCHIVED-FAILED')
+  })
+  it('archive stopped execution', async () => {
+    await archiveExecution(statebox, stopped)
+    const { status } = await statebox.describeExecution(stopped)
+    expect(status).to.equals('ARCHIVED-STOPPED')
+  })
+
+  after('shut down Tymly', async () => {
+    await cleanUp(tymlyService, dbClient)
+  })
+})
+
+describe('list long running tasks', function () {
   this.timeout(process.env.TIMEOUT || 5000)
   let statebox, tymlyService, dbClient
   let firstClock, secondClock
@@ -121,6 +193,7 @@ describe('long running tasks', function () {
   })
 })
 
+})
 async function spinUp () {
   const tymlyServices = await tymly.boot({
     blueprintPaths: [
@@ -193,8 +266,8 @@ async function stopClock (statebox, executionName) {
   await sleep()
 }
 
-function archiveExecution(statebox, executionName) {
-  return statebox.startExecution(
+async function archiveExecution(statebox, executionName, expectedStatus = 'SUCCEEDED') {
+  const { status } = await statebox.startExecution(
     {
       executionName: executionName
     },
@@ -204,6 +277,7 @@ function archiveExecution(statebox, executionName) {
       userId: 'test-user'
     }
   )
+  expect(status).to.equal(expectedStatus)
 }
 
 function sleep () {
