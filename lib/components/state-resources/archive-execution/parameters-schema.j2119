@@ -1,0 +1,2 @@
+This document specifies a JSON object called an "ArchiveExecution Parameter".
+An ArchiveExecution Parameter MUST have a string field named "executionName".

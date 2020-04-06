@@ -87,7 +87,7 @@ describe('long running tasks', function () {
   })
 
   it('archive second clock', async () => {
-    archiveExecution(statebox, secondClock)
+    await archiveExecution(statebox, secondClock)
   })
 
   it('completed tasks now only lists first clock', async () => {
