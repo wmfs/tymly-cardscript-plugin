@@ -86,6 +86,36 @@ describe('long running tasks', function () {
     expect(executionNames).to.contain(firstClock, secondClock)
   })
 
+  it('archive second clock', async () => {
+    archiveExecution(statebox, secondClock)
+  })
+
+  it('completed tasks now only lists first clock', async () => {
+    const active = await activeTasks(statebox)
+
+    expect(active.running).to.be.an('array')
+    expect(active.running.length).to.equal(0)
+
+    expect(active.complete).to.be.an('array')
+    expect(active.complete.length).to.equal(1)
+    const executionNames = active.complete.map(e => e.executionName)
+    expect(executionNames).to.contain(firstClock)
+  })
+
+  it('archive first clock', async () => {
+    await archiveExecution(statebox, firstClock)
+  })
+
+  it('completed tasks list is empty', async () => {
+    const active = await activeTasks(statebox)
+
+    expect(active.running).to.be.an('array')
+    expect(active.running.length).to.equal(0)
+
+    expect(active.complete).to.be.an('array')
+    expect(active.complete.length).to.equal(0)
+  })
+
   after('shut down Tymly', async () => {
     await cleanUp(tymlyService, dbClient)
   })
@@ -161,6 +191,19 @@ async function stopClock (statebox, executionName) {
   expect(executionDescription.status).to.equal('SUCCEEDED')
 
   await sleep()
+}
+
+function archiveExecution(statebox, executionName) {
+  return statebox.startExecution(
+    {
+      executionName: executionName
+    },
+    'tymly_archiveExecution_1_0',
+    {
+      sendResponse: 'COMPLETE',
+      userId: 'test-user'
+    }
+  )
 }
 
 function sleep () {
