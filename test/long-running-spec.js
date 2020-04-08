@@ -73,6 +73,12 @@ describe('archive execution state resource', function () {
     expect(status).to.equals('ARCHIVED-STOPPED')
   })
 
+  it('trying to archive an archived execution is a no-op', async () => {
+    await archiveExecution(statebox, succeeded)
+    const { status } = await statebox.describeExecution(succeeded)
+    expect(status).to.equals('ARCHIVED-SUCCEEDED')
+  })
+
   after('shut down Tymly', async () => {
     await cleanUp(tymlyService, dbClient)
   })
