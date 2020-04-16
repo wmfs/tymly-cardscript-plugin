@@ -1,3 +1,68 @@
+# [1.13.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.12.0...v1.13.0) (2020-04-16)
+
+
+### ✨ Features
+
+* ArchiveExecution state machine and resource. ([19dd058](https://github.com/wmfs/tymly-cardscript-plugin/commit/19dd0586a8391a6dd4406d036315b30379248719))
+* Extend long running tasks list fields ([44c5bb6](https://github.com/wmfs/tymly-cardscript-plugin/commit/44c5bb6703f14c8bb159e8e96f9bc0e0fe29357b))
+* Try to pull task title from the card template ([43c76cf](https://github.com/wmfs/tymly-cardscript-plugin/commit/43c76cffa03bd91925fe1178f9ce4131659924f8))
+
+
+### 🐛 Bug Fixes
+
+* ArchiveExecution state machine, and scaffolding for the state resource implementation ([0198559](https://github.com/wmfs/tymly-cardscript-plugin/commit/0198559df4fe43c7addb04634b3bb5e205c0eb0c))
+* Include stopped when querying recently completed tasks ([6b14c9f](https://github.com/wmfs/tymly-cardscript-plugin/commit/6b14c9f34cd297a5bf62c4682fc71aaa0a83909b))
+* Long-running tasks - should be in instigatorGroup app, but don't need to be use startable ([39ab88e](https://github.com/wmfs/tymly-cardscript-plugin/commit/39ab88eeefc7d0034a3615a2fc22f0c70324c58e))
+* Return all the completed tasks, not just the most recent three. ([abd2b04](https://github.com/wmfs/tymly-cardscript-plugin/commit/abd2b0428f8e8644583a30fa2a452ed762f996aa))
+* Use storage.currentUser() not context.userId. ([16e5e6a](https://github.com/wmfs/tymly-cardscript-plugin/commit/16e5e6aaa6653268d57f2b4b58cc4837c8502ef2))
+
+
+### 🛠 Builds
+
+* **deps-dev:** bump [@semantic-release](https://github.com/semantic-release)/changelog from 5.0.0 to 5.0.1 ([5c78fc6](https://github.com/wmfs/tymly-cardscript-plugin/commit/5c78fc6793639c6f0bf53792c6e483874f50ce90))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/hl-pg-client from 1.18.0 to 1.19.0 ([39f0276](https://github.com/wmfs/tymly-cardscript-plugin/commit/39f0276d35b5035d662518818cba0b2a0a83b2e1))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/hl-pg-client from 1.19.0 to 1.20.0 ([9df9994](https://github.com/wmfs/tymly-cardscript-plugin/commit/9df9994982e180fea93a653318f57754d6de8c00))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.126.2 to 1.127.0 ([5455406](https://github.com/wmfs/tymly-cardscript-plugin/commit/5455406c2159329612bf883416a7524038810fa5))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.127.0 to 1.128.0 ([63b0f50](https://github.com/wmfs/tymly-cardscript-plugin/commit/63b0f50f27a3b7e9aeda85f9c0f5ea10f69ef417))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.128.0 to 1.129.0 ([3c8171b](https://github.com/wmfs/tymly-cardscript-plugin/commit/3c8171bb91a10528d732d5f228aaf7a34d40768d))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.129.0 to 1.130.0 ([223b41a](https://github.com/wmfs/tymly-cardscript-plugin/commit/223b41a9507867a817feeed2213bd97b7ee9b2f5))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.130.0 to 1.131.0 ([bd9de8a](https://github.com/wmfs/tymly-cardscript-plugin/commit/bd9de8a4a0dce8f4e3816ec8a7634a05d977dcea))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.131.0 to 1.135.0 ([3b634e6](https://github.com/wmfs/tymly-cardscript-plugin/commit/3b634e659487d4fe2b7944899cf76243a135a62d))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.176.0 to 1.178.0 ([746bc47](https://github.com/wmfs/tymly-cardscript-plugin/commit/746bc474f517bf61d0d17405cc275871f578991b))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.178.0 to 1.179.0 ([c6905f4](https://github.com/wmfs/tymly-cardscript-plugin/commit/c6905f445a70d3503cedd76c931daaf0e06d3c17))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.179.0 to 1.181.0 ([7641157](https://github.com/wmfs/tymly-cardscript-plugin/commit/7641157e6a9c27555244356af6717019e333c2d3))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.181.0 to 1.183.0 ([51ad1ca](https://github.com/wmfs/tymly-cardscript-plugin/commit/51ad1ca2b3d7df6896a363bd225279bb8b409377))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.183.0 to 1.187.0 ([6a9cb01](https://github.com/wmfs/tymly-cardscript-plugin/commit/6a9cb01724972a32651a1b247e65bceb78402987))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.187.0 to 1.188.0 ([472229a](https://github.com/wmfs/tymly-cardscript-plugin/commit/472229a80bfb4db512edf851710df701c10b0782))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.188.0 to 1.189.0 ([6b681af](https://github.com/wmfs/tymly-cardscript-plugin/commit/6b681afd37650e1accfef5d9ea4bfcf521fa7e02))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.189.0 to 1.190.0 ([2197faa](https://github.com/wmfs/tymly-cardscript-plugin/commit/2197faa8f6c3ab6c461782d1621d4d6e49a8e863))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.190.0 to 1.195.0 ([5ad08d6](https://github.com/wmfs/tymly-cardscript-plugin/commit/5ad08d666929e8b5fab421dfbee419366a299560))
+* **deps-dev:** bump mocha from 7.1.0 to 7.1.1 ([ff425e8](https://github.com/wmfs/tymly-cardscript-plugin/commit/ff425e85701bf318ae8e56495c3d659ef49cc1a7))
+* **deps-dev:** bump nyc from 15.0.0 to 15.0.1 ([25827e7](https://github.com/wmfs/tymly-cardscript-plugin/commit/25827e751347bbde88befa1987c0f9da5cc16897))
+
+
+### 📦 Code Refactoring
+
+* s/stopped/completed/ in test titles, pull out a couple of helper fns ([a866da1](https://github.com/wmfs/tymly-cardscript-plugin/commit/a866da1c2d99a83c2ae340dddeb98e2572ec8d2a))
+
+
+### 🚨 Tests
+
+* archiveExecution test - archiving an archived execution is fine ([69961b2](https://github.com/wmfs/tymly-cardscript-plugin/commit/69961b2f2b7893e1f83d63d9a5f141aaac64ab09))
+* Tests around the archive execution state machine and resource ([d0f9aaf](https://github.com/wmfs/tymly-cardscript-plugin/commit/d0f9aafec9aca889d78f836cb2b585a1cf4234ee))
+* Tests for archive state machine ([bf9e644](https://github.com/wmfs/tymly-cardscript-plugin/commit/bf9e644c32dd824b8bb1eba40a805db92131ca79))
+
+
+### ⚙️ Continuous Integrations
+
+* **circle:** add context env var config to config.yml ([e9da851](https://github.com/wmfs/tymly-cardscript-plugin/commit/e9da85139d74e387541b967a3e938c73e7ac457d))
+
+
+### 💎 Styles
+
+* Lint fixes. ([19cfe89](https://github.com/wmfs/tymly-cardscript-plugin/commit/19cfe89a86e78c168ff69ecaa66cd13955777b4a))
+* Small lint fix - shouldn't return result of an assignment from an arrow function ([7f6325d](https://github.com/wmfs/tymly-cardscript-plugin/commit/7f6325dd3730b167fb4faceed3a76d897ba6fdcc))
+
 # [1.12.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.11.0...v1.12.0) (2020-03-18)
 
 
