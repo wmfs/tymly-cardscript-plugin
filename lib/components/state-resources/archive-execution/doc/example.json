@@ -1,0 +1,7 @@
+{
+  "ArchiveExecution": {
+    "Type": "Task",
+    "Resource": "module:archiveExecution",
+    "InputPath": "$.executionName"
+  }
+}

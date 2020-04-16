@@ -1,0 +1,23 @@
+{
+  "Comment": "Archives a complete, stopped, or failed execution",
+  "version": "1.0",
+  "StartAt": "ArchiveExecution",
+  "States": {
+    "ArchiveExecution": {
+      "Type": "Task",
+      "Resource": "module:archiveExecution",
+      "Parameters": {
+        "executionName.$": "$.executionName"
+      },
+      "End": true
+    }
+  },
+  "restrictions": [
+    {
+      "roleId": "$authenticated",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}
