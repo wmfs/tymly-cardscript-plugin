@@ -1,3 +1,20 @@
+## [1.13.2](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.13.1...v1.13.2) (2020-04-20)
+
+
+### 🐛 Bug Fixes
+
+* **state-resource:** Remove callback parameter from init method ([891c967](https://github.com/wmfs/tymly-cardscript-plugin/commit/891c967e254636d1e0b4a8536ff0030c4d34ac1b))
+
+
+### 🛠 Builds
+
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.195.0 to 1.195.1 ([468680a](https://github.com/wmfs/tymly-cardscript-plugin/commit/468680a7a9d8ec737a7592871af0c90c0016dbb5))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-rbac-plugin from 1.17.0 to 1.17.1 ([3b62394](https://github.com/wmfs/tymly-cardscript-plugin/commit/3b62394f46c522928f7887e9fffde2156f713670))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-solr-plugin from 2.7.0 to 2.7.1 ([4b98e06](https://github.com/wmfs/tymly-cardscript-plugin/commit/4b98e06bebeea2b35ee8fea1fb5b8cb423cbedc5))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-test-helpers from 1.4.0 to 1.4.1 ([622a9af](https://github.com/wmfs/tymly-cardscript-plugin/commit/622a9af1cae1822e080f78ca5f01e91fc6679f13))
+* **deps-dev:** bump semantic-release from 17.0.4 to 17.0.5 ([cc70679](https://github.com/wmfs/tymly-cardscript-plugin/commit/cc706792559ca4e023e0d3d8e5362270a81144aa))
+* **deps-dev:** bump semantic-release from 17.0.5 to 17.0.6 ([2809855](https://github.com/wmfs/tymly-cardscript-plugin/commit/28098552b160706060cb5bcee2ab9ec77559b587))
+
 ## [1.13.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.13.0...v1.13.1) (2020-04-16)
 
 
