@@ -1,3 +1,15 @@
+## [1.13.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.13.0...v1.13.1) (2020-04-16)
+
+
+### 🐛 Bug Fixes
+
+* **state-resources:** Remove redundant callback parameters from init methods ([d0a6bf1](https://github.com/wmfs/tymly-cardscript-plugin/commit/d0a6bf18948b22dcad8eed985b1cf0f78a028ca6))
+
+
+### 🛠 Builds
+
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.135.0 to 1.135.1 ([9d4c532](https://github.com/wmfs/tymly-cardscript-plugin/commit/9d4c532635dfad994282224a6d1520873281e128))
+
 # [1.13.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.12.0...v1.13.0) (2020-04-16)
 
 
