@@ -19,8 +19,8 @@ describe('Card Service tests', function () {
     }
   })
 
-  it('should create some basic tymly services', done => {
-    tymly.boot(
+  it('should create some basic tymly services', async () => {
+    const tymlyServices = await tymly.boot(
       {
         blueprintPaths: [
           path.resolve(__dirname, './../test/fixtures/test-blueprint')
@@ -31,15 +31,12 @@ describe('Card Service tests', function () {
           require.resolve('@wmfs/tymly-solr-plugin'),
           require.resolve('@wmfs/tymly-test-helpers/plugins/allow-everything-rbac-plugin')
         ]
-      },
-      (err, tymlyServices) => {
-        expect(err).to.eql(null)
-        tymlyService = tymlyServices.tymly
-        cardService = tymlyServices.cards
-        client = tymlyServices.storage.client
-        done()
       }
     )
+
+    tymlyService = tymlyServices.tymly
+    cardService = tymlyServices.cards
+    client = tymlyServices.storage.client
   })
 
   it('should check the card service contains the simple card', () => {
