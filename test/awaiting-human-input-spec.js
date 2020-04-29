@@ -26,8 +26,8 @@ describe('awaitingUserInput state tests', function () {
     }
   })
 
-  it('should create some basic tymly services', done => {
-    tymly.boot(
+  it('should create some basic tymly services', async () => {
+    const tymlyServices = await tymly.boot(
       {
         blueprintPaths: [
           path.resolve(__dirname, './../test/fixtures/test-blueprint')
@@ -38,15 +38,12 @@ describe('awaitingUserInput state tests', function () {
           require.resolve('@wmfs/tymly-solr-plugin'),
           require.resolve('@wmfs/tymly-test-helpers/plugins/allow-everything-rbac-plugin')
         ]
-      },
-      (err, tymlyServices) => {
-        expect(err).to.eql(null)
-        statebox = tymlyServices.statebox
-        client = tymlyServices.storage.client
-        tymlyService = tymlyServices.tymly
-        done()
       }
     )
+
+    statebox = tymlyServices.statebox
+    client = tymlyServices.storage.client
+    tymlyService = tymlyServices.tymly
   })
 
   it('should execute awaitingHumanInput state machine and expect defaults to come through', async () => {

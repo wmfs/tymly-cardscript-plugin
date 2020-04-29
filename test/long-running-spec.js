@@ -29,7 +29,7 @@ describe('long running tasks', function () {
     })
     it('start process and succeed', async () => {
       succeeded = await startClock(statebox)
-      statebox.sendTaskSuccess(
+      await statebox.sendTaskSuccess(
         succeeded,
         { },
         { userId: 'test-user' }
@@ -37,7 +37,7 @@ describe('long running tasks', function () {
     })
     it('start process and fail', async () => {
       failed = await startClock(statebox)
-      statebox.sendTaskFailure(
+      await statebox.sendTaskFailure(
         failed,
         { },
         { userId: 'test-user' }
@@ -45,7 +45,7 @@ describe('long running tasks', function () {
     })
     it('start process and stop', async () => {
       stopped = await startClock(statebox)
-      statebox.stopExecution(
+      await statebox.stopExecution(
         'User Request',
         { },
         stopped,
@@ -253,7 +253,7 @@ async function startClock (statebox) {
 }
 
 async function stopClock (statebox, executionName) {
-  statebox.sendTaskSuccess(
+  await statebox.sendTaskSuccess(
     executionName,
     { },
     {

@@ -23,8 +23,8 @@ describe('watched-boards tymly-cardscript-plugin tests', function () {
     }
   })
 
-  it('should create some basic tymly services', done => {
-    tymly.boot(
+  it('should create some basic tymly services', async () => {
+    const tymlyServices = await tymly.boot(
       {
         pluginPaths: [
           path.resolve(__dirname, './../lib'),
@@ -32,15 +32,12 @@ describe('watched-boards tymly-cardscript-plugin tests', function () {
           require.resolve('@wmfs/tymly-solr-plugin'),
           require.resolve('@wmfs/tymly-test-helpers/plugins/allow-everything-rbac-plugin')
         ]
-      },
-      (err, tymlyServices) => {
-        expect(err).to.eql(null)
-        statebox = tymlyServices.statebox
-        tymlyService = tymlyServices.tymly
-        client = tymlyServices.storage.client
-        done()
       }
     )
+
+    statebox = tymlyServices.statebox
+    tymlyService = tymlyServices.tymly
+    client = tymlyServices.storage.client
   })
 
   it('should watch the board', async () => {
