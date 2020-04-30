@@ -1,3 +1,24 @@
+## [1.13.4](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.13.3...v1.13.4) (2020-04-30)
+
+
+### 🐛 Bug Fixes
+
+* return empty arrays if no long running tasks found ([c74b724](https://github.com/wmfs/tymly-cardscript-plugin/commit/c74b724cff2920d989d087a9cbd5cffaeef9c2d6))
+
+
+### 🛠 Builds
+
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.137.0 to 1.137.1 ([310f1cc](https://github.com/wmfs/tymly-cardscript-plugin/commit/310f1cc39661ea67fab41df5b8fc0c07b3ecf0b9))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.195.2 to 1.195.3 ([b746a47](https://github.com/wmfs/tymly-cardscript-plugin/commit/b746a47abc44f569dc32c363622109bd92a9cd22))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-solr-plugin from 2.7.2 to 2.8.0 ([3045ae4](https://github.com/wmfs/tymly-cardscript-plugin/commit/3045ae45730ed373dd7522655f47edd8ad0c85f4))
+* **deps-dev:** bump mocha from 7.1.1 to 7.1.2 ([27ec1c4](https://github.com/wmfs/tymly-cardscript-plugin/commit/27ec1c4cbd240ed51714831d7f79eb98cbf3682e))
+
+
+### 📦 Code Refactoring
+
+* **tests:** await on statebox method calls ([0c16336](https://github.com/wmfs/tymly-cardscript-plugin/commit/0c163360997e84fed598619d021f1c412d4aed24))
+* **tests:** Flip tymly.boot from callback style to async/await ([a4b72c2](https://github.com/wmfs/tymly-cardscript-plugin/commit/a4b72c216c207b1253bbdc537ac54ce1d2ea598c))
+
 ## [1.13.3](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.13.2...v1.13.3) (2020-04-21)
 
 
