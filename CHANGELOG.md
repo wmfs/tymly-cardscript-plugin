@@ -1,3 +1,20 @@
+## [1.13.5](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.13.4...v1.13.5) (2020-05-05)
+
+
+### 🐛 Bug Fixes
+
+* **cards-service:** Remove redundant boot callback parameter ([eebf2ff](https://github.com/wmfs/tymly-cardscript-plugin/commit/eebf2ff051adf04849e23842a710f5ea3b13ee4e))
+
+
+### 🛠 Builds
+
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.137.1 to 1.137.2 ([1142450](https://github.com/wmfs/tymly-cardscript-plugin/commit/114245092374d2a00b4df6f917ea5d006434afbd))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.195.3 to 1.195.4 ([6ee680e](https://github.com/wmfs/tymly-cardscript-plugin/commit/6ee680e9ca342c408eb5353d4f34e29d37282961))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-rbac-plugin from 1.17.2 to 1.17.3 ([aa8e611](https://github.com/wmfs/tymly-cardscript-plugin/commit/aa8e61118b8b25719a408ba30aed6432ef54ae02))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-solr-plugin from 2.8.0 to 2.8.1 ([97bbc65](https://github.com/wmfs/tymly-cardscript-plugin/commit/97bbc65c5930894aace8190a154aec048c81166d))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-test-helpers from 1.4.1 to 1.4.2 ([90281e2](https://github.com/wmfs/tymly-cardscript-plugin/commit/90281e21795aa86b3d1c6df1a9b3c3547243440c))
+* **deps-dev:** bump cz-conventional-changelog from 3.1.0 to 3.2.0 ([fb332d4](https://github.com/wmfs/tymly-cardscript-plugin/commit/fb332d4cd0452442881f8be2bd8d5481958f7c55))
+
 ## [1.13.4](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.13.3...v1.13.4) (2020-04-30)
 
 
