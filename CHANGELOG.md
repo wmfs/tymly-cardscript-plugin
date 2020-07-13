@@ -1,3 +1,19 @@
+# [1.15.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.14.0...v1.15.0) (2020-07-13)
+
+
+### 🛠 Builds
+
+* **deps:** bump lodash from 4.17.15 to 4.17.19 ([3641886](https://github.com/wmfs/tymly-cardscript-plugin/commit/364188686a41de5da58e9f27aaf4fb38f0a21819))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.144.0 to 1.145.0 ([a8ca08c](https://github.com/wmfs/tymly-cardscript-plugin/commit/a8ca08c679249922a8da781a547353e8ea7b7964))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.145.0 to 1.146.0 ([bc199b0](https://github.com/wmfs/tymly-cardscript-plugin/commit/bc199b0ccb64700c19b39d9975f8fbfd0e315d38))
+* **deps-dev:** bump semantic-release from 17.0.8 to 17.1.0 ([593e381](https://github.com/wmfs/tymly-cardscript-plugin/commit/593e381c5d310725841d7d8030ef29300bdc1059))
+* **deps-dev:** bump semantic-release from 17.1.0 to 17.1.1 ([ee7cdf1](https://github.com/wmfs/tymly-cardscript-plugin/commit/ee7cdf164c64aef8d91afb88859c5b37443f303a))
+
+
+### ⚙️ Continuous Integrations
+
+* **circle:** use updated circle node image [skip ci] ([adc24af](https://github.com/wmfs/tymly-cardscript-plugin/commit/adc24af640bc59fb69c09cec2d960d69a65eede6))
+
 # [1.14.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.13.5...v1.14.0) (2020-06-17)
 
 
