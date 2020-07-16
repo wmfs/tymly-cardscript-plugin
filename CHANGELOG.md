@@ -1,3 +1,17 @@
+# [1.16.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.15.0...v1.16.0) (2020-07-16)
+
+
+### 🛠 Builds
+
+* **deps:** bump [@wmfs](https://github.com/wmfs)/form-maker from 1.4.0 to 1.5.0 ([308b05f](https://github.com/wmfs/tymly-cardscript-plugin/commit/308b05fee45688125ad06c8d0bb07de6b93420d7))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/hl-pg-client from 1.21.0 to 1.22.0 ([0d4cfed](https://github.com/wmfs/tymly-cardscript-plugin/commit/0d4cfed9f4199bc7990375ea4294fe0beaf32883))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.146.0 to 1.148.0 ([afcf76d](https://github.com/wmfs/tymly-cardscript-plugin/commit/afcf76d9c3cabf4888c6753e52df7203350b222b))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.148.0 to 1.149.0 ([da93b5d](https://github.com/wmfs/tymly-cardscript-plugin/commit/da93b5d565a3ec3747fa523b82929e9ca494d53f))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.149.0 to 1.150.0 ([4330480](https://github.com/wmfs/tymly-cardscript-plugin/commit/43304804d27cf51f44c1694fc36c80775e77dbe0))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.207.0 to 1.208.0 ([0085aa7](https://github.com/wmfs/tymly-cardscript-plugin/commit/0085aa7db1e249168a08d68e78d097fbdc2bff6e))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.208.0 to 1.210.0 ([b215fd5](https://github.com/wmfs/tymly-cardscript-plugin/commit/b215fd5e811385ee540dce47f30d1da97b895d70))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-solr-plugin from 2.10.0 to 2.11.0 ([5a7ff6d](https://github.com/wmfs/tymly-cardscript-plugin/commit/5a7ff6d4b1a6d4b4a2a76eff8e3ac09e5f18a1ad))
+
 # [1.15.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.14.0...v1.15.0) (2020-07-13)
 
 
