@@ -1,3 +1,15 @@
+# [1.17.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.16.0...v1.17.0) (2020-07-20)
+
+
+### 🛠 Builds
+
+* **deps:** bump [@wmfs](https://github.com/wmfs)/form-maker from 1.5.0 to 1.6.0 ([527c455](https://github.com/wmfs/tymly-cardscript-plugin/commit/527c455fef46c41592ba59a9c042110298c07452))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.150.0 to 1.152.0 ([31abe8e](https://github.com/wmfs/tymly-cardscript-plugin/commit/31abe8e683256676abd1371e9b9f784afb17c7fd))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.152.0 to 1.153.0 ([084514e](https://github.com/wmfs/tymly-cardscript-plugin/commit/084514e0af4173dffcbb310398b19eb731fa398e))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.210.0 to 1.214.0 ([e834b33](https://github.com/wmfs/tymly-cardscript-plugin/commit/e834b33c38509fd8bc984195ee7bcb6bac9ffb08))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.214.0 to 1.215.0 ([50cd441](https://github.com/wmfs/tymly-cardscript-plugin/commit/50cd441e006df5ee65da139dc9df60856838a02f))
+* **deps-dev:** bump codecov from 3.7.0 to 3.7.1 ([24ac82b](https://github.com/wmfs/tymly-cardscript-plugin/commit/24ac82b73219871ac0e32a8548c4219e7e73251a))
+
 # [1.16.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.15.0...v1.16.0) (2020-07-16)
 
 
