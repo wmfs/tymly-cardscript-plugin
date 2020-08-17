@@ -1,3 +1,15 @@
+# [1.18.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.17.0...v1.18.0) (2020-08-17)
+
+
+### 🛠 Builds
+
+* **deps:** bump lodash from 4.17.19 to 4.17.20 ([b1d51d9](https://github.com/wmfs/tymly-cardscript-plugin/commit/b1d51d901274965ff41a9bfc3c48cfb4270cd7e1))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.153.0 to 1.154.0 ([14d5b82](https://github.com/wmfs/tymly-cardscript-plugin/commit/14d5b82c9cda64c9bec5546dfa8933a8476dc555))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.215.0 to 1.215.1 ([0d00bef](https://github.com/wmfs/tymly-cardscript-plugin/commit/0d00bef6805d10223ddb77cafa0cc5399df347f4))
+* **deps-dev:** bump codecov from 3.7.1 to 3.7.2 ([b5ba668](https://github.com/wmfs/tymly-cardscript-plugin/commit/b5ba668be5b8e2061e435ff28a591a5e6ac65720))
+* **deps-dev:** bump mocha from 8.0.1 to 8.1.0 ([dde13d7](https://github.com/wmfs/tymly-cardscript-plugin/commit/dde13d7149d16ec6266060e894a5016a23fc63a7))
+* **deps-dev:** bump mocha from 8.1.0 to 8.1.1 ([fe0f01e](https://github.com/wmfs/tymly-cardscript-plugin/commit/fe0f01e78bb3d01be243fc6e395ce3eaafde3969))
+
 # [1.17.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.16.0...v1.17.0) (2020-07-20)
 
 
