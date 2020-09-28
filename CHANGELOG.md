@@ -1,3 +1,13 @@
+# [1.20.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.19.0...v1.20.0) (2020-09-28)
+
+
+### 🛠 Builds
+
+* **deps:** bump debug from 4.1.1 to 4.2.0 ([3b9fa3e](https://github.com/wmfs/tymly-cardscript-plugin/commit/3b9fa3e8f8a079ec3d448a3efe5cf00eb039ba5e))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.225.1 to 1.225.2 ([a1ff5a2](https://github.com/wmfs/tymly-cardscript-plugin/commit/a1ff5a28692abcb5ebea08dac8117d51bfe9d95a))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-test-helpers from 1.6.0 to 1.7.0 ([84488d1](https://github.com/wmfs/tymly-cardscript-plugin/commit/84488d199bd4415b1c0848705189fe4f92dd0b7f))
+* **deps-dev:** bump semantic-release from 17.1.1 to 17.1.2 ([dadd4cf](https://github.com/wmfs/tymly-cardscript-plugin/commit/dadd4cf94b7757f959c85e693b9d9288894eeca0))
+
 # [1.19.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.18.0...v1.19.0) (2020-09-09)
 
 
