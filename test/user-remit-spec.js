@@ -73,7 +73,7 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
 
     expect(categoryRelevance.sort()).to.eql(['expenses', 'gazetteer', 'hr', 'hydrants', 'incidents'])
     expect(favouriteStartableNames.sort()).to.eql(['notifications', 'settings'])
-    expect(Object.keys(categories).sort()).to.eql(['fire', 'gazetteer', 'system', 'water'])
+    expect(Object.keys(categories).sort()).to.eql(['fire', 'gazetteer', 'help', 'system', 'water'])
     expect(Object.keys(todos).sort()).to.eql(['a69c0ac9-cde5-11e7-abc4-cec278b6b50a'])
     expect(Object.keys(teams).sort()).to.eql(['Birmingham (Red watch)', 'Fire Safety (North)'])
     expect(Object.keys(cards).sort()).to.eql(['test_pizzaDetails_1_0', 'test_pizzaForm_1_0', 'tymly_rbacGrantRoleMembership_1_0', 'tymly_viewRoleMemberships_1_0'])
@@ -112,7 +112,7 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     const { categories, todos, teams, cards, startable } = add
     const { categoryRelevance } = settings
 
-    expect(categoryRelevance.sort()).to.eql(['expenses', 'gazetteer', 'hr', 'hydrants', 'incidents'])
+    expect(categoryRelevance.sort()).to.eql(['expenses', 'gazetteer', 'help', 'hr', 'hydrants', 'incidents'])
     expect(favouriteStartableNames).to.eql([])
     expect(Object.keys(categories).sort()).to.eql(['fire', 'gazetteer', 'system', 'water'])
     expect(Object.keys(todos).sort()).to.eql(['a69c0ae8-cde5-11e7-abc4-cec278b6b50a', 'a69c0dcc-cde5-11e7-abc4-cec278b6b50a'])
@@ -181,7 +181,7 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
 
     const { categories } = executionDescription.ctx.userRemit.add
 
-    expect(Object.keys(categories).sort()).to.eql(['fire', 'system', 'water'])
+    expect(Object.keys(categories).sort()).to.eql(['fire', 'help', 'system', 'water'])
   })
 
   it('add/remove todo execution names to/from the remit', async () => {
