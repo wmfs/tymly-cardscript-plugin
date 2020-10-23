@@ -17,7 +17,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_DB: circle_test
     working_directory: ~/repo
-    parallelism: 2
+    parallelism: 3
     steps:
       - checkout
       - restore_cache:
