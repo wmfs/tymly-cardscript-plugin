@@ -33,7 +33,7 @@
     "@semantic-release/exec": "5.0.0",
     "@wmfs/hl-pg-client": "1.25.0",
     "@wmfs/tymly": "1.171.0",
-    "@wmfs/tymly-pg-plugin": "1.231.0",
+    "@wmfs/tymly-pg-plugin": "1.232.0",
     "@wmfs/tymly-rbac-plugin": "1.17.3",
     "@wmfs/tymly-solr-plugin": "2.16.0",
     "@wmfs/tymly-test-helpers": "1.7.0",
