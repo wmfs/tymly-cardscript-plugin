@@ -24,7 +24,7 @@
     "@wmfs/form-maker": "1.7.0",
     "jsonfile": "6.1.0",
     "jsonpath": "1.1.0",
-    "lodash": "4.17.20",
+    "lodash": "4.17.21",
     "shasum": "1.0.2",
     "uuid": "8.3.2"
   },
