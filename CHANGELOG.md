@@ -1,3 +1,31 @@
+# [1.27.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.26.0...v1.27.0) (2021-02-24)
+
+
+### 🛠 Builds
+
+* **deps:** bump [@wmfs](https://github.com/wmfs)/form-maker from 1.7.0 to 1.8.0 ([ce7ae55](https://github.com/wmfs/tymly-cardscript-plugin/commit/ce7ae55fb2b42ab0f9a0fe0bd737f21689c53887))
+* **deps:** bump lodash from 4.17.20 to 4.17.21 ([bc51de2](https://github.com/wmfs/tymly-cardscript-plugin/commit/bc51de2d02f0bf8e3828e4d8248622a56f63d26f))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.184.0 to 1.185.0 ([03dd137](https://github.com/wmfs/tymly-cardscript-plugin/commit/03dd13777c12ae2de3c6e60d527d8a3557f670e7))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.185.0 to 1.186.0 ([8bb12fb](https://github.com/wmfs/tymly-cardscript-plugin/commit/8bb12fbbd408bd7bcc21553986148f8c9cc6fa70))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.186.0 to 1.187.0 ([8f772d7](https://github.com/wmfs/tymly-cardscript-plugin/commit/8f772d7da9b15e8f316ab465962a0f33af65a243))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.187.0 to 1.188.0 ([f8c8e25](https://github.com/wmfs/tymly-cardscript-plugin/commit/f8c8e25497a106949a33147eb95ba00d5de48187))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.236.0 to 1.238.0 ([0216764](https://github.com/wmfs/tymly-cardscript-plugin/commit/02167649fb5d6b84ae038138bdaa215b5e3f1088))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.238.0 to 1.239.0 ([a56cf24](https://github.com/wmfs/tymly-cardscript-plugin/commit/a56cf246e4d6b79a31c17b56c973df1b70cab5f9))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.239.0 to 1.240.0 ([83062b2](https://github.com/wmfs/tymly-cardscript-plugin/commit/83062b2eaa7ede3393c3f47921c1bb6d1ab6fc58))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.240.0 to 1.241.0 ([65f5d0b](https://github.com/wmfs/tymly-cardscript-plugin/commit/65f5d0bc32b948b0354e94773545d5ee7a782b08))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.241.0 to 1.242.0 ([bf21918](https://github.com/wmfs/tymly-cardscript-plugin/commit/bf21918c65e9014c9b6ec0902bc6e33d91315f0e))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.242.0 to 1.244.0 ([3208b2e](https://github.com/wmfs/tymly-cardscript-plugin/commit/3208b2e00a8058d93b9f3728b001d5cb7e0d7051))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-solr-plugin from 2.19.0 to 2.20.0 ([87681d4](https://github.com/wmfs/tymly-cardscript-plugin/commit/87681d4572979068f290a8b15f8150102268f8ab))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-solr-plugin from 2.20.0 to 2.21.0 ([8e4daa0](https://github.com/wmfs/tymly-cardscript-plugin/commit/8e4daa07ab2ea2c08a854ecb38209f66cbf0f7de))
+* **deps-dev:** bump chai from 4.2.0 to 4.3.0 ([92890c9](https://github.com/wmfs/tymly-cardscript-plugin/commit/92890c95158641e12d6de257de724278871c39e3))
+* **deps-dev:** bump mocha from 8.2.1 to 8.3.0 ([88f1bef](https://github.com/wmfs/tymly-cardscript-plugin/commit/88f1befcf8c57b6dec30c1cf7e34a622d49c8c1f))
+* **deps-dev:** bump semantic-release from 17.3.3 to 17.3.4 ([0f44505](https://github.com/wmfs/tymly-cardscript-plugin/commit/0f44505a30334676afabf588845a8418fa26eb21))
+* **deps-dev:** bump semantic-release from 17.3.4 to 17.3.5 ([a50ba1c](https://github.com/wmfs/tymly-cardscript-plugin/commit/a50ba1c9d8f4cc12369d44b833ae634047f02e48))
+* **deps-dev:** bump semantic-release from 17.3.5 to 17.3.6 ([242237a](https://github.com/wmfs/tymly-cardscript-plugin/commit/242237a513ed752fcd61b1113cb6acd699d19595))
+* **deps-dev:** bump semantic-release from 17.3.6 to 17.3.7 ([a3d6016](https://github.com/wmfs/tymly-cardscript-plugin/commit/a3d6016a29af824355bdaa405191f655b4d5c725))
+* **deps-dev:** bump semantic-release from 17.3.7 to 17.3.8 ([934bbe3](https://github.com/wmfs/tymly-cardscript-plugin/commit/934bbe37dd3c8399607be332e7dede432049ebbc))
+* **deps-dev:** bump semantic-release from 17.3.8 to 17.3.9 ([888f0ff](https://github.com/wmfs/tymly-cardscript-plugin/commit/888f0ff3b9bdd716d43c06de248e169cd2d2bc9e))
+
 # [1.26.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.25.0...v1.26.0) (2021-01-19)
 
 
