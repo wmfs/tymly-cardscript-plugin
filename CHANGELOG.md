@@ -1,3 +1,19 @@
+## [1.27.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.27.0...v1.27.1) (2021-03-03)
+
+
+### 🐛 Bug Fixes
+
+* Refresh user roles on remit ([ad0e275](https://github.com/wmfs/tymly-cardscript-plugin/commit/ad0e2750ef6f5a126f4af8ae7e6feecd96b3ddc3))
+
+
+### 🛠 Builds
+
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.188.0 to 1.189.0 ([c55e903](https://github.com/wmfs/tymly-cardscript-plugin/commit/c55e90327cb36e2f7778fd9cde61296be1b3275d))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.189.0 to 1.192.0 ([ebc6137](https://github.com/wmfs/tymly-cardscript-plugin/commit/ebc61374dd57b5082e9b92dd4bb1b4a3e97163b0))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.244.0 to 1.245.0 ([df839cd](https://github.com/wmfs/tymly-cardscript-plugin/commit/df839cdc007174ff3737f968a5a07b90c2ed2c7e))
+* **deps-dev:** bump chai from 4.3.0 to 4.3.1 ([82ad8cc](https://github.com/wmfs/tymly-cardscript-plugin/commit/82ad8ccdaa8a4c2e2d274ee17b9dd38730a90b38))
+* **deps-dev:** bump semantic-release from 17.3.9 to 17.4.0 ([cc2b183](https://github.com/wmfs/tymly-cardscript-plugin/commit/cc2b18303da3014828722121f3315c8615f078eb))
+
 # [1.27.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.26.0...v1.27.0) (2021-02-24)
 
 
