@@ -3,6 +3,7 @@
   "title": "Todos",
   "description": "Todos",
   "type": "object",
+  "audit": false,
   "properties": {
     "userId": {
       "type": "string",
