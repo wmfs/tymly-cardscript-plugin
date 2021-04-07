@@ -4,6 +4,7 @@
   "description": "Favouring Startable State Machines",
   "primaryKey": ["userId"],
   "type": "object",
+  "audit": false,
   "properties": {
     "userId": {
       "type": "string",
