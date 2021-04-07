@@ -3,6 +3,7 @@
   "title": "Watched Boards",
   "description": "Watched Boards",
   "type": "object",
+  "audit": false,
   "properties": {
     "userId": {
       "type": "string"
