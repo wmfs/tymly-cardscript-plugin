@@ -1,3 +1,12 @@
+# [1.29.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.28.0...v1.29.0) (2021-05-10)
+
+
+### 🛠 Builds
+
+* **deps:** use master branch for wmfs/jsonpath [ch6167] ([d70c616](https://github.com/wmfs/tymly-cardscript-plugin/commit/d70c61681876ac249ce20479a99f2dd3eeb6c136))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.196.0 to 1.197.0 ([66fe3ac](https://github.com/wmfs/tymly-cardscript-plugin/commit/66fe3ac741e0f67789f089d869cc5d276cf31712))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.197.0 to 1.198.0 ([899132f](https://github.com/wmfs/tymly-cardscript-plugin/commit/899132fbc71e9590e0b5ae705f336100aa8a86fd))
+
 # [1.28.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.27.2...v1.28.0) (2021-05-10)
 
 
