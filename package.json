@@ -23,7 +23,7 @@
     "debug": "4.3.1",
     "@wmfs/form-maker": "1.8.0",
     "jsonfile": "6.1.0",
-    "jsonpath": "1.1.1",
+    "jsonpath": "wmfs/jsonpath#master",
     "lodash": "4.17.21",
     "shasum": "1.0.2",
     "uuid": "8.3.2"
