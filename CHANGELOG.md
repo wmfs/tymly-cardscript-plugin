@@ -1,3 +1,16 @@
+# [1.28.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.27.2...v1.28.0) (2021-05-10)
+
+
+### 🛠 Builds
+
+* **deps:** bump jsonpath from 1.1.0 to 1.1.1 ([f6ab553](https://github.com/wmfs/tymly-cardscript-plugin/commit/f6ab553d2e9092c25a939274f805b8c5d33a3ce2))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.195.0 to 1.195.1 ([ec56f9d](https://github.com/wmfs/tymly-cardscript-plugin/commit/ec56f9dd0bd7e569cdc0188249f7c4e89c3792ed))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.195.1 to 1.196.0 ([9b12519](https://github.com/wmfs/tymly-cardscript-plugin/commit/9b12519cab73f72c00540e4fd7e95c12ebaeea53))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-pg-plugin from 1.246.0 to 1.246.1 ([2e522e6](https://github.com/wmfs/tymly-cardscript-plugin/commit/2e522e689020f9068ba45ca86a4a7b303bace21f))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly-solr-plugin from 2.22.0 to 2.23.0 ([df14061](https://github.com/wmfs/tymly-cardscript-plugin/commit/df1406132e64083d50f25beac2c636fd49e1be55))
+* **deps-dev:** bump codecov from 3.8.1 to 3.8.2 ([c365643](https://github.com/wmfs/tymly-cardscript-plugin/commit/c365643ad521f9809baa6614a7389e99cbd0ce82))
+* **deps-dev:** bump mocha from 8.3.2 to 8.4.0 ([528356b](https://github.com/wmfs/tymly-cardscript-plugin/commit/528356bec7e62bae041a8643756a028bac37a23a))
+
 ## [1.27.2](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.27.1...v1.27.2) (2021-04-07)
 
 
