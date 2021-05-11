@@ -1,3 +1,13 @@
+# [1.30.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.29.0...v1.30.0) (2021-05-11)
+
+
+### 🛠 Builds
+
+* **deps:** revert jsonpath to 1.1.1 [ch6167] ([9322e2e](https://github.com/wmfs/tymly-cardscript-plugin/commit/9322e2e5f0a3f594271ee8d7111c3d55e4c3e669))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.198.0 to 1.199.0 ([b8cc45f](https://github.com/wmfs/tymly-cardscript-plugin/commit/b8cc45ffe892bcefa9f7ddc2555116f0625b79a4))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.199.0 to 1.200.0 ([0eba637](https://github.com/wmfs/tymly-cardscript-plugin/commit/0eba6377e3bb388b1eafeac8d539c6db6feb7471))
+* **deps-dev:** bump [@wmfs](https://github.com/wmfs)/tymly from 1.200.0 to 1.201.0 ([7a0d668](https://github.com/wmfs/tymly-cardscript-plugin/commit/7a0d66814b221d37ecc338b741d11f9fb0bb34ac))
+
 # [1.29.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.28.0...v1.29.0) (2021-05-10)
 
 
