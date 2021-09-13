@@ -1,0 +1,21 @@
+{
+  "Comment": "State machine to re-assign todo entries.",
+  "version": "1.0",
+  "StartAt": "ReassignTodoEntries",
+  "States": {
+    "ReassignTodoEntries": {
+      "Type": "Task",
+      "Resource": "module:reassignTodoEntries",
+      "InputPath": "$",
+      "End": true
+    }
+  },
+  "restrictions": [
+    {
+      "roleId": "$authenticated",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}

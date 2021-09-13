@@ -11,6 +11,7 @@ const sqlScriptRunner = require('./fixtures/sql-script-runner.js')
 const GET_TODO_CHANGES_STATE_MACHINE = 'tymly_getTodoChanges_1_0'
 const CREATE_TO_DO_ENTRY = 'tymly_createTodoEntry_1_0'
 const REMOVE_TODO_STATE_MACHINE = 'tymly_removeTodoEntries_1_0'
+const REASSIGN_TODO_STATE_MACHINE = 'tymly_reassignTodoEntries_1_0'
 
 describe('todo changes tymly-cardscript-plugin tests', function () {
   this.timeout(process.env.TIMEOUT || 5000)
@@ -97,6 +98,30 @@ describe('todo changes tymly-cardscript-plugin tests', function () {
       expect(doc.description).to.eql('User is claiming $12 for A pack of Duff Beer')
     })
 
+    it('re-assign todo entry to another user', async () => {
+      const executionDescription = await statebox.startExecution(
+        {
+          property: 'userId',
+          value: 'other-user',
+          todoIds: [userTodoId]
+        },
+        REASSIGN_TODO_STATE_MACHINE,
+        {
+          sendResponse: 'COMPLETE',
+          userId: 'todo-user'
+        }
+      )
+
+      expect(executionDescription.currentStateName).to.eql('ReassignTodoEntries')
+      expect(executionDescription.currentResource).to.eql('module:reassignTodoEntries')
+      expect(executionDescription.stateMachineName).to.eql(REASSIGN_TODO_STATE_MACHINE)
+      expect(executionDescription.status).to.eql('SUCCEEDED')
+
+      const doc = await todos.findById(userTodoId)
+      expect(doc.userId).to.eql('other-user')
+      expect(doc.teamName).to.eql(null)
+    })
+
     it('remove the todo', async () => {
       await statebox.startExecution(
         {
@@ -178,6 +203,30 @@ describe('todo changes tymly-cardscript-plugin tests', function () {
       expect(doc.userId).to.eql(null)
       expect(doc.teamName).to.eql('role_MonkeyPunk')
       expect(doc.description).to.eql('User is claiming $12 for A pack of Duff Beer')
+    })
+
+    it('re-assign todo entry to another team', async () => {
+      const executionDescription = await statebox.startExecution(
+        {
+          property: 'teamName',
+          value: 'other-team',
+          todoIds: [roleTodoId]
+        },
+        REASSIGN_TODO_STATE_MACHINE,
+        {
+          sendResponse: 'COMPLETE',
+          userId: 'todo-user'
+        }
+      )
+
+      expect(executionDescription.currentStateName).to.eql('ReassignTodoEntries')
+      expect(executionDescription.currentResource).to.eql('module:reassignTodoEntries')
+      expect(executionDescription.stateMachineName).to.eql(REASSIGN_TODO_STATE_MACHINE)
+      expect(executionDescription.status).to.eql('SUCCEEDED')
+
+      const doc = await todos.findById(roleTodoId)
+      expect(doc.teamName).to.eql('other-team')
+      expect(doc.userId).to.eql(null)
     })
 
     it('remove the todo', async () => {

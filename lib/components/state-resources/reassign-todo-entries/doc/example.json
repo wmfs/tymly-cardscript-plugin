@@ -1,0 +1,22 @@
+{
+  "ReassignTodoEntriesToAnotherUser": {
+    "Type": "Task",
+    "Parameters": {
+      "property": "userId",
+      "value": "12345",
+      "todoIds.$": "$.userTodoIds"
+    },
+    "Resource": "module:reassignTodoEntries",
+    "End": true
+  },
+  "ReassignTodoEntriesToAnotherTeam": {
+    "Type": "Task",
+    "Parameters": {
+      "property": "teamName",
+      "value": "theOtherTeam",
+      "todoIds.$": "$.teamTodoIds"
+    },
+    "Resource": "module:reassignTodoEntries",
+    "End": true
+  }
+}
