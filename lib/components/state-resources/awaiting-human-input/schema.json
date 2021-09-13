@@ -13,6 +13,10 @@
       "type": "integer",
       "description": "If the uiType is progress, the suggest refresh time in seconds"
     },
+    "uiListener": {
+      "type": "array",
+      "description": "Event to listen for"
+    },
     "dataPath": {
       "type": "string",
       "description": "Path to data"
