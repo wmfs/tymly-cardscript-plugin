@@ -1,0 +1,51 @@
+{
+  "Comment": "Archives stale running executions",
+  "version": "1.0",
+  "StartAt": "FindActive",
+  "States": {
+    "FindActive": {
+      "Type": "Task",
+      "Resource": "module:listLongRunningTasks",
+      "ResultPath": "$",
+      "Next": "Filter"
+    },
+    "Filter": {
+      "Type": "Task",
+      "Resource": "function:tymly_filterStaleLongRunningTasks",
+      "ResultPath": "$.toArchive",
+      "Next": "StopAndArchiveEach"
+    },
+    "StopAndArchiveEach": {
+      "Type": "Map",
+      "InputPath": "$",
+      "ItemsPath": "$.toArchive",
+      "Iterator": {
+        "StartAt": "Stop",
+        "States": {
+          "Stop": {
+            "Type": "Task",
+            "Resource": "function:tymly_stopExecution",
+            "Next": "Archive"
+          },
+          "Archive": {
+            "Type": "Task",
+            "Resource": "module:archiveExecution",
+            "Parameters": {
+              "executionName.$": "$.executionName"
+            },
+            "End": true
+          }
+        }
+      },
+      "End": true
+    }
+  },
+  "restrictions": [
+    {
+      "roleId": "$authenticated",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}
