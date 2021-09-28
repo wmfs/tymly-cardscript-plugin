@@ -1,3 +1,30 @@
+# [1.33.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.32.0...v1.33.0) (2021-09-28)
+
+
+### ✨ Features
+
+* change archive stale execs to 24 hours [sc-10553] ([55470df](https://github.com/wmfs/tymly-cardscript-plugin/commit/55470dfb0c656d14233c628b834866856988c3d0))
+* clear completed long running tasks when listing [sc-10553] ([64c9a0c](https://github.com/wmfs/tymly-cardscript-plugin/commit/64c9a0c939df563b0c48eac9009d9d609044d269))
+* refactor long running tasks into service and clear on archive execution [sc-10553] ([7477464](https://github.com/wmfs/tymly-cardscript-plugin/commit/7477464df5016b89f3133e4303ced4c5e212b797))
+* state machine to kill stale long running tasks [sc-10508] ([4ff72ec](https://github.com/wmfs/tymly-cardscript-plugin/commit/4ff72ec03f9e0b0ee7d4a48a046d65d24cfde1e1))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@semantic-release](https://github.com/semantic-release)/changelog to v6 ([abc09b3](https://github.com/wmfs/tymly-cardscript-plugin/commit/abc09b3fad1577b47574b9f1f24f857bd1df95ca))
+* **deps-dev:** update dependency [@semantic-release](https://github.com/semantic-release)/exec to v6 ([400f97e](https://github.com/wmfs/tymly-cardscript-plugin/commit/400f97eaeaa862fadbd719e2055c6012cd6ba847))
+* **deps-dev:** update dependency [@semantic-release](https://github.com/semantic-release)/git to v10 ([562a0f7](https://github.com/wmfs/tymly-cardscript-plugin/commit/562a0f7c141bcdb2f8579a4d0cb5f9aeb6a12057))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.216.0 ([80e540c](https://github.com/wmfs/tymly-cardscript-plugin/commit/80e540cc3631a0eeb4e10e3d20350138bd9fac68))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-rbac-plugin to v1.18.1 ([3024b41](https://github.com/wmfs/tymly-cardscript-plugin/commit/3024b41173f92198361c21d4ca08cbfda4390852))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-solr-plugin to v2.27.0 ([7fefbfc](https://github.com/wmfs/tymly-cardscript-plugin/commit/7fefbfc11069e66eb11cedc4d0d986a0fda07ec5))
+* **deps-dev:** update dependency mocha to v9.1.2 ([cccfe42](https://github.com/wmfs/tymly-cardscript-plugin/commit/cccfe42c0afec51606e83efbd62e840ec4d9daca))
+* **deps-dev:** update dependency semantic-release to v18 ([b024c05](https://github.com/wmfs/tymly-cardscript-plugin/commit/b024c05b317495bd7e03f36251c424ba67a50993))
+
+
+### 🚨 Tests
+
+* expected card on remit ([0ec8b4f](https://github.com/wmfs/tymly-cardscript-plugin/commit/0ec8b4ffe0280253ce9c5d16a92d810ce4386430))
+
 # [1.32.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.31.0...v1.32.0) (2021-09-13)
 
 
