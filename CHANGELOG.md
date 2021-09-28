@@ -1,3 +1,10 @@
+## [1.33.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.33.0...v1.33.1) (2021-09-28)
+
+
+### 🐛 Bug Fixes
+
+* option to find long running tasks for all users ([e5a3d31](https://github.com/wmfs/tymly-cardscript-plugin/commit/e5a3d31b6420cf46d3c1701663d1eef99a510684))
+
 # [1.33.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.32.0...v1.33.0) (2021-09-28)
 
 
