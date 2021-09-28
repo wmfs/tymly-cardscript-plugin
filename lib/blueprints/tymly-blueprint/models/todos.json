@@ -37,5 +37,19 @@
       "type": "object",
       "description": "A standard launches object which can be used to offer alternative actions to the user instead of the default behaviour of progressing it (e.g. perhaps allocating it to another user or team... or just viewing a related board)."
     }
-  }
+  },
+  "indexes": [
+    {
+      "columns": [
+        "user_id"
+      ],
+      "unique": false
+    },
+    {
+      "columns": [
+        "team_name"
+      ],
+      "unique": false
+    }
+  ]
 }

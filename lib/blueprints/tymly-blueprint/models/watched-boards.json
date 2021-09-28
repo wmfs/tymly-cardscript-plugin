@@ -38,5 +38,13 @@
       "description": "A standard launches object that can be used to view the board."
     }
   },
+  "indexes": [
+    {
+      "columns": [
+        "user_id"
+      ],
+      "unique": false
+    }
+  ],
   "required": ["userId"]
 }
