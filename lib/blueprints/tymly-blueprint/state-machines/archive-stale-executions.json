@@ -5,6 +5,9 @@
   "States": {
     "FindActive": {
       "Type": "Task",
+      "Parameters": {
+        "allUsers": true
+      },
       "Resource": "module:listLongRunningTasks",
       "ResultPath": "$",
       "Next": "Filter"
