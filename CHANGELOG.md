@@ -1,3 +1,15 @@
+# [1.34.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.33.1...v1.34.0) (2021-09-28)
+
+
+### ✨ Features
+
+* add indexes to todos, watching models ([7e7c812](https://github.com/wmfs/tymly-cardscript-plugin/commit/7e7c8128a3cdc3b3ddc188a1a7fbe9391444d6f3))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-solr-plugin to v2.28.0 ([411b96f](https://github.com/wmfs/tymly-cardscript-plugin/commit/411b96f449b4e90f18cfe86903d72f3af82cd580))
+
 ## [1.33.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.33.0...v1.33.1) (2021-09-28)
 
 
