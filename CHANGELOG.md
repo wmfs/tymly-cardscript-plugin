@@ -1,3 +1,10 @@
+## [1.35.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.35.0...v1.35.1) (2021-10-04)
+
+
+### 🐛 Bug Fixes
+
+* fail on missing card template ([52c0031](https://github.com/wmfs/tymly-cardscript-plugin/commit/52c0031168c012a74551e6b2b872d4089f793bac))
+
 # [1.35.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.34.0...v1.35.0) (2021-10-04)
 
 
