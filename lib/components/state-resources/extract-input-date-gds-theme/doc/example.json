@@ -1,0 +1,9 @@
+{
+  "ExtractInputDateGdsTheme": {
+    "Type": "Task",
+    "InputPath": "$.date",
+    "Resource": "module:extractInputDateGdsTheme",
+    "ResultPath": "$",
+    "End": true
+  }
+}
