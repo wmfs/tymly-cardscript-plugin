@@ -1,3 +1,17 @@
+# [1.36.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.35.1...v1.36.0) (2021-10-18)
+
+
+### ✨ Features
+
+* new state resource to extract date from event ([fe99728](https://github.com/wmfs/tymly-cardscript-plugin/commit/fe997282dc45ae36968e1ef1609b709a4b608196))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.217.0 ([aafcae6](https://github.com/wmfs/tymly-cardscript-plugin/commit/aafcae6d30daa7c0351108dd1afd7c11a756613d))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-solr-plugin to v2.29.1 ([cecb1a1](https://github.com/wmfs/tymly-cardscript-plugin/commit/cecb1a1d78262f27c94f63a1390f459342ad2038))
+* **deps-dev:** update dependency mocha to v9.1.3 ([9990774](https://github.com/wmfs/tymly-cardscript-plugin/commit/99907741e2df788ddc14550fc869798174598d4f))
+
 ## [1.35.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.35.0...v1.35.1) (2021-10-04)
 
 
