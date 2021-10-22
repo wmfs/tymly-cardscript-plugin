@@ -7,6 +7,15 @@
       "Type": "Task",
       "Resource": "module:unwatchBoard",
       "InputPath": "$",
+      "Next": "UpdateSolr"
+    },
+    "UpdateSolr": {
+      "Type": "Task",
+      "Resource": "module:updateDocsBySearchDoc",
+      "InputPath": "$.subscriptionId",
+      "ResourceConfig": {
+        "searchDoc": "tymly_watchedBoards"
+      },
       "End": true
     }
   },

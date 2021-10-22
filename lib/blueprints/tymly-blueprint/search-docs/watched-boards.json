@@ -1,0 +1,33 @@
+{
+  "modelId": "tymly_watchedBoards",
+  "attributeMapping": {
+    "id": "id::text",
+    "docId": "id::text",
+    "domain": "'watchedBoards'::text",
+    "docType": "'tymly_watchedBoards'::text",
+    "title": "title",
+    "description": "description",
+    "additionalTerms": "NULL::text[]",
+    "category": "category",
+    "eventTimestamp": "_created",
+    "point": "NULL::text",
+    "classification": "NULL::text",
+    "icon": "NULL::text",
+    "synopsis": "NULL::text",
+    "x": "NULL::int",
+    "y": "NULL::int",
+    "activeEvent": "false::boolean",
+    "author": "user_id",
+    "teams": "NULL::text[]",
+    "rating": "NULL::numeric",
+    "data": "NULL::text",
+    "roles": "'{\"$everyone\"}'::text[]",
+    "tags": "NULL::text[]",
+    "language": "'ENG'::text",
+    "rootAncestorId": "NULL::text",
+    "sortString": "id::text",
+    "launches": "launches::text",
+    "created": "_created::timestamp with time zone",
+    "modified": "_modified::timestamp with time zone"
+  }
+}
