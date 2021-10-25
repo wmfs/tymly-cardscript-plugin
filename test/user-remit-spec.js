@@ -44,6 +44,28 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     await sqlScriptRunner('./db-scripts/remit/setup.sql', client)
   })
 
+  it('get user remit - only get counts', async () => {
+    const execDesc = await statebox.startExecution(
+      {
+        clientManifest: {
+          cardNames: {},
+          categoryNames: [],
+          teams: [],
+          todos: [],
+          startable: []
+        },
+        countsOnly: true
+      },
+      GET_USER_REMIT_STATE_MACHINE,
+      {
+        sendResponse: 'COMPLETE',
+        userId: 'test-user'
+      }
+    )
+
+    expect(execDesc.ctx.userRemit.add.todos).to.eql({ expenses: 1 })
+  })
+
   it('get user remit - whole remit because client doesn\'t contain anything', async () => {
     const executionDescription = await statebox.startExecution(
       {
