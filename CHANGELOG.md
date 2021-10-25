@@ -1,3 +1,16 @@
+## [1.36.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.36.0...v1.36.1) (2021-10-25)
+
+
+### 🐛 Bug Fixes
+
+* stringify todo object before generating shasum ([3a0c64d](https://github.com/wmfs/tymly-cardscript-plugin/commit/3a0c64d60ffea1c9bd3119e79279d4d18a054712))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.218.0 ([decb891](https://github.com/wmfs/tymly-cardscript-plugin/commit/decb8919b823864855f8ca90f7ea2b8a357841b1))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-rbac-plugin to v1.19.0 ([92e396c](https://github.com/wmfs/tymly-cardscript-plugin/commit/92e396ca7dd11eccfe727379ef3edff3711b7354))
+
 # [1.36.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.35.1...v1.36.0) (2021-10-18)
 
 
