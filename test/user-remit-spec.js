@@ -29,7 +29,13 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
         require.resolve('@wmfs/tymly-pg-plugin'),
         require.resolve('@wmfs/tymly-solr-plugin'),
         require.resolve('@wmfs/tymly-rbac-plugin')
-      ]
+      ],
+      config: {
+        caches: {
+          userMemberships: { max: 500 },
+          rolesFromUserId: { max: 500 }
+        }
+      }
     })
 
     statebox = tymlyServices.statebox
