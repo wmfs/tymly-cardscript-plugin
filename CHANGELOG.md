@@ -1,3 +1,27 @@
+## [1.36.2](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.36.1...v1.36.2) (2021-11-18)
+
+
+### 🐛 Bug Fixes
+
+* clear rolesFromUserId caches on user remit as well ([93fccbe](https://github.com/wmfs/tymly-cardscript-plugin/commit/93fccbee059f24ef5fe3de33c4ec658032794b37))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.218.1 ([c570792](https://github.com/wmfs/tymly-cardscript-plugin/commit/c5707927f7c3c503a57e54e083438665fb594022))
+* **deps-dev:** update semantic-release monorepo ([28a4c5a](https://github.com/wmfs/tymly-cardscript-plugin/commit/28a4c5af637ae16e5f30c83300b83fbbd26ded00))
+
+
+### 🚨 Tests
+
+* add necessary caches for user remit tests ([641ae81](https://github.com/wmfs/tymly-cardscript-plugin/commit/641ae81eb3e4db74ecda6cabb79006b08c7c8a12))
+
+
+### ⚙️ Continuous Integrations
+
+* **circle:** add build-env-vars context [sc-11392] ([06e4f54](https://github.com/wmfs/tymly-cardscript-plugin/commit/06e4f5464b2f9436b89a0463306d3a922590381b))
+* **circle:** update npm install command [sc-11392] ([bdf6846](https://github.com/wmfs/tymly-cardscript-plugin/commit/bdf6846bd99d399135bf87e14215e2f4684b058c))
+
 ## [1.36.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.36.0...v1.36.1) (2021-10-25)
 
 
