@@ -1,3 +1,21 @@
+# [1.37.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.36.2...v1.37.0) (2021-11-30)
+
+
+### ✨ Features
+
+* use logger service instead of console log ([dff02d8](https://github.com/wmfs/tymly-cardscript-plugin/commit/dff02d8ff0f3e06e190da16b2824c58b5710b34c))
+
+
+### 🛠 Builds
+
+* **deps:** update tymly-core ([4cdda6b](https://github.com/wmfs/tymly-cardscript-plugin/commit/4cdda6b3f14ffd6da5cdc8a6e91c9c93844855bf))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.220.0 ([1323a2d](https://github.com/wmfs/tymly-cardscript-plugin/commit/1323a2d6f3a925fa3ba9f5ca994d9e4b4f8eb68d))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.221.0 ([e5d8551](https://github.com/wmfs/tymly-cardscript-plugin/commit/e5d85512a194ee8ffe2366eb26de80ef30c95529))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.222.0 ([f158876](https://github.com/wmfs/tymly-cardscript-plugin/commit/f15887616b01d71a5a3adc326ab50fa4431995d6))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-pg-plugin to v1.257.0 ([290f3cd](https://github.com/wmfs/tymly-cardscript-plugin/commit/290f3cd88a6eb1fd712da9bbe9359dfa94c5b1e2))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-test-helpers to v1.11.0 ([685691a](https://github.com/wmfs/tymly-cardscript-plugin/commit/685691a7215566da5a9604a7d33ed7f12afc513d))
+* **deps-dev:** update dependency semantic-release to v18.0.1 ([f205f63](https://github.com/wmfs/tymly-cardscript-plugin/commit/f205f63fe711f1290d46cb8648ec3d4cd76db6d8))
+
 ## [1.36.2](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.36.1...v1.36.2) (2021-11-18)
 
 
