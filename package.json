@@ -20,7 +20,6 @@
   },
   "main": "./lib/index.js",
   "dependencies": {
-    "debug": "4.3.2",
     "@wmfs/form-maker": "1.8.0",
     "jsonfile": "6.1.0",
     "jsonpath": "1.1.1",
@@ -30,11 +29,12 @@
     "moment": "2.29.1"
   },
   "devDependencies": {
+    "debug": "4.3.2",
     "@semantic-release/changelog": "6.0.1",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/exec": "6.0.2",
     "@wmfs/hl-pg-client": "1.28.0",
-    "@wmfs/tymly": "1.222.0",
+    "@wmfs/tymly": "1.224.2",
     "@wmfs/tymly-pg-plugin": "1.257.0",
     "@wmfs/tymly-rbac-plugin": "1.19.0",
     "@wmfs/tymly-solr-plugin": "2.29.1",
