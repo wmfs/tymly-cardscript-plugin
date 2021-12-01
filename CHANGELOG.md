@@ -1,3 +1,17 @@
+## [1.37.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.37.0...v1.37.1) (2021-12-01)
+
+
+### 🐛 Bug Fixes
+
+* update from logger from tymly-core ([6726daa](https://github.com/wmfs/tymly-cardscript-plugin/commit/6726daa8d66ae3721d745ee09a5f5a81fee053ff))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly-pg-plugin ([0448a31](https://github.com/wmfs/tymly-cardscript-plugin/commit/0448a31b04bbb0491c107b33e8f6a87068cf72a6))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-pg-plugin to v1.258.0 ([06c7f6a](https://github.com/wmfs/tymly-cardscript-plugin/commit/06c7f6a403ab0bd6b0c30ac4a4bfc2758368f850))
+* **deps-dev:** update dependency debug to v4.3.3 ([3e9b69b](https://github.com/wmfs/tymly-cardscript-plugin/commit/3e9b69b7a240c4a9d6563f4b731c7663aed73d7c))
+
 # [1.37.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.36.2...v1.37.0) (2021-11-30)
 
 
