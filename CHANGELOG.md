@@ -1,3 +1,22 @@
+# [1.38.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.37.1...v1.38.0) (2021-12-22)
+
+
+### ✨ Features
+
+* delete older succeeded user remit execution records [sc-12275] ([97c6d1f](https://github.com/wmfs/tymly-cardscript-plugin/commit/97c6d1fcd3dff8c4ce96ffdba6af4124852e87d8))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@semantic-release](https://github.com/semantic-release)/exec to v6.0.3 ([27a9287](https://github.com/wmfs/tymly-cardscript-plugin/commit/27a9287ee3cb2c1cc1926a4a4d56b898a16cf862))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.226.0 ([ea1a146](https://github.com/wmfs/tymly-cardscript-plugin/commit/ea1a146da86b13f2a512ab3e2e84deef44cb0ab1))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.227.0 ([710f255](https://github.com/wmfs/tymly-cardscript-plugin/commit/710f25523dd55e3217b770b9dda3e27ca3699d17))
+
+
+### ⚙️ Continuous Integrations
+
+* **circle:** CircleCI update next gen PostgreSQL image [sc-11442] ([16ed5c0](https://github.com/wmfs/tymly-cardscript-plugin/commit/16ed5c040cc85baab4b8da60c6cd9c55967088e1))
+
 ## [1.37.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.37.0...v1.37.1) (2021-12-01)
 
 
