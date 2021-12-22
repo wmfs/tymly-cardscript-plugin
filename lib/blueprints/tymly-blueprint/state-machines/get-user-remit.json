@@ -1,8 +1,13 @@
 {
   "Comment": "State machine to get the user remit.",
   "version": "1.0",
-  "StartAt": "GetSettings",
+  "StartAt": "ClearPreviousRemits",
   "States": {
+    "ClearPreviousRemits": {
+      "Type": "Task",
+      "Resource": "function:tymly_clearPreviousRemits",
+      "Next": "GetSettings"
+    },
     "GetSettings": {
       "Type": "Task",
       "Resource": "module:getSettings",
