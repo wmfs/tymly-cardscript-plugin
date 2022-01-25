@@ -1,3 +1,17 @@
+# [1.39.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.38.0...v1.39.0) (2022-01-25)
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/hl-pg-client to v1.29.0 ([9f59896](https://github.com/wmfs/tymly-cardscript-plugin/commit/9f59896561b913ebc93a6f44bda9bf3f6d4447a9))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.228.0 ([b2dac7e](https://github.com/wmfs/tymly-cardscript-plugin/commit/b2dac7ec35f96c468a8d0606b67a76ab37d1dcac))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-pg-plugin to v1.260.0 ([b189b6c](https://github.com/wmfs/tymly-cardscript-plugin/commit/b189b6cd9f49e8ea6042f41e2990173d15fb4161))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-test-helpers to v1.13.0 ([5af8261](https://github.com/wmfs/tymly-cardscript-plugin/commit/5af82613794d12b91fdf7a4b8400f0cfc575d4fd))
+* **deps-dev:** update dependency mocha to v9.1.4 ([31f4ca2](https://github.com/wmfs/tymly-cardscript-plugin/commit/31f4ca232427b6aade9e72e674823c70f5c6c530))
+* **deps-dev:** update dependency mocha to v9.2.0 ([35a0fbf](https://github.com/wmfs/tymly-cardscript-plugin/commit/35a0fbfbbd3719954c52e2c7a45637fb68b24523))
+* **deps-dev:** update dependency semantic-release to v19 ([b97938f](https://github.com/wmfs/tymly-cardscript-plugin/commit/b97938f9c46a152687afe9eea9fc577f7c98c4dd))
+* **deps:** update dependency [@wmfs](https://github.com/wmfs)/form-maker to v1.9.0 ([9f0fc60](https://github.com/wmfs/tymly-cardscript-plugin/commit/9f0fc60db504f8cb8bc54c92b02af3f9f263b9ec))
+
 # [1.38.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.37.1...v1.38.0) (2021-12-22)
 
 
