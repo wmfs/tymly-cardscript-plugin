@@ -39,7 +39,7 @@
     "@wmfs/tymly-rbac-plugin": "1.19.0",
     "@wmfs/tymly-solr-plugin": "2.29.1",
     "@wmfs/tymly-test-helpers": "1.13.0",
-    "chai": "4.3.5",
+    "chai": "4.3.6",
     "codecov": "3.8.3",
     "conventional-changelog-metahub": "4.0.1",
     "cz-conventional-changelog": "3.3.0",
