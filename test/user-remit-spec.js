@@ -26,6 +26,8 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
       ],
       pluginPaths: [
         path.resolve(__dirname, './../lib'),
+        require.resolve('@wmfs/tymly-test-helpers/plugins/allow-everything-rbac-plugin'),
+        require.resolve('@wmfs/tymly-test-helpers/plugins/mock-user-info-plugin'),
         require.resolve('@wmfs/tymly-pg-plugin'),
         require.resolve('@wmfs/tymly-solr-plugin'),
         require.resolve('@wmfs/tymly-rbac-plugin')
@@ -67,6 +69,8 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
         userId: 'test-user'
       }
     )
+
+    console.log('???', executionDescription)
 
     expect(executionDescription.currentStateName).to.eql('GetUserRemit')
     expect(executionDescription.currentResource).to.eql('module:getUserRemit')
