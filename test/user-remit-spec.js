@@ -70,8 +70,6 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
       }
     )
 
-    console.log('???', executionDescription)
-
     expect(executionDescription.currentStateName).to.eql('GetUserRemit')
     expect(executionDescription.currentResource).to.eql('module:getUserRemit')
     expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
