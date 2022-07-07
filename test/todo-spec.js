@@ -61,12 +61,7 @@ describe('todo tests', function () {
     await membershipModel.create({ roleId: teamName2, memberId: user3, memberType: 'user' })
   })
 
-  // todo: create some roles - rbacAdmin.createRole(...)
-  // todo: assign some user to the roles - await this.membershipModel.upsert({ roleId, memberId, memberType }, {})
-
   describe('creating a todo without providing anything (user id of person logged in)', function () {
-    // Logged in as user1
-
     const todo = {
       todoTitle: 'ToDo Expense Claim',
       stateMachineTitle: 'Process expense claim for User',
@@ -92,7 +87,7 @@ describe('todo tests', function () {
       todo.id = executionDescription.ctx.idProperties.id
     })
 
-    it('check todo is present', async () => {
+    it('check todo is present in model', async () => {
       const doc = await todos.findById(todo.id)
       expect(doc.userId).to.eql(user1)
       expect(doc.userEmail).to.eql(null)
@@ -101,7 +96,7 @@ describe('todo tests', function () {
     })
 
     it('find todos', async () => {
-      const todosUser1 = await findTodos(user1, todos, rbac)
+      const todosUser1 = await findTodos(user1, todos, rbac, userInfo)
       expect(Object.keys(todosUser1).length).to.eql(1)
       expect(todosUser1[todo.id].description).to.eql(todo.description)
     })
@@ -124,7 +119,7 @@ describe('todo tests', function () {
       expect(executionDescription.status).to.eql('SUCCEEDED')
     })
 
-    it('check todo is updated', async () => {
+    it('check todo is updated in model', async () => {
       const doc = await todos.findById(todo.id)
       expect(doc.userId).to.eql(user1)
       expect(doc.userEmail).to.eql(null)
@@ -153,15 +148,15 @@ describe('todo tests', function () {
     })
 
     it('find todos after re-assigning', async () => {
-      const todosUser1 = await findTodos(user1, todos, rbac)
+      const todosUser1 = await findTodos(user1, todos, rbac, userInfo)
       expect(Object.keys(todosUser1).length).to.eql(0)
 
-      const todosUser2 = await findTodos(user2, todos, rbac)
+      const todosUser2 = await findTodos(user2, todos, rbac, userInfo)
       expect(Object.keys(todosUser2).length).to.eql(1)
       expect(todosUser2[todo.id].description).to.eql(todo.description)
     })
 
-    it('check todo has been re-assigned', async () => {
+    it('check todo has been re-assigned in model', async () => {
       const doc = await todos.findById(todo.id)
       expect(doc.userId).to.eql(user2)
       expect(doc.userEmail).to.eql(null)
@@ -181,7 +176,7 @@ describe('todo tests', function () {
       )
     })
 
-    it('check todo has been removed', async () => {
+    it('check todo has been removed from model', async () => {
       const doc = await todos.findById(todo.id)
       expect(doc).to.eql(undefined)
 
@@ -190,17 +185,15 @@ describe('todo tests', function () {
     })
 
     it('find todos after removal', async () => {
-      const todosUser1 = await findTodos(user1, todos, rbac)
+      const todosUser1 = await findTodos(user1, todos, rbac, userInfo)
       expect(Object.keys(todosUser1).length).to.eql(0)
 
-      const todosUser2 = await findTodos(user2, todos, rbac)
+      const todosUser2 = await findTodos(user2, todos, rbac, userInfo)
       expect(Object.keys(todosUser2).length).to.eql(0)
     })
   })
 
   describe('creating a todo providing a specific user ID', function () {
-    // Logged in as user1, assigning to user2
-
     const todo = {
       userId: user2,
       todoTitle: 'ToDo Expense Claim',
@@ -227,7 +220,7 @@ describe('todo tests', function () {
       todo.id = executionDescription.ctx.idProperties.id
     })
 
-    it('check todo is present', async () => {
+    it('check todo is present in model', async () => {
       const doc = await todos.findById(todo.id)
       expect(doc.userId).to.eql(user2)
       expect(doc.userEmail).to.eql(null)
@@ -253,7 +246,7 @@ describe('todo tests', function () {
       expect(executionDescription.status).to.eql('SUCCEEDED')
     })
 
-    it('check todo is updated', async () => {
+    it('check todo is updated in model', async () => {
       const doc = await todos.findById(todo.id)
       expect(doc.userId).to.eql(user2)
       expect(doc.userEmail).to.eql(null)
@@ -262,10 +255,10 @@ describe('todo tests', function () {
     })
 
     it('find todos', async () => {
-      const todosUser1 = await findTodos(user1, todos, rbac)
+      const todosUser1 = await findTodos(user1, todos, rbac, userInfo)
       expect(Object.keys(todosUser1).length).to.eql(0)
 
-      const todosUser2 = await findTodos(user2, todos, rbac)
+      const todosUser2 = await findTodos(user2, todos, rbac, userInfo)
       expect(Object.keys(todosUser2).length).to.eql(1)
       expect(todosUser2[todo.id].description).to.eql(todo.description)
     })
@@ -284,17 +277,15 @@ describe('todo tests', function () {
     })
 
     it('find todos after removing', async () => {
-      const todosUser1 = await findTodos(user1, todos, rbac)
+      const todosUser1 = await findTodos(user1, todos, rbac, userInfo)
       expect(Object.keys(todosUser1).length).to.eql(0)
 
-      const todosUser2 = await findTodos(user2, todos, rbac)
+      const todosUser2 = await findTodos(user2, todos, rbac, userInfo)
       expect(Object.keys(todosUser2).length).to.eql(0)
     })
   })
 
   describe('creating a todo providing a team role', function () {
-    // Logged in as user1, assigning to teamName1
-
     const todo = {
       role: teamName1,
       todoTitle: 'ToDo Expense Claim',
@@ -321,7 +312,7 @@ describe('todo tests', function () {
       todo.id = executionDescription.ctx.idProperties.id
     })
 
-    it('check todo is present', async () => {
+    it('check todo is present in model', async () => {
       const doc = await todos.findById(todo.id)
       expect(doc.userId).to.eql(null)
       expect(doc.teamName).to.eql(teamName1)
@@ -346,7 +337,7 @@ describe('todo tests', function () {
       expect(executionDescription.status).to.eql('SUCCEEDED')
     })
 
-    it('check todo is updated', async () => {
+    it('check todo is updated in model', async () => {
       const doc = await todos.findById(todo.id)
       expect(doc.userId).to.eql(null)
       expect(doc.userEmail).to.eql(null)
@@ -355,11 +346,11 @@ describe('todo tests', function () {
     })
 
     it('find todos', async () => {
-      const todosUser1 = await findTodos(user1, todos, rbac)
+      const todosUser1 = await findTodos(user1, todos, rbac, userInfo)
       expect(Object.keys(todosUser1).length).to.eql(1)
       expect(todosUser1[todo.id].description).to.eql(todo.description)
 
-      const todosUser2 = await findTodos(user2, todos, rbac)
+      const todosUser2 = await findTodos(user2, todos, rbac, userInfo)
       expect(Object.keys(todosUser2).length).to.eql(0)
     })
 
@@ -384,46 +375,47 @@ describe('todo tests', function () {
     })
 
     it('find todos after re-assigning', async () => {
-      const todosUser1 = await findTodos(user1, todos, rbac)
+      const todosUser1 = await findTodos(user1, todos, rbac, userInfo)
       expect(Object.keys(todosUser1).length).to.eql(0)
 
-      const todosUser2 = await findTodos(user2, todos, rbac)
+      const todosUser2 = await findTodos(user2, todos, rbac, userInfo)
       expect(Object.keys(todosUser2).length).to.eql(0)
 
-      const todosUser3 = await findTodos(user3, todos, rbac)
+      const todosUser3 = await findTodos(user3, todos, rbac, userInfo)
       expect(Object.keys(todosUser3).length).to.eql(1)
       expect(todosUser3[todo.id].description).to.eql(todo.description)
     })
-  })
 
-  // describe('creating a todo providing a user email', function () {
-  //
-  // })
-
-  after(async () => {
-    await sqlScriptRunner('./db-scripts/cleanup.sql', client)
-    await tymlyService.shutdown()
-  })
-})
-
-/*
-describe('todo changes tymly-cardscript-plugin tests', function () {
-  describe('role todo entry', () => {
-    let roleTodoId = null
-
-    it('create a role todo entry', async () => {
-      const executionDescription = await statebox.startExecution(
+    it('remove todo', async () => {
+      await statebox.startExecution(
         {
-          role: 'role_MonkeyPunk',
-          todoTitle: 'ToDo Expense Claim',
-          stateMachineTitle: 'Process expense claim for User',
-          stateMachineCategory: 'Expenses',
-          description: 'Claiming $12 for A pack of Duff Beer'
+          todoId: todo.id
         },
+        REMOVE_TODO_STATE_MACHINE,
+        {
+          sendResponse: 'COMPLETE',
+          userId: user1
+        }
+      )
+    })
+  })
+
+  describe('creating a todo providing a user email', function () {
+    const todo = {
+      userEmail: `${user1}@tymly-test.com`,
+      todoTitle: 'ToDo Expense Claim',
+      stateMachineTitle: 'Process expense claim for User',
+      stateMachineCategory: 'Expenses',
+      description: 'Claiming $12 for A pack of Duff Beer'
+    }
+
+    it('create todo', async () => {
+      const executionDescription = await statebox.startExecution(
+        todo,
         CREATE_TO_DO_ENTRY,
         {
           sendResponse: 'COMPLETE',
-          userId: 'todo-user'
+          userId: user1
         }
       )
 
@@ -432,57 +424,40 @@ describe('todo changes tymly-cardscript-plugin tests', function () {
       expect(executionDescription.stateMachineName).to.eql(CREATE_TO_DO_ENTRY)
       expect(executionDescription.status).to.eql('SUCCEEDED')
 
-      roleTodoId = executionDescription.ctx.idProperties.id
+      todo.id = executionDescription.ctx.idProperties.id
     })
 
-    it('todo is present', async () => {
-      const doc = await todos.findById(roleTodoId)
+    it('check todo is present in model', async () => {
+      const doc = await todos.findById(todo.id)
       expect(doc.userId).to.eql(null)
-      expect(doc.teamName).to.eql('role_MonkeyPunk')
-      expect(doc.description).to.eql('Claiming $12 for A pack of Duff Beer')
+      expect(doc.userEmail).to.eql(todo.userEmail)
+      expect(doc.teamName).to.eql(null)
+      expect(doc.description).to.eql(todo.description)
     })
 
-    it('update role todo entry', async () => {
+    it('find todos', async () => {
+      const todosUser1 = await findTodos(user1, todos, rbac, userInfo)
+      expect(Object.keys(todosUser1).length).to.eql(1)
+      expect(todosUser1[todo.id].description).to.eql(todo.description)
+
+      const todosUser2 = await findTodos(user2, todos, rbac, userInfo)
+      expect(Object.keys(todosUser2).length).to.eql(0)
+
+      const todosUser3 = await findTodos(user3, todos, rbac, userInfo)
+      expect(Object.keys(todosUser3).length).to.eql(0)
+    })
+
+    it('re-assign todo entry to user2', async () => {
       const executionDescription = await statebox.startExecution(
         {
-          role: 'role_MonkeyPunk',
-          todoTitle: 'ToDo Expense Claim',
-          stateMachineTitle: 'Process expense claim for User',
-          stateMachineCategory: 'Expenses',
-          description: 'User is claiming $12 for A pack of Duff Beer',
-          id: roleTodoId
-        },
-        CREATE_TO_DO_ENTRY,
-        {
-          sendResponse: 'COMPLETE',
-          userId: 'todo-user'
-        }
-      )
-
-      expect(executionDescription.currentStateName).to.eql('CreateTodoEntry')
-      expect(executionDescription.currentResource).to.eql('module:createTodoEntry')
-      expect(executionDescription.stateMachineName).to.eql(CREATE_TO_DO_ENTRY)
-      expect(executionDescription.status).to.eql('SUCCEEDED')
-    })
-
-    it('todo is updated', async () => {
-      const doc = await todos.findById(roleTodoId)
-      expect(doc.userId).to.eql(null)
-      expect(doc.teamName).to.eql('role_MonkeyPunk')
-      expect(doc.description).to.eql('User is claiming $12 for A pack of Duff Beer')
-    })
-
-    it('re-assign todo entry to another team', async () => {
-      const executionDescription = await statebox.startExecution(
-        {
-          property: 'teamName',
-          value: 'other-team',
-          todoIds: [roleTodoId]
+          property: 'userEmail',
+          value: `${user2}@tymly-test.com`,
+          todoIds: [todo.id]
         },
         REASSIGN_TODO_STATE_MACHINE,
         {
           sendResponse: 'COMPLETE',
-          userId: 'todo-user'
+          userId: user1
         }
       )
 
@@ -490,148 +465,23 @@ describe('todo changes tymly-cardscript-plugin tests', function () {
       expect(executionDescription.currentResource).to.eql('module:reassignTodoEntries')
       expect(executionDescription.stateMachineName).to.eql(REASSIGN_TODO_STATE_MACHINE)
       expect(executionDescription.status).to.eql('SUCCEEDED')
-
-      const doc = await todos.findById(roleTodoId)
-      expect(doc.teamName).to.eql('other-team')
-      expect(doc.userId).to.eql(null)
     })
 
-    it('remove the todo', async () => {
-      await statebox.startExecution(
-        {
-          todoId: roleTodoId
-        },
-        REMOVE_TODO_STATE_MACHINE,
-        {
-          sendResponse: 'COMPLETE',
-          userId: 'todo-user'
-        }
-      )
-    })
+    it('find todos after re-assigning', async () => {
+      const todosUser1 = await findTodos(user1, todos, rbac, userInfo)
+      expect(Object.keys(todosUser1).length).to.eql(0)
 
-    it('todo is removed', async () => {
-      const doc = await todos.findById(roleTodoId)
-      expect(doc).to.eql(undefined)
+      const todosUser2 = await findTodos(user2, todos, rbac, userInfo)
+      expect(Object.keys(todosUser2).length).to.eql(1)
+      expect(todosUser2[todo.id].description).to.eql(todo.description)
+
+      const todosUser3 = await findTodos(user3, todos, rbac, userInfo)
+      expect(Object.keys(todosUser3).length).to.eql(0)
     })
   })
-
-  describe('get todo changes', () => {
-    before(async () => {
-      await sqlScriptRunner('./db-scripts/settings/setup.sql', client)
-      await sqlScriptRunner('./db-scripts/favourites/setup.sql', client)
-      await sqlScriptRunner('./db-scripts/todos/setup.sql', client)
-    })
-
-    describe('user id without role', () => {
-      it('get todos', async () => {
-        const executionDescription = await statebox.startExecution(
-          {
-            clientTodos: [] // for getTodos
-          },
-          GET_TODO_CHANGES_STATE_MACHINE,
-          {
-            sendResponse: 'COMPLETE',
-            userId: 'test-user'
-          }
-        )
-
-        expect(executionDescription.currentStateName).to.eql('GetTodoChanges')
-        expect(executionDescription.currentResource).to.eql('module:getTodoChanges')
-        expect(executionDescription.stateMachineName).to.eql(GET_TODO_CHANGES_STATE_MACHINE)
-        expect(executionDescription.status).to.eql('SUCCEEDED')
-        expect(Object.keys(executionDescription.ctx.todoChanges.add).length).to.eql(2)
-        expect(Object.keys(executionDescription.ctx.todoChanges.add)
-          .includes('5200987c-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
-        expect(Object.keys(executionDescription.ctx.todoChanges.add)
-          .includes('0d625558-ce99-11e7-b7e3-c38932399c15')).to.eql(true)
-        expect(executionDescription.ctx.todoChanges.remove).to.eql([])
-      })
-
-      it('get todo changes', async () => {
-        const executionDescription = await statebox.startExecution(
-          {
-            clientTodos: [
-              '5200987c-bb03-11e7-abc4-cec278b6b50a',
-              '52009d36-bb03-11e7-abc4-cec278b6b50a',
-              '52009e4e-bb03-11e7-abc4-cec278b6b50a',
-              '52009f20-bb03-11e7-abc4-cec278b6b50a',
-              '52009ff2-bb03-11e7-abc4-cec278b6b50a'
-            ] // for getTodos
-          },
-          GET_TODO_CHANGES_STATE_MACHINE,
-          {
-            sendResponse: 'COMPLETE',
-            userId: 'test-user'
-          }
-        )
-
-        expect(executionDescription.currentStateName).to.eql('GetTodoChanges')
-        expect(executionDescription.currentResource).to.eql('module:getTodoChanges')
-        expect(executionDescription.stateMachineName).to.eql(GET_TODO_CHANGES_STATE_MACHINE)
-        expect(executionDescription.status).to.eql('SUCCEEDED')
-        expect(Object.keys(executionDescription.ctx.todoChanges.add)).to.eql([
-          '0d625558-ce99-11e7-b7e3-c38932399c15'
-        ])
-        expect(executionDescription.ctx.todoChanges.remove.length).to.eql(4)
-        expect(executionDescription.ctx.todoChanges.remove
-          .includes('52009d36-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
-        expect(executionDescription.ctx.todoChanges.remove
-          .includes('52009e4e-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
-        expect(executionDescription.ctx.todoChanges.remove
-          .includes('52009f20-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
-        expect(executionDescription.ctx.todoChanges.remove
-          .includes('52009ff2-bb03-11e7-abc4-cec278b6b50a')).to.eql(true)
-      })
-    })
-
-    describe('user id with "test-team" role', () => {
-      it('get todos', async () => {
-        const executionDescription = await statebox.startExecution(
-          {
-            clientTodos: [] // for getTodos
-          },
-          GET_TODO_CHANGES_STATE_MACHINE,
-          {
-            sendResponse: 'COMPLETE',
-            userId: 'test-team-member'
-          }
-        )
-
-        expect(executionDescription.currentStateName).to.eql('GetTodoChanges')
-        expect(executionDescription.currentResource).to.eql('module:getTodoChanges')
-        expect(executionDescription.stateMachineName).to.eql(GET_TODO_CHANGES_STATE_MACHINE)
-        expect(executionDescription.status).to.eql('SUCCEEDED')
-        expect(Object.keys(executionDescription.ctx.todoChanges.add).length).to.eql(2)
-        expect(Object.keys(executionDescription.ctx.todoChanges.add)
-          .includes('77777777-ce99-11e7-b7e3-c38932399c15')).to.eql(true)
-        expect(Object.keys(executionDescription.ctx.todoChanges.add)
-          .includes('88888888-ce99-11e7-b7e3-c38932399c15')).to.eql(true)
-        expect(executionDescription.ctx.todoChanges.remove).to.eql([])
-      })
-    })
-  })
-
-  // describe('bad todos', () => {
-  //   it('fail to find a todo that doesn\'t exist', async () => {
-  //     const executionDescription = await statebox.startExecution(
-  //       {
-  //         todoId: 'FAILHERE'
-  //       },
-  //       REMOVE_TODO_STATE_MACHINE,
-  //       {
-  //         sendResponse: 'COMPLETE',
-  //         userId: 'test-user'
-  //       }
-  //     )
-  //
-  //     expect(executionDescription.status).to.eql('FAILED')
-  //     expect(executionDescription.errorCode).to.eql('removeTodoFail')
-  //   })
-  // })
 
   after(async () => {
     await sqlScriptRunner('./db-scripts/cleanup.sql', client)
     await tymlyService.shutdown()
   })
 })
-*/
