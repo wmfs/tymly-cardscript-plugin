@@ -9,6 +9,10 @@
       "type": "string",
       "description": "The ID of the user the todo belongs to, if a user"
     },
+    "userEmail": {
+      "type": "string",
+      "description": "The email of the user the todo belongs to, if a user"
+    },
     "teamName": {
       "type": "string",
       "description": "The team the todo belongs to, if a team"
