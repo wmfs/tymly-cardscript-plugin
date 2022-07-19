@@ -1,3 +1,29 @@
+# [1.41.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.40.0...v1.41.0) (2022-07-19)
+
+
+### ✨ Features
+
+* to-do entries to be assigned to user email as option in addition to user id and team name ([7b31f26](https://github.com/wmfs/tymly-cardscript-plugin/commit/7b31f26803279daa9420e963f4487c76f02144fa))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.240.0 ([b1fc9db](https://github.com/wmfs/tymly-cardscript-plugin/commit/b1fc9db6bf1de026cee3b7e44aac69321c890de9))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-test-helpers to v1.18.0 ([d0468a6](https://github.com/wmfs/tymly-cardscript-plugin/commit/d0468a605fb65fb2fb430bf3100540188157bf75))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-test-helpers to v1.19.0 ([7b86536](https://github.com/wmfs/tymly-cardscript-plugin/commit/7b86536d49501c21870a937f64ade26a7808c70b))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-test-helpers to v1.21.0 ([7d32a50](https://github.com/wmfs/tymly-cardscript-plugin/commit/7d32a50eab7efe26a2e789f18322a97ee9a724de))
+
+
+### 🚨 Tests
+
+* add mock plugins to user remit test ([0506e1c](https://github.com/wmfs/tymly-cardscript-plugin/commit/0506e1c1a2c5a3c0a613ea91cf5a3112c59ab06e))
+* tidy up test so clearer and more consistent ([d0b925e](https://github.com/wmfs/tymly-cardscript-plugin/commit/d0b925e8043207b343ac68a8fd16ce0009ff7c0f))
+
+
+### ♻️ Chores
+
+* remove log ([923ecc6](https://github.com/wmfs/tymly-cardscript-plugin/commit/923ecc653281271b3965ce720afddc1e418e5383))
+
 # [1.40.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.39.0...v1.40.0) (2022-06-22)
 
 
