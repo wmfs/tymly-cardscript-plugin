@@ -1,3 +1,10 @@
+# [1.42.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.41.0...v1.42.0) (2022-08-10)
+
+
+### 🛠 Builds
+
+* **deps:** update dependency moment to v2.29.4 [security] ([cbd2eb0](https://github.com/wmfs/tymly-cardscript-plugin/commit/cbd2eb0bb6ebbab7c851b173427bc27c22e0c624))
+
 # [1.41.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.40.0...v1.41.0) (2022-07-19)
 
 
