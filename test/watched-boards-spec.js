@@ -169,7 +169,7 @@ describe('watched-boards tymly-cardscript-plugin tests', function () {
   it('should delete the watched board to validate the previous test', async () => {
     const executionDescription = await statebox.startExecution(
       {
-        subscriptionId: subscriptionId
+        subscriptionId
       },
       UNWATCH_BOARD_STATE_MACHINE,
       {

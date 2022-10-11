@@ -51,7 +51,7 @@ describe('notifications tymly-cardscript-plugin tests', function () {
   it('should start the state resource execution to retrieve some notifications for a specified user', async () => {
     const executionDescription = await statebox.startExecution(
       {
-        limit: limit
+        limit
       },
       GET_NOTIFICATIONS_STATE_MACHINE,
       {
@@ -72,8 +72,8 @@ describe('notifications tymly-cardscript-plugin tests', function () {
   it('should check the context returned when passing a \'startFrom\'', async () => {
     const executionDescription = await statebox.startExecution(
       {
-        startFrom: startFrom,
-        limit: limit
+        startFrom,
+        limit
       },
       GET_NOTIFICATIONS_STATE_MACHINE,
       {
@@ -94,7 +94,7 @@ describe('notifications tymly-cardscript-plugin tests', function () {
   it('should acknowledge one notification', async () => {
     const executionDescription = await statebox.startExecution(
       {
-        notificationsToMark: notificationsToMark
+        notificationsToMark
       },
       ACKNOWLEDGE_NOTIFICATIONS_STATE_MACHINE,
       {
@@ -151,7 +151,7 @@ describe('notifications tymly-cardscript-plugin tests', function () {
   it('should acknowledge multiple notifications', async () => {
     const executionDescription = await statebox.startExecution(
       {
-        notificationsToMark: notificationsToMark
+        notificationsToMark
       },
       ACKNOWLEDGE_NOTIFICATIONS_STATE_MACHINE,
       {

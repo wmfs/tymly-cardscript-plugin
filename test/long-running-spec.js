@@ -273,7 +273,7 @@ async function stopClock (statebox, executionName) {
 async function archiveExecution (statebox, executionName, expectedStatus = 'SUCCEEDED') {
   const { status } = await statebox.startExecution(
     {
-      executionName: executionName
+      executionName
     },
     'tymly_archiveExecution_1_0',
     {
