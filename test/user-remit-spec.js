@@ -84,7 +84,7 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     expect(Object.keys(categories).sort()).to.eql(['fire', 'gazetteer', 'help', 'system', 'water'])
     expect(Object.keys(todos).sort()).to.eql(['a69c0ac9-cde5-11e7-abc4-cec278b6b50a'])
     expect(Object.keys(teams).sort()).to.eql(['Birmingham (Red watch)', 'Fire Safety (North)'])
-    expect(Object.keys(cards).sort()).to.eql(['test_pizzaDetails_1_0', 'test_pizzaForm_1_0', 'tymly_rbacGrantRoleMembership_1_0', 'tymly_removeRoleMembership_1_0', 'tymly_viewRoleMemberships_1_0'])
+    expect(Object.keys(cards).sort()).to.eql(['test_pizzaDetails_1_0', 'test_pizzaForm_1_0', 'tymly_rbacGrantRoleMembership_1_0', 'tymly_removeRoleMembership_1_0', 'tymly_viewPermissions_1_0', 'tymly_viewRoleMemberships_1_0'])
 
     // State machine with role: 'topSecretRole' should NOT appear in startable
     // State machine without 'user' as instigator should NOT appear in startable
@@ -125,7 +125,7 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
     expect(Object.keys(categories).sort()).to.eql(['fire', 'gazetteer', 'help', 'system', 'water'])
     expect(Object.keys(todos).sort()).to.eql(['a69c0ae8-cde5-11e7-abc4-cec278b6b50a', 'a69c0dcc-cde5-11e7-abc4-cec278b6b50a'])
     expect(Object.keys(teams).sort()).to.eql(['Birmingham (Red watch)', 'Fire Safety (North)'])
-    expect(Object.keys(cards).sort()).to.eql(['test_pizzaDetails_1_0', 'test_pizzaForm_1_0', 'tymly_rbacGrantRoleMembership_1_0', 'tymly_removeRoleMembership_1_0', 'tymly_viewRoleMemberships_1_0'])
+    expect(Object.keys(cards).sort()).to.eql(['test_pizzaDetails_1_0', 'test_pizzaForm_1_0', 'tymly_rbacGrantRoleMembership_1_0', 'tymly_removeRoleMembership_1_0', 'tymly_viewPermissions_1_0', 'tymly_viewRoleMemberships_1_0'])
 
     // State machine with role: 'topSecretRole' should NOT appear in startable
     // State machine without 'user' as instigator should NOT appear in startable
