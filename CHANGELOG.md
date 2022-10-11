@@ -1,3 +1,21 @@
+## [1.42.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.42.0...v1.42.1) (2022-10-11)
+
+
+### 🐛 Bug Fixes
+
+* update test expects ([04ecb69](https://github.com/wmfs/tymly-cardscript-plugin/commit/04ecb69210c9a3ffb540cc5b1bf593302c359c46))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.242.0 ([fce0343](https://github.com/wmfs/tymly-cardscript-plugin/commit/fce03437bfc230691cefa3c9b5d642afc7af0da9))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-rbac-plugin to v1.22.0 ([42ee619](https://github.com/wmfs/tymly-cardscript-plugin/commit/42ee619f3c3c7e0c6bfe0033b59bedb5ce13b2e9))
+
+
+### 💎 Styles
+
+* standard ([b67b91f](https://github.com/wmfs/tymly-cardscript-plugin/commit/b67b91f6ae5a583f93decc48c8720a3b62442362))
+
 # [1.42.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.41.0...v1.42.0) (2022-08-10)
 
 
