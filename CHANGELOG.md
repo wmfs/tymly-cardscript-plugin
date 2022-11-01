@@ -1,3 +1,15 @@
+# [1.43.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.42.1...v1.43.0) (2022-11-01)
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/hl-pg-client to v1.30.0 ([b46e1b6](https://github.com/wmfs/tymly-cardscript-plugin/commit/b46e1b65c275df8ccb1f58c08572ca86a32efb35))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-solr-plugin to v2.34.0 ([cb6bd1e](https://github.com/wmfs/tymly-cardscript-plugin/commit/cb6bd1e686227b3ff07cfce3eca9777015c49dbe))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-test-helpers to v1.22.1 ([4c77727](https://github.com/wmfs/tymly-cardscript-plugin/commit/4c7772730cacc8bccd66d91c134b1f61031c3a52))
+* **deps-dev:** update dependency mocha to v10.1.0 ([66e3e89](https://github.com/wmfs/tymly-cardscript-plugin/commit/66e3e8996a59585d00342a7d4c991391ad19e794))
+* **deps-dev:** update dependency semantic-release to v19.0.5 ([726113a](https://github.com/wmfs/tymly-cardscript-plugin/commit/726113a3600a13662745c032f6d707d446e2c95a))
+* **deps:** update dependency uuid to v9 ([b2b4803](https://github.com/wmfs/tymly-cardscript-plugin/commit/b2b48033c2496831f4989f649230439a6d6c5bb5))
+
 ## [1.42.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.42.0...v1.42.1) (2022-10-11)
 
 
