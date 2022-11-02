@@ -22,7 +22,7 @@ class DummyRbacService {
   } // checkRoleAuthorization
 
   resetCache () {
-    this.userMembershipsCache.reset()
+    this.userMembershipsCache.clear()
   }
 } // RbacService
 
