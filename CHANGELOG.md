@@ -1,3 +1,17 @@
+## [1.43.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.43.0...v1.43.1) (2022-11-02)
+
+
+### 🐛 Bug Fixes
+
+* caches function del becomes delete ([bfde62c](https://github.com/wmfs/tymly-cardscript-plugin/commit/bfde62cd7a285b28b0cb1855a97025bd2e781771))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.243.0 ([bce21a3](https://github.com/wmfs/tymly-cardscript-plugin/commit/bce21a3ca3521c4e7325701f70d8201f22d08600))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-pg-plugin to v1.271.0 ([cad1756](https://github.com/wmfs/tymly-cardscript-plugin/commit/cad1756b032aabac9979e22b97bdb88f2c7f055e))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-solr-plugin to v2.35.0 ([1f54302](https://github.com/wmfs/tymly-cardscript-plugin/commit/1f54302b84b32a97637ea1558db9aabed446993e))
+
 # [1.43.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.42.1...v1.43.0) (2022-11-01)
 
 
