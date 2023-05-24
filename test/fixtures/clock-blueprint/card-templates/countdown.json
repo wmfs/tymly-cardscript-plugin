@@ -1,6 +1,9 @@
 {
-  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-  "version": "1.0",
+  "templateMeta": {
+    "name": "countdown",
+    "title": "The Time",
+    "category": "dataManagement"
+  },
   "type": "AdaptiveCard",
   "body": [
     {
@@ -24,13 +27,10 @@
       "title": "Close"
     }
   ],
-  "templateMeta": {
-    "name": "countdown",
-    "title": "The Time",
-    "category": "dataManagement"
-  },
   "meta": {
     "generatedOn": "4/10/2019, 14:07:31 PM",
     "generatedWith": "@wmfs/tymly-scaffold 0.0.0-semantically-released"
-  }
+  },
+  "$schema": "https://raw.githubusercontent.com/wmfs/cardscript-schema/master/lib/schema.json",
+  "version": "1.0"
 }
