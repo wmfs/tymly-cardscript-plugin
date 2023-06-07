@@ -1,4 +1,3 @@
-
 module.exports = {
   label: 'Dummy RBAC Service',
   author: 'Jez Higgins',
