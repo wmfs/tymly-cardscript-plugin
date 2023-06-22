@@ -25,6 +25,14 @@
       "Type": "Task",
       "Resource": "module:getUserRemit",
       "InputPath": "$",
+      "Next": "MigrateToNewAdUserId"
+    },
+    "MigrateToNewAdUserId": {
+      "Type": "Task",
+      "Resource": "module:runStateMachine",
+      "ResourceConfig": {
+        "stateMachine": "system_migrateUsersIds_1_0"
+      },
       "End": true
     }
   },
