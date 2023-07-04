@@ -1,0 +1,23 @@
+{
+  "Comment": "test",
+  "name": "migrate-users-ids",
+  "version": "1.0",
+  "categories": [
+    "system"
+  ],
+  "StartAt": "Pass",
+  "States": {
+    "Pass": {
+      "Type": "Pass",
+      "End": true
+    }
+  },
+  "restrictions": [
+    {
+      "roleId": "$everyone",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}
