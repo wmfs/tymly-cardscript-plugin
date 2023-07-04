@@ -1,0 +1,11 @@
+{
+  "namespace": "system",
+  "name": "system-blueprint",
+  "version": "1.0",
+  "label": "system-blueprint",
+  "author": "Tymly",
+
+  "organisation": "West Midlands Fire Service",
+  "description": "Tymly blueprint",
+  "categories": []
+}
