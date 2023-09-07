@@ -3,7 +3,23 @@
   "properties": {
     "todoTitle": {
       "type": "string",
-      "description": "Title of the to do entry"
+      "description": "The text of the clickable link on the todo"
+    },
+    "description": {
+      "type": "string",
+      "description": "The text displayed under the clickable link on the todo"
+    },
+    "stateMachineTitle": {
+      "type": "string",
+      "description": "This will be stored in the database to identify an execution - this will typically be the same as todoTitle"
+    },
+    "stateMachineCategory": {
+      "type": "string",
+      "description": "The blueprint namespace (see the namespace property in your blueprint.json file)"
+    },
+    "id": {
+      "type": "uuid",
+      "description": "An optional property allowing you to specify the id of the todo.  Note that this property wouldn't typically be specified and would be set automatically."
     }
   }
 }

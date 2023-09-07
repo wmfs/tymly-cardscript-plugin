@@ -1,9 +1,23 @@
 {
   "CreateTodoEntry": {
     "Type": "Task",
-    "InputPath": "$.todo",
     "Resource": "module:createTodoEntry",
+    "Parameters": {
+      "stateMachineTitle": "Book Dance Classes",
+      "stateMachineCategory": "dance",
+      "todoTitle": "Book Dance Classes",
+      "description": "Book a Dance Class for an individual",
+      "launches": [
+        {
+          "title": "Book",
+          "stateMachineName": "dance_bookClass_1_0",
+          "input": {
+            "id.$": "$.id"
+          }
+        }
+      ]
+    },
     "ResultPath": "$.todoId",
-    "Next": "GetTodoLaunches"
+    "Next": "NextState"
   }
 }
