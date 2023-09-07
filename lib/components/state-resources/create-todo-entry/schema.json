@@ -21,5 +21,6 @@
       "type": "uuid",
       "description": "An optional property allowing you to specify the id of the todo.  Note that this property wouldn't typically be specified and would be set automatically."
     }
-  }
+  },
+  "required": [ "todoTitle", "description", "stateMachineTitle", "stateMachineCategory" ]
 }
