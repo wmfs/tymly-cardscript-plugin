@@ -1,3 +1,22 @@
+# [1.45.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.44.0...v1.45.0) (2023-09-19)
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency chai to v4.3.8 ([f1fa5b0](https://github.com/wmfs/tymly-cardscript-plugin/commit/f1fa5b079e2cf96b04696163ca322d04791f1788))
+* **deps-dev:** update dependency semantic-release to v21.0.9 ([6e568ce](https://github.com/wmfs/tymly-cardscript-plugin/commit/6e568ce5e2bd0169bb739a433c353c0524a094dd))
+* **deps-dev:** update dependency semantic-release to v21.1.0 ([a134aa7](https://github.com/wmfs/tymly-cardscript-plugin/commit/a134aa751895de8f2f3f63cc78ef21a571c6b434))
+* **deps-dev:** update dependency semantic-release to v21.1.1 ([105af19](https://github.com/wmfs/tymly-cardscript-plugin/commit/105af19e5bb41a6655b2df780bc2b4015a5769c8))
+* **deps-dev:** update dependency semantic-release to v21.1.2 ([9ed2d01](https://github.com/wmfs/tymly-cardscript-plugin/commit/9ed2d012c726aaeac0a7f4cff385fab2308c4ead))
+* **deps-dev:** update dependency semantic-release to v22 ([d8061f8](https://github.com/wmfs/tymly-cardscript-plugin/commit/d8061f8afc38fe3e7706be5c88efb0b6915e38ae))
+* **deps:** revert semantic-release ([5a9b4ff](https://github.com/wmfs/tymly-cardscript-plugin/commit/5a9b4ff23c0815081df9916112ed4a97d3fef5a3))
+
+
+### 📚 Documentation
+
+* specified required fields ([ef925c9](https://github.com/wmfs/tymly-cardscript-plugin/commit/ef925c93e88911a06a5c09ee09c38edac69e8af3))
+* updated docs for create-todo-entry state-resource ([155a296](https://github.com/wmfs/tymly-cardscript-plugin/commit/155a296e0cd5852b6767431fa70c023cc056403f))
+
 # [1.44.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.43.2...v1.44.0) (2023-07-27)
 
 
