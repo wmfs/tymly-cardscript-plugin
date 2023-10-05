@@ -1,3 +1,19 @@
+## [1.45.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.45.0...v1.45.1) (2023-10-05)
+
+
+### 🐛 Bug Fixes
+
+* reshuffle remit order and unit test fix ([b0c0df4](https://github.com/wmfs/tymly-cardscript-plugin/commit/b0c0df41514ebeb93f03afcce859f506556b4733))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-pg-plugin to v1.289.0 ([b925ef9](https://github.com/wmfs/tymly-cardscript-plugin/commit/b925ef9c2d2dea12c8b4b6da8200edac7e4fdeaf))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-rbac-plugin to v1.30.0 ([8aba60a](https://github.com/wmfs/tymly-cardscript-plugin/commit/8aba60a70209e80b99ea52d4cf2dbc0792b92c8d))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly-solr-plugin to v2.40.0 ([0a58a79](https://github.com/wmfs/tymly-cardscript-plugin/commit/0a58a7960439e445e6382bc4f9024ea89080e3da))
+* **deps-dev:** update dependency chai to v4.3.10 ([13cc7a6](https://github.com/wmfs/tymly-cardscript-plugin/commit/13cc7a6cb3a8015aa5a0b9703a07b7b5e0661501))
+* **deps-dev:** update dependency chai to v4.3.9 ([693fd82](https://github.com/wmfs/tymly-cardscript-plugin/commit/693fd82ea0b46a7b0f0c2de640c0e2499450cc5f))
+
 # [1.45.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.44.0...v1.45.0) (2023-09-19)
 
 
