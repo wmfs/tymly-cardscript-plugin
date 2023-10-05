@@ -71,8 +71,8 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
       }
     )
 
-    expect(executionDescription.currentStateName).to.eql('MigrateToNewAdUserId')
-    expect(executionDescription.currentResource).to.eql('module:runStateMachine')
+    expect(executionDescription.currentStateName).to.eql('GetUserRemit')
+    expect(executionDescription.currentResource).to.eql('module:getUserRemit')
     expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
     expect(executionDescription.status).to.eql('SUCCEEDED')
 
@@ -112,8 +112,8 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
       }
     )
 
-    expect(executionDescription.currentStateName).to.eql('MigrateToNewAdUserId')
-    expect(executionDescription.currentResource).to.eql('module:runStateMachine')
+    expect(executionDescription.currentStateName).to.eql('GetUserRemit')
+    expect(executionDescription.currentResource).to.eql('module:getUserRemit')
     expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
     expect(executionDescription.status).to.eql('SUCCEEDED')
 
@@ -153,8 +153,8 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
       }
     )
 
-    expect(executionDescription.currentStateName).to.eql('MigrateToNewAdUserId')
-    expect(executionDescription.currentResource).to.eql('module:runStateMachine')
+    expect(executionDescription.currentStateName).to.eql('GetUserRemit')
+    expect(executionDescription.currentResource).to.eql('module:getUserRemit')
     expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
     expect(executionDescription.status).to.eql('SUCCEEDED')
 
@@ -183,8 +183,8 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
       }
     )
 
-    expect(executionDescription.currentStateName).to.eql('MigrateToNewAdUserId')
-    expect(executionDescription.currentResource).to.eql('module:runStateMachine')
+    expect(executionDescription.currentStateName).to.eql('GetUserRemit')
+    expect(executionDescription.currentResource).to.eql('module:getUserRemit')
     expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
     expect(executionDescription.status).to.eql('SUCCEEDED')
 
@@ -211,8 +211,8 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
       }
     )
 
-    expect(executionDescription.currentStateName).to.eql('MigrateToNewAdUserId')
-    expect(executionDescription.currentResource).to.eql('module:runStateMachine')
+    expect(executionDescription.currentStateName).to.eql('GetUserRemit')
+    expect(executionDescription.currentResource).to.eql('module:getUserRemit')
     expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
     expect(executionDescription.status).to.eql('SUCCEEDED')
 
@@ -239,8 +239,8 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
       }
     )
 
-    expect(executionDescription.currentStateName).to.eql('MigrateToNewAdUserId')
-    expect(executionDescription.currentResource).to.eql('module:runStateMachine')
+    expect(executionDescription.currentStateName).to.eql('GetUserRemit')
+    expect(executionDescription.currentResource).to.eql('module:getUserRemit')
     expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
     expect(executionDescription.status).to.eql('SUCCEEDED')
 
@@ -300,8 +300,8 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
       }
     )
 
-    expect(executionDescription.currentStateName).to.eql('MigrateToNewAdUserId')
-    expect(executionDescription.currentResource).to.eql('module:runStateMachine')
+    expect(executionDescription.currentStateName).to.eql('GetUserRemit')
+    expect(executionDescription.currentResource).to.eql('module:getUserRemit')
     expect(executionDescription.stateMachineName).to.eql(GET_USER_REMIT_STATE_MACHINE)
     expect(executionDescription.status).to.eql('SUCCEEDED')
 
