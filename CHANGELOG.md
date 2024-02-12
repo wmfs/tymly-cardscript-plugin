@@ -1,3 +1,10 @@
+# [1.46.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.45.1...v1.46.0) (2024-02-12)
+
+
+### Bug Fixes
+
+* update release notes generator preset ([df3de17](https://github.com/wmfs/tymly-cardscript-plugin/commit/df3de17b8c2230529d571e133db5995b91f4a242))
+
 ## [1.45.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.45.0...v1.45.1) (2023-10-05)
 
 
