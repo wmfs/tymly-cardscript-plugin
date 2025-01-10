@@ -1,3 +1,11 @@
+## [1.50.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.49.0...v1.50.0) (2025-01-10)
+
+### Build system dependencies :hammer:
+
+* **deps-dev:** update dependency @wmfs/tymly to v1.288.0 ([#750](https://github.com/wmfs/tymly-cardscript-plugin/issues/750)) ([01520f0](https://github.com/wmfs/tymly-cardscript-plugin/commit/01520f08f22b9e9f9c5012343a3ac7af7a62560d))
+* **deps-dev:** update dependency @wmfs/tymly to v1.289.0 ([#751](https://github.com/wmfs/tymly-cardscript-plugin/issues/751)) ([4b2f666](https://github.com/wmfs/tymly-cardscript-plugin/commit/4b2f66628feb16cf8708c117588243a66738fc49))
+* **deps:** update dependency uuid to v11.0.5 ([#752](https://github.com/wmfs/tymly-cardscript-plugin/issues/752)) ([0589b66](https://github.com/wmfs/tymly-cardscript-plugin/commit/0589b66454eb6d355a9c7d952feec56251a3559a))
+
 ## [1.49.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.48.0...v1.49.0) (2025-01-06)
 
 ### Build system dependencies :hammer:
