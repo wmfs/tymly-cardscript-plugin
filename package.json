@@ -20,6 +20,7 @@
   },
   "main": "./lib/index.js",
   "dependencies": {
+    "@wmfs/json-path-input-resolver": "1.1.0",
     "@wmfs/form-maker": "1.9.0",
     "jsonfile": "6.1.0",
     "jsonpath": "1.1.1",
