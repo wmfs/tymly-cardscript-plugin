@@ -20,7 +20,7 @@
   },
   "main": "./lib/index.js",
   "dependencies": {
-    "@wmfs/form-maker": "1.10.0",
+    "@wmfs/form-maker": "1.11.0",
     "jsonfile": "6.1.0",
     "jsonpath": "1.1.1",
     "lodash": "4.17.21",
