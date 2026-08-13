@@ -1,3 +1,5 @@
+## [1.53.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.53.0...v1.53.1) (2026-08-13)
+
 ## [1.53.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.52.0...v1.53.0) (2025-11-25)
 
 ### Build system dependencies :hammer:
