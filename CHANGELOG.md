@@ -1,3 +1,31 @@
+## [1.54.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.53.1...v1.54.0) (2026-10-30)
+
+### Build system dependencies :hammer:
+
+* **deps-dev:** fix conventionalcommit versions [sc-34125] ([0f3a723](https://github.com/wmfs/tymly-cardscript-plugin/commit/0f3a72381ccd3cbb60a42e496166558195c71acb))
+* **deps-dev:** update dependency @wmfs/hl-pg-client to v1.46.1 ([#889](https://github.com/wmfs/tymly-cardscript-plugin/issues/889)) ([08e66e7](https://github.com/wmfs/tymly-cardscript-plugin/commit/08e66e761b1e02ab803dd4d607e728f0fc2510a0))
+* **deps-dev:** update dependency @wmfs/tymly to v1.317.1 ([#890](https://github.com/wmfs/tymly-cardscript-plugin/issues/890)) ([390027d](https://github.com/wmfs/tymly-cardscript-plugin/commit/390027d1e112f500a30954222769b2192f6a7eba))
+* **deps-dev:** update dependency @wmfs/tymly-pg-plugin to v1.348.1 ([#891](https://github.com/wmfs/tymly-cardscript-plugin/issues/891)) ([3a21887](https://github.com/wmfs/tymly-cardscript-plugin/commit/3a21887e19ac7c79ca22969a478bef2859d4c165))
+* **deps-dev:** update dependency @wmfs/tymly-rbac-plugin to v1.33.1 ([#892](https://github.com/wmfs/tymly-cardscript-plugin/issues/892)) ([b847a87](https://github.com/wmfs/tymly-cardscript-plugin/commit/b847a878e8ee9e883e36afdd9064198775cc9ce9))
+* **deps-dev:** update dependency @wmfs/tymly-rbac-plugin to v1.34.0 ([#903](https://github.com/wmfs/tymly-cardscript-plugin/issues/903)) ([8e555d5](https://github.com/wmfs/tymly-cardscript-plugin/commit/8e555d5c47d4393e12b02125c7863f7cc02c128a))
+* **deps-dev:** update dependency @wmfs/tymly-solr-plugin to v2.58.1 ([#893](https://github.com/wmfs/tymly-cardscript-plugin/issues/893)) ([af29382](https://github.com/wmfs/tymly-cardscript-plugin/commit/af29382612a18d31ee06b1440df6bb43b4be6bf5))
+* **deps-dev:** update dependency @wmfs/tymly-test-helpers to v1.24.1 ([#894](https://github.com/wmfs/tymly-cardscript-plugin/issues/894)) ([73551ff](https://github.com/wmfs/tymly-cardscript-plugin/commit/73551ffb1ad0aa508391cc21f8a7ed9317cb7ecf))
+* **deps-dev:** update dependency conventional-changelog-conventionalcommits to v10.4.0 ([#895](https://github.com/wmfs/tymly-cardscript-plugin/issues/895)) ([9e269a0](https://github.com/wmfs/tymly-cardscript-plugin/commit/9e269a011b23b165e0bd39d0661e9e9b169f30bf))
+* **deps-dev:** update dependency conventional-changelog-conventionalcommits to v10.4.1 ([#901](https://github.com/wmfs/tymly-cardscript-plugin/issues/901)) ([029156b](https://github.com/wmfs/tymly-cardscript-plugin/commit/029156ba8dbf9d4aab35d65bee3bc28c2ccf5321))
+* **deps-dev:** update dependency mocha to v12 ([#896](https://github.com/wmfs/tymly-cardscript-plugin/issues/896)) ([8c0746e](https://github.com/wmfs/tymly-cardscript-plugin/commit/8c0746ee6c363dd0ea9e1566cfed5d86859c6108))
+* **deps-dev:** update dependency mocha to v12.0.1 ([#897](https://github.com/wmfs/tymly-cardscript-plugin/issues/897)) ([985ec29](https://github.com/wmfs/tymly-cardscript-plugin/commit/985ec296cfb0a7d26bcc02445f44952ce97f4943))
+* **deps-dev:** update dependency mocha to v12.0.2 ([#899](https://github.com/wmfs/tymly-cardscript-plugin/issues/899)) ([b305f07](https://github.com/wmfs/tymly-cardscript-plugin/commit/b305f07123025f6ab7a5b8d57d603f668af5f1df))
+* **deps-dev:** update dependency mocha to v12.0.3 ([#900](https://github.com/wmfs/tymly-cardscript-plugin/issues/900)) ([71424b8](https://github.com/wmfs/tymly-cardscript-plugin/commit/71424b82988db3b5cf898fd48a27739a3a0a4dd5))
+* **deps:** update dependency jsonpath to v1.3.0 [security] ([#861](https://github.com/wmfs/tymly-cardscript-plugin/issues/861)) ([bca10f4](https://github.com/wmfs/tymly-cardscript-plugin/commit/bca10f43fda96d199e635d89d4c9cb8ef7999661))
+* **deps:** update dependency lodash to v4.18.1 [security] ([#857](https://github.com/wmfs/tymly-cardscript-plugin/issues/857)) ([5a11116](https://github.com/wmfs/tymly-cardscript-plugin/commit/5a111165396d155704fdf14d31879d98a210c498))
+* **deps:** update dependency moment to v2.31.0 [security] ([#902](https://github.com/wmfs/tymly-cardscript-plugin/issues/902)) ([fb90cd8](https://github.com/wmfs/tymly-cardscript-plugin/commit/fb90cd8b43d746680dccf30c571c3279d2bb8044))
+* **deps:** update dependency uuid to v11.1.1 [security] ([#873](https://github.com/wmfs/tymly-cardscript-plugin/issues/873)) ([ee47411](https://github.com/wmfs/tymly-cardscript-plugin/commit/ee47411028781950224ce2ef5c447961dfa74e83))
+
+### CICD Configuration Changes :construction_worker:
+
+* use github-app-token orb for release token [sc-34101] ([#904](https://github.com/wmfs/tymly-cardscript-plugin/issues/904)) ([5b45ddd](https://github.com/wmfs/tymly-cardscript-plugin/commit/5b45ddd4c9ecb6f091033c945d06e96d3c5ce239))
+* use shared renovate preset [sc-34117] ([#905](https://github.com/wmfs/tymly-cardscript-plugin/issues/905)) ([eef3336](https://github.com/wmfs/tymly-cardscript-plugin/commit/eef333651b758fbc4451b8bbe23221920ed68744))
+
 ## [1.53.1](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.53.0...v1.53.1) (2026-08-13)
 
 ## [1.53.0](https://github.com/wmfs/tymly-cardscript-plugin/compare/v1.52.0...v1.53.0) (2025-11-25)
