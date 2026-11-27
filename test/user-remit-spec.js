@@ -22,8 +22,7 @@ describe('user-remit tymly-cardscript-plugin tests', function () {
 
     const tymlyServices = await tymly.boot({
       blueprintPaths: [
-        path.resolve(__dirname, './../test/fixtures/test-blueprint'),
-        path.resolve(__dirname, './../test/fixtures/system-blueprint')
+        path.resolve(__dirname, './../test/fixtures/test-blueprint')
       ],
       pluginPaths: [
         path.resolve(__dirname, './../lib'),
